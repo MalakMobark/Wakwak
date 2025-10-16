@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+    <head>
+        <meta charset="utf-8">
+        <title>WAK WAK</title>
+        <link rel="icon" type="image/png" href="img/wak-wak-w-back-1.png">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div>
+        <!-- Spinner End -->
+
+<!-- Navbar start -->
+<div class="container-fluid fixed-top">                           
+    <div class="container px-0">
+        <nav class="navbar navbar-light bg-white navbar-expand-xl d-flex justify-content-between">
+            <div class="d-flex m-3 me-0">
+                    <a href="cart.html" class="position-relative me-4 my-auto">
+                        <i class="fa fa-shopping-bag fa-2x" style="color: #f3c20e;"></i>
+                        <span id="cart-counter" class="position-absolute rounded-circle d-flex align-items-center justify-content-center text-white p-1" style="top: -10px; left: 18px; height: 25px; min-width: 25px; background-color: #f36f28 !important;">0</span>
+                    </a>
+                </div>
+            <a href="index.html" class="navbar-brand">
+                <img src="img/wak-wak-w-back-1.png" alt="WAK WAK" style="height: 70px;">
+            </a>
+            <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars text-primary"></span>
+            </button>
+            <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                <div class="navbar-nav me-xl-auto">
+                    <a href="index.html" class="nav-item nav-link ">الصفحة الرئيسية</a>
+                    <a href="all_clothes.html" class="nav-item nav-link"> جميع الملابس </a>
+                    <a href="clothes_woman.html" class="nav-item nav-link ">ملابس نسائية </a>
+                    <a href="clothes_man.html" class="nav-item nav-link">ملابس رجالية </a>
+                    <a href="salles.html" class="nav-item nav-link">عروضنا </a>
+                    <a href="#contact_us" class="nav-item nav-link">التواصل معنا</a>
+                    <!-- <a href="shop.html" class="nav-item nav-link">Shop</a> -->
+                    <!-- <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a> -->
+                    <!-- <div class="nav-item dropdown"> -->
+                        <!-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a> -->
+                        <!-- <div class="dropdown-menu m-0 bg-secondary rounded-0"> -->
+                            <!-- <a href="cart.html" class="dropdown-item">Cart</a> -->
+                            <!-- <a href="chackout.html" class="dropdown-item">Chackout</a> -->
+                            <!-- <a href="testimonial.html" class="dropdown-item">Testimonial</a> -->
+                            <!-- <a href="404.html" class="dropdown-item">404 Page</a> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                    
+                </div>
+            </div>
+            
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
+
+
+
+        <!-- Single Page Header start -->
+        <div class="container-fluid page-header py-5">
+            
+            <ol class="breadcrumb justify-content-center mb-0">
+            </ol>
+        </div>
+        <!-- Single Page Header End -->
+
+
+        <!-- Cart Page Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                             <th scope="col">المنتج</th>
+                             <th scope="col">الاسم</th>
+                                 <th scope="col">اللون والمقاس</th> <th scope="col">السعر</th>
+                             <th scope="col">الكمية</th>
+                             <th scope="col">السعر الكلي</th>
+                             <th scope="col">حذف</th>
+                            </tr>
+                             </thead>
+                         <tbody id="cart-items-table">
+                        </tbody>
+                    </table>
+                </div>
+       <div class="mt-5"> 
+                    <div class="row justify-content-end"> <div class="col-lg-6">
+                            <div class="border p-4">
+                                <h5 class="mb-3">ملخص الطلب</h5>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>المجموع الفرعي:</span>
+                                    <span id="subtotal-display" class="fw-bold">0.00 $</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-4">
+                                    <span class="fw-bold">المجموع الكلي (   التوصيل مجاني):</span>
+                                    <span id="grand-total-display" class="fw-bold text-primary">0.00 $</span>
+                                </div>
+                                <button type="button" class="btn w-100 btn-custom-outline" data-bs-toggle="modal" data-bs-target="#checkoutModal" id="checkout-btn">
+                                    <i class="fa fa-money-bill me-2"></i> إتمام الطلب
+                                </button>
+                            </div>
+                        </div>
+                    </div> 
+ </div>
+
+            </div>
+        </div>
+        <!-- Cart Page End -->
+
+<div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="checkoutModalLabel"><i class="fa fa-truck me-2"></i> استكمال معلومات طلب وَا<span style="color: #f36f28;">ك</span> وَا<span style="color: #f36f28;">ك</span></h5>
+            </div>
+            <div class="modal-body">
+                <form id="checkout-form" class="row g-3 needs-validation" novalidate 
+                   >
+            
+                    <div class="col-md-6">
+                        <label for="fullName" class="form-label">الاسم الكامل <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="customer-name" name="الاسم_الكامل" placeholder="ادخل اسمك الثلاثي من فضلك" required>
+                        <div class="invalid-feedback">
+                            الرجاء إدخال الاسم الكامل.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="phoneNumber" class="form-label">رقم الهاتف <span class="text-danger">*</span></label>
+                        <input type="tel" class="form-control" id="customer-phone" name="رقم_الهاتف" placeholder="ادخل الرقم من فضلك" required pattern="[0-9]{10}">
+                        <div class="invalid-feedback">
+                            الرجاء إدخال رقم هاتف صحيح (10 أرقام).
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="address" class="form-label">عنوان السكن بالتفصيل <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="customer-address" name="عنوان_الشحن" rows="3" placeholder="المدينة، الحي، الشارع، أقرب معلم" required></textarea>
+                        <div class="invalid-feedback">
+                            الرجاء إدخال عنوان الشحن.
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="discountCode" class="form-label">كود الحسم (اختياري)</label>
+                        <input type="text" class="form-control" id="discountCode" name="كود_الحسم" placeholder="ادخل الكود هنا إن وجد">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="notes" class="form-label">ملاحظات إضافية (اختياري)</label>
+                        <textarea class="form-control" id="notes" name="ملاحظات_إضافية" rows="1" placeholder="مثال: يفضل التوصيل في الفترة المسائية"></textarea>
+                    </div>
+                    
+                    <hr class="my-4">
+                    
+                    <div class="col-12 text-center">
+                        <h5 class="mb-3">هل تريد تأكيد الطلب؟</h5>
+                        <button type="button" class="btn px-4 mx-2" data-bs-dismiss="modal">لا</button>
+                        <button type="submit" id="submit-order-btn" class="btn btn-submit-final px-4 mx-2">نعم، تأكيد</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <!-- Footer Start -->
+         <div class="container-fluid text-white-50 footer pt-1 mt-1" style="background-color: #343a40;">
+    <div class="container py-5">
+        <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <a href="#">
+                        <!-- 2. تم تغيير الاسم وتلوين حرف الكاف -->
+                        <h1 class="mb-0" style="color: #f3c20e;">متجر وَا<span style="color: #f36f28;">ك</span> وَا<span style="color: #f36f28;">ك</span></h1>
+                        <p class="mb-0" style="color: #f3c20e;">ملابس بروح مرحة</p>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative mx-auto">
+                        <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="email" placeholder="بريدك الإلكتروني">
+                        <!-- 1. تم تغيير كلمة "Subscribe Now" -->
+                        <button type="submit" class="btn border-0 py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0; background-color: #f36f28;">تسجيل دخول</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-5">
+
+<div class="row g-5">
+    <!-- --- القسم الأول: لماذا واك واك؟ --- -->
+    <div class="col-lg-3 col-md-6">
+        <div class="footer-item">
+            <h4 class="text-light mb-3">لماذا وَا<span style="color: #f36f28;">ك</span> وَا<span style="color: #f36f28;">ك</span>؟</h4>
+            <p class="mb-4">لأننا نؤمن أن الملابس هي أكثر من مجرد قماش. في واك واك، نصمم كل قطعة لتعكس روحك المرحة، باستخدام أجود الخامات لنوفر لك الراحة والأناقة في كل يوم.</p>
+        </div>
+    </div>
+
+    <!-- --- القسم الثاني: التواصل معنا --- -->
+    <div class="col-lg-3 col-md-6">
+        <div class="d-flex flex-column text-end footer-item">
+            <h4 class="text-light mb-3">التواصل معنا</h4>
+            <a class="btn-link" href="tel:+963945916586"><i class="fas fa-phone me-2"></i>+963945916586</a>
+            <a class="btn-link" href="#"><i class="fab fa-facebook-f me-2"></i>فيسبوك</a>
+            <a class="btn-link" href="#"><i class="fab fa-instagram me-2"></i>انستغرام</a>
+        </div>
+    </div>
+
+    <!-- --- القسم الثالث: سياسة التوصيل --- -->
+    <div class="col-lg-3 col-md-6">
+        <div class="footer-item">
+            <h4 class="text-light mb-3">سياسة التوصيل</h4>
+            <p class="mb-4">بعد تأكيد طلبك، سيتم التواصل معك خلال 24 ساعة. نهدف لتوصيل طلبك خلال أربعة أيام عمل.</p>
+        </div>
+    </div>
+
+    <!-- --- القسم الرابع: الترجيع والتبديل --- -->
+    <div class="col-lg-3 col-md-6">
+        <div class="footer-item">
+            <h4 class="text-light mb-3">الترجيع والتبديل</h4>
+            <p class="mb-4">يمكنك إرجاع المنتجات خلال 3 أيام من تاريخ الاستلام، أو تبديلها خلال 4 أيام.</p>
+        </div>
+    </div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Footer End -->
+
+
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // 1. دالة تحديث عداد السلة (تم نسخها من الكود السابق)
+        function updateCartCounter() {
+            let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            const counterElement = document.getElementById('cart-counter');
+            
+            if (counterElement) {
+                counterElement.textContent = totalItems.toString();
+            }
+        }
+        
+        // 2. الدوال المساعدة (الحذف، تحديث الكمية)
+        function removeFromCart(uniqueKey) {
+            let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
+            cart = cart.filter(item => item.uniqueKey !== uniqueKey); 
+            localStorage.setItem('shoppingCart', JSON.stringify(cart));
+            renderCart(); // إعادة عرض السلة بعد التعديل
+        }
+
+        function updateQuantity(uniqueKey, change) {
+            let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
+            const itemIndex = cart.findIndex(item => item.uniqueKey === uniqueKey);
+            
+            if (itemIndex !== -1) {
+                let currentQuantity = cart[itemIndex].quantity;
+                let newQuantity = currentQuantity + change;
+                
+                if (newQuantity < 1) {
+                    if (confirm("هل تريد بالتأكيد إزالة هذا المنتج من السلة؟")) {
+                        removeFromCart(uniqueKey);
+                    }
+                    return;
+                }
+
+                cart[itemIndex].quantity = newQuantity;
+                // تحديث السعر الكلي للقطعة
+                cart[itemIndex].totalPrice = newQuantity * cart[itemIndex].price; 
+
+                localStorage.setItem('shoppingCart', JSON.stringify(cart));
+                renderCart();
+            }
+        }
+
+        // 3. دالة إرفاق مستمعي الأحداث لأزرار السلة
+        function attachCartListeners() {
+            document.querySelectorAll('.remove-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    removeFromCart(this.getAttribute('data-key'));
+                });
+            });
+            document.querySelectorAll('.minus-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    updateQuantity(this.getAttribute('data-key'), -1);
+                });
+            });
+            document.querySelectorAll('.plus-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    updateQuantity(this.getAttribute('data-key'), 1);
+                });
+            });
+        }
+
+
+        // 4. دالة عرض محتويات السلة في الجدول
+        function renderCart() {
+            const cartItemsContainer = document.getElementById('cart-items-table');
+            const subtotalDisplay = document.getElementById('subtotal-display');
+            const grandTotalDisplay = document.getElementById('grand-total-display');
+            
+            let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
+            let subtotal = 0;
+            
+            cartItemsContainer.innerHTML = ''; // مسح المحتويات القديمة
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<tr><td colspan="7" class="text-center py-5">سلة المشتريات فارغة حالياً.</td></tr>';
+                subtotalDisplay.textContent = '0.00 $';
+                grandTotalDisplay.textContent = '0.00 $';
+                updateCartCounter();
+                return;
+            }
+
+            cart.forEach(item => {
+                subtotal += item.totalPrice; 
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                       <img src="${item.imageUrl}" class="img-fluid rounded-circle" style="width: 80px; height: 80px;" alt="${item.name}"> 
+                    </td>
+                    <td>
+                        <p class="mb-0 fw-bold">${item.name}</p>
+                    </td>
+                    <td>
+                        <p class="mb-0">اللون: ${item.color}</p>
+                        <p class="mb-0">المقاس: ${item.size}</p>
+                    </td>
+                    <td>
+                        <p class="mb-0">${item.price.toFixed(2)} $</p>
+                    </td>
+                    <td>
+                        <div class="input-group quantity mx-auto" style="width: 100px;">
+                            <button class="btn btn-sm border border-secondary btn-custom-outline minus-btn" type="button" data-key="${item.uniqueKey}">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <input type="text" class="form-control form-control-sm text-center border-0 bg-white" value="${item.quantity}" readonly>
+                            <button class="btn btn-sm border border-secondary btn-custom-outline plus-btn" type="button" data-key="${item.uniqueKey}">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td>
+                        <p class="mb-0 fw-bold item-total">${item.totalPrice.toFixed(2)} $</p>
+                    </td>
+                    <td>
+                        <button class="btn btn-md rounded-circle btn-danger remove-btn" data-key="${item.uniqueKey}">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </td>
+                `;
+                cartItemsContainer.appendChild(row);
+            });
+
+            // عرض المجاميع
+            subtotalDisplay.textContent = `${subtotal.toFixed(2)} $`;
+            grandTotalDisplay.textContent = `${subtotal.toFixed(2)} $`;
+            
+            updateCartCounter(); // تحديث العداد
+            attachCartListeners(); // تفعيل أزرار الحذف والتعديل
+        }
+
+
+        // 5. استدعاء الدوال عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCart(); // هذا هو المفتاح!
+            // يمكنك إضافة منطق تحديث الـ Modal هنا (لتعبئة حقول الطلب من السلة) لاحقاً
+        });
+
+
+
+
+
+
+// =========================================================
+// دالة تجميع البيانات وإعدادها للإرسال (الإصدار النهائي لـ Formspree)
+// =========================================================
+function processCheckout(event) {
+    // منع الإرسال الافتراضي للنموذج
+    event.preventDefault();
+
+    // التأكد من التحقق من صحة النموذج (Bootstrap validation)
+    const form = document.getElementById('checkout-form');
+    if (!form.checkValidity()) {
+        event.stopPropagation();
+        form.classList.add('was-validated');
+        alert("الرجاء ملء جميع الحقول المطلوبة بشكل صحيح.");
+        return;
+    }
+    form.classList.remove('was-validated');
+
+
+    // 1. قراءة بيانات الزبون من الـ Modal
+    const customerName = document.getElementById('customer-name').value;
+    const customerPhone = document.getElementById('customer-phone').value;
+    const customerAddress = document.getElementById('customer-address').value;
+    const discountCode = document.getElementById('discountCode').value || 'لا يوجد';
+    const notes = document.getElementById('notes').value || 'لا توجد ملاحظات';
+    
+    // 2. قراءة بيانات السلة من localStorage
+    const cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
+    
+    if (cart.length === 0) {
+        alert("عذراً، سلة المشتريات فارغة لإرسال الطلب.");
+        return;
+    }
+
+    let subtotal = 0;
+    
+    // 3. تهيئة تفاصيل السلة كنص واضح (Text Body)
+    let cartBodyText = "========== تفاصيل السلة ==========\n";
+    cart.forEach((item, index) => {
+        subtotal += item.totalPrice;
+        cartBodyText += `المنتج #${index + 1}: ${item.name}\n`;
+        cartBodyText += `  - اللون/المقاس: ${item.color} / ${item.size}\n`;
+        cartBodyText += `  - الكمية: ${item.quantity}\n`;
+        cartBodyText += `  - السعر للوحدة: ${item.price.toFixed(2)} $\n`; // إضافة سعر الوحدة لتفاصيل أوضح
+        cartBodyText += `  - المجموع الجزئي: ${item.totalPrice.toFixed(2)} $\n`;
+        cartBodyText += `------------------------------------------------\n`;
+    });
+    
+  const dataToSend = {
+        'from_name': customerName, // اسم العميل
+        'phone': customerPhone, // رقم الهاتف
+        'address': customerAddress, // العنوان المفصل
+        'discount_code': discountCode, // كود الحسم
+        'customer_notes': notes, // ملاحظات الزبون
+        '_subject': `طلب جديد من متجر واك واك: ${customerName}`, // عنوان الرسالة
+        'order_details_text': cartBodyText, // تفاصيل السلة كنص
+        'grand_total': subtotal.toFixed(2), // المجموع الكلي (كرقم فقط)
+    };
+    
+    console.log("البيانات النهائية للإرسال:", dataToSend);
+
+    // الخطوة 5: استدعاء خدمة الإرسال الخارجية
+    sendDataToEmailService(dataToSend);
+}
+
+
+
+
+
+
+
+// ربط الدالة بزر الإرسال
+document.addEventListener('DOMContentLoaded', function() {
+    // ... باقي الدوال التي لديك ...
+
+    const checkoutForm = document.getElementById('checkout-form');
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', processCheckout);
+    }
+});
+
+// دالة وهمية للخطوة القادمة (الإرسال الفعلي)
+function sendDataToEmailService(orderData) {
+    
+    const formspreeEndpoint = "https://formspree.io/f/xanpjzyz";
+    
+    // 1. عرض رسالة تحميل مؤقتة
+    const submitBtn = document.getElementById('submit-order-btn');
+    submitBtn.textContent = 'جاري إرسال الطلب...';
+    submitBtn.disabled = true;
+
+    // تهيئة البيانات للإرسال (يجب أن تكون Formspree البيانات كـ JSON)
+    // ملاحظة: Formspree ستقوم بإنشاء حقول بناءً على المفاتيح التي ترسلها.
+    const dataToSendForFormspree = {
+        '_subject': orderData._subject, // عنوان الرسالة
+        'الاسم_الكامل': orderData.from_name,
+        'رقم_الهاتف': orderData.phone,
+        'العنوان_المفصل': orderData.address,
+        'كود_الحسم': orderData.discount_code,
+        'ملاحظات_الزبون': orderData.customer_notes,
+        // **هذا هو الحقل الذي سيحتوي على تفاصيل السلة كنص**
+        'تفاصيل_المنتجات_المطلوبة': orderData.order_details_text, 
+        'المجموع_الكلي': orderData.grand_total + ' $',
+    };
+    
+    // 2. استخدام دالة fetch للإرسال إلى Formspree
+    fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dataToSendForFormspree)
+    })
+    .then(response => {
+         if (response.ok) {
+            
+            // 3. حالة النجاح
+            
+            // الخطوة 1: مسح السلة من الـ Local Storage (الخطوة المفقودة)
+            localStorage.removeItem('shoppingCart'); 
+            
+            // الخطوة 2 (اختيارية): إغلاق النافذة المنبثقة يدوياً (يجب أن تكون قبل إعادة التوجيه)
+            const modalElement = document.getElementById('checkoutModal'); 
+            // تحقق ما إذا كان الـ modal قد تم إنشاؤه بالفعل
+            const modalInstance = bootstrap.Modal.getInstance(modalElement);
+            if (modalInstance) {
+                modalInstance.hide();
+            } else {
+                new bootstrap.Modal(modalElement).hide();
+            }
+
+            // الخطوة 3: عرض التنبيه
+            alert("✅ تم إرسال طلبك بنجاح! شكراً لاختيارك وَاك وَاك.");
+            
+            // الخطوة 4: إعادة التوجيه إلى صفحة الشكر (يجب أن تكون آخر خطوة)
+            window.location.href = 'thank_you.html'; 
+            
+            // **ملاحظة:** تم حذف استدعاء renderCart() لأنه لا يعمل بعد إعادة التوجيه.
+            
+            
+        } else {
+            // حالة فشل الإرسال
+            response.json().then(data => {
+                if (data && data.errors) {
+                    alert("❌ عذراً، حدث خطأ في البيانات. تأكد من ملء جميع الحقول المطلوبة.");
+                } else {
+                    alert("❌ فشل الإرسال. يرجى التأكد من إعداد رابط Formspree.");
+                }
+                console.log('Formspree Error:', data);
+            }).catch(() => {
+                 alert("❌ فشل الإرسال. يرجى التحقق من اتصال الشبكة وإعداد Formspree.");
+            });
+        }
+    })
+    .catch(error => {
+        // حالة فشل الاتصال (شبكة، إلخ)
+        console.error('Fetch Error:', error);
+        alert("❌ حدث خطأ في الاتصال بالشبكة. يرجى المحاولة لاحقاً.");
+    })
+    .finally(() => {
+        // إعادة زر الإرسال لحالته الأصلية
+        submitBtn.textContent = 'نعم، تأكيد';
+        submitBtn.disabled = false;
+    });
+}
+    </script>
+    
+
+    
+ </body>
+</html>
+
+
+

@@ -1,0 +1,970 @@
+
+/*** Spinner Start ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .8s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+ }
+
+ #spinner.show {
+     transition: opacity .8s ease-out, visibility 0s linear .0s;
+     visibility: visible;
+     opacity: 1;
+ }
+
+ .back-to-top {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    z-index: 99;
+}
+/*** Spinner End ***/
+
+
+/*** Button Start ***/
+.btn {
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-sm-square {
+    width: 34px;
+    height: 34px;
+}
+
+.btn-md-square {
+    width: 44px;
+    height: 44px;
+}
+
+.btn-lg-square {
+    width: 56px;
+    height: 56px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-md-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+.btn.border-secondary {
+    transition: 0.5s;
+}
+
+.btn.border-secondary:hover {
+    background: var(--bs-secondary) !important;
+    color: var(--bs-white) !important;
+}
+
+/*** Topbar Start ***/
+.fixed-top {
+    transition: 0.5s;
+    background: var(--bs-white);
+    border: 0;
+}
+
+.topbar {
+    padding: 20px;
+    border-radius: 230px 100px;
+}
+
+.topbar .top-info {
+    font-size: 15px;
+    line-height: 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar .top-link {
+    font-size: 15px;
+    line-height: 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar .top-link a {
+    letter-spacing: 1px;
+}
+
+.topbar .top-link a small:hover {
+    color: var(--bs-secondary) !important;
+    transition: 0.5s;
+}
+
+.topbar .top-link a small:hover i {
+    color: var(--bs-primary) !important;
+}
+/*** Topbar End ***/
+
+/*** Navbar Start ***/
+.navbar .navbar-nav .nav-link {
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: .5s;
+}
+
+.navbar {
+    height: 100px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active,
+.fixed-top.bg-white .navbar .navbar-nav .nav-link:hover,
+.fixed-top.bg-white .navbar .navbar-nav .nav-link.active {
+    color: var(--bs-primary);
+}
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+@media (min-width: 1200px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        visibility: hidden;
+        top: 100%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+        border: 0;
+        transition: .5s;
+        opacity: 0;
+    }
+}
+
+.dropdown .dropdown-menu a:hover {
+    background: var(--bs-secondary);
+    color: var(--bs-primary);
+}
+
+.navbar .nav-item:hover .dropdown-menu {
+    transform: rotateX(0deg);
+    visibility: visible;
+    background: var(--bs-light) !important;
+    border-radius: 10px !important;
+    transition: .5s;
+    opacity: 1;
+}
+
+#searchModal .modal-content {
+    background: rgba(255, 255, 255, .8);
+}
+/*** Navbar End ***/
+
+/*** Hero Header ***/
+.hero-header {
+    background: linear-gradient(rgba(248, 223, 173, 0.1), rgba(248, 223, 173, 0.1)), url(../img/bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    background: linear-gradient(rgba(255, 181, 36, 0.7), rgba(255, 181, 36, 0.7));
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    border: 1px solid var(--bs-white);
+    background: var(--bs-primary);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-control-next {
+    margin-right: 20px;
+}
+
+.carousel-control-prev {
+    margin-left: 20px;
+}
+
+.page-header {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/wak-wak-w-back-2.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (min-width: 992px) {
+    .hero-header,
+    .page-header {
+        margin-top: 152px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-header,
+    .page-header {
+        margin-top: 97px !important;
+    }
+}
+/*** Hero Header end ***/
+
+
+/*** featurs Start ***/
+.featurs .featurs-item .featurs-icon {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.featurs .featurs-item .featurs-icon::after {
+    content: "";
+    width: 35px;
+    height: 35px;
+    background: var(--bs-secondary);
+    position: absolute;
+    bottom: -10px;
+    transform: translate(-50%);
+    transform: rotate(45deg);
+    background: var(--bs-secondary);
+    
+}
+/*** featurs End ***/
+
+
+/*** service Start ***/
+.service .service-item .service-content {
+    position: relative;
+    width: 250px; 
+    height: 130px; 
+    top: -50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+/*** service End ***/
+
+
+/*** Fruits Start ***/
+.fruite .tab-class .nav-item a.active {
+    background: var(--bs-secondary) !important;
+}
+
+.fruite .tab-class .nav-item a.active span {
+    color: var(--bs-white) !important; 
+}
+
+.fruite .fruite-categorie .fruite-name {
+    line-height: 40px;
+}
+
+.fruite .fruite-categorie .fruite-name a {
+    transition: 0.5s;
+}
+
+.fruite .fruite-categorie .fruite-name a:hover {
+    color: var(--bs-secondary);
+}
+
+.fruite .fruite-item {
+    height: 100%;
+    transition: 0.5s;
+}
+.fruite .fruite-item:hover {
+    box-shadow: 0 0 55px rgba(0, 0, 0, 0.4);
+}
+
+.fruite .fruite-item .fruite-img {
+    overflow: hidden;
+    transition: 0.5s;
+    border-radius: 10px 10px 0 0;
+}
+
+.fruite .fruite-item .fruite-img img {
+    transition: 0.5s;
+}
+
+.fruite .fruite-item .fruite-img img:hover {
+    transform: scale(1.3);
+}
+/*** Fruits End ***/
+
+
+/*** vesitable Start ***/
+.vesitable .vesitable-item {
+    height: 100%;
+    transition: 0.5s;
+}
+
+.vesitable .vesitable-item:hover {
+    box-shadow: 0 0 55px rgba(0, 0, 0, 0.4);
+}
+
+.vesitable .vesitable-item .vesitable-img {
+    overflow: hidden;
+    transition: 0.5s;
+    border-radius: 10px 10px 0 0;
+}
+
+.vesitable .vesitable-item .vesitable-img img {
+    transition: 0.5s;
+}
+
+.vesitable .vesitable-item .vesitable-img img:hover {
+    transform: scale(1.2);
+}
+
+.vesitable .owl-stage {
+    margin: 50px 0;
+    position: relative;
+}
+
+.vesitable .owl-nav .owl-prev {
+    position: absolute;
+    top: -8px;
+    right: 0;
+    color: var(--bs-primary);
+    padding: 5px 25px;
+    border: 1px solid var(--bs-secondary);
+    border-radius: 20px;
+    transition: 0.5s;
+
+}
+
+.vesitable .owl-nav .owl-prev:hover {
+    background: var(--bs-secondary);
+    color: var(--bs-white);
+}
+
+.vesitable .owl-nav .owl-next {
+    position: absolute;
+    top: -8px;
+    right: 88px;
+    color: var(--bs-primary);
+    padding: 5px 25px;
+    border: 1px solid var(--bs-secondary);
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.vesitable .owl-nav .owl-next:hover {
+    background: var(--bs-secondary);
+    color: var(--bs-white);
+}
+/*** vesitable End ***/
+
+
+/*** Banner Section Start ***/
+.banner .banner-btn:hover {
+    background: var(--bs-primary);
+}
+/*** Banner Section End ***/
+
+
+/*** Facts Start ***/
+.counter {
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+}
+
+.counter i {
+    font-size: 60px;
+    margin-bottom: 25px;
+}
+
+.counter h4 {
+    color: var(--bs-primary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.counter h1 {
+    margin-bottom: 0;
+}
+/*** Facts End ***/
+
+
+/*** testimonial Start ***/
+.testimonial .owl-nav .owl-prev {
+    position: absolute;
+    top: -58px;
+    right: 0;
+    color: var(--bs-primary);
+    padding: 5px 25px;
+    border: 1px solid var(--bs-secondary);
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.testimonial .owl-nav .owl-prev:hover {
+    background: var(--bs-secondary);
+    color: var(--bs-white);
+}
+
+.testimonial .owl-nav .owl-next {
+    position: absolute;
+    top: -58px;
+    right: 88px;
+    color: var(--bs-primary);
+    padding: 5px 25px;
+    border: 1px solid var(--bs-secondary);
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.testimonial .owl-nav .owl-next:hover {
+    background: var(--bs-secondary);
+    color: var(--bs-white);
+}
+/*** testimonial End ***/
+
+
+/*** Single Page Start ***/
+.pagination {
+    display: inline-block;
+}
+  
+.pagination a {
+    color: var(--bs-dark);
+    padding: 10px 16px;
+    text-decoration: none;
+    transition: 0.5s;
+    border: 1px solid var(--bs-secondary);
+    margin: 0 4px;
+}
+  
+.pagination a.active {
+    background-color: var(--bs-primary);
+    color: var(--bs-light);
+    border: 1px solid var(--bs-secondary);
+}
+  
+.pagination a:hover:not(.active) {background-color: var(--bs-primary)}
+
+.nav.nav-tabs .nav-link.active {
+    border-bottom: 2px solid var(--bs-secondary) !important;
+}
+/*** Single Page End ***/
+
+
+/*** Footer Start ***/
+.footer .footer-item .btn-link {
+    line-height: 35px;
+    color: rgba(255, 255, 255, .5);
+    transition: 0.5s;
+}
+
+.footer .footer-item .btn-link:hover {
+    color: var(--bs-secondary) !important;
+}
+
+.footer .footer-item p.mb-4 {
+    line-height: 35px;
+}
+/*** Footer End ***/
+
+/* Custom Carousel Arrow Color & Width */
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f36f28'%3e%3cpath stroke='%23f36f28' stroke-width='1' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f36f28'%3e%3cpath stroke='%23f36f28' stroke-width='1' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+}
+
+/* Remove background and border from carousel controls */
+.carousel-control-prev,
+.carousel-control-next {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Responsive Font Size for Hero Header Title */
+.hero-header h1 {
+    font-size: 2.5rem; /* حجم الخط الافتراضي (للموبايل) */
+}
+
+@media (min-width: 768px) {
+    .hero-header h1 {
+        font-size: 4rem; /* حجم الخط للشاشات الأكبر (الديسكتوب) */
+    }
+}
+
+/* Add top margin to hero title on mobile */
+@media (max-width: 767.98px) {
+    .hero-header h1 {
+        margin-top: 3rem !important; /* أو أي قيمة تراها مناسبة */
+    }
+}
+
+/* --- Custom Navbar Colors --- */
+
+/* 1. Change color of active and hovered links */
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: #f36f28 !important;
+}
+
+/* 2. Change color of the mobile menu icon (hamburger icon) */
+.navbar-toggler .fa-bars {
+    color: #f36f28 !important;
+}
+
+/* Optional: Change the border color of the mobile menu button */
+.navbar-toggler {
+    border-color: #f36f28 !important;
+}
+/* Custom Outline Button Style */
+.btn-custom-outline {
+    color: #f36f28 !important; /* لون النص والأيقونة الافتراضي */
+    border-color: #f36f28 !important; /* لون الإطار الافتراضي */
+    background-color: transparent; /* خلفية شفافة */
+}
+
+.btn-custom-outline:hover {
+    color: #fff !important; /* لون النص والأيقونة عند الـ hover */
+    background-color: #f36f28 !important; /* لون الخلفية عند الـ hover */
+}
+.page-header {
+    margin-top: 100px !important; 
+     padding-top: 7rem !important;
+ padding-bottom: 7rem !important;
+}
+.color-swatch {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid #ddd; /* إطار خفيف ليظهر اللون الأبيض */
+    transition: transform 0.2s;
+    
+}
+
+.color-swatch:hover {
+    transform: scale(1.1); /* تأثير بسيط عند تمرير الماوس */
+}
+/* --- Custom Size Selector Button (Square Style) --- */
+
+/* الحالة الافتراضية للزر (مربع) */
+.btn-outline-custom {
+    color: #6c757d;
+    border-color: #ced4da;
+    border-radius: 0; /* يجعل الزوايا حادة (مربع) */
+    width: 40px;      /* تحديد عرض ثابت */
+    height: 40px;     /* تحديد ارتفاع ثابت */
+    padding: 0;       /* إزالة الحشوة الافتراضية */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+/* حالة تمرير الماوس (Hover) */
+.btn-outline-custom:hover {
+    color: #212529;
+    background-color: #f8f9fa; /* رمادي فاتح جداً */
+}
+
+/* حالة الزر المختار (Checked/Active) باللون الرمادي */
+.btn-check:checked + .btn-outline-custom {
+    color: #212529; /* نص أسود ليكون واضحاً */
+    background-color: #e9ecef; /* خلفية رمادي فاتح */
+    border-color: #adb5bd;   /* إطار أغمق قليلاً */
+    box-shadow: none; /* إزالة التوهج البرتقالي */
+}
+
+/* ========================================================================= */
+/* ======== 		 		تحديثات تصميم نافذة الدفع 		      ======== */
+/* ========================================================================= */
+
+/* --- تصميم رسالة التأكيد العلوية (Toast) --- */
+#successToast {
+    position: fixed;
+    top: -100px; /* تبدأ خارج الشاشة */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745; /* لون النجاح الأخضر */
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    z-index: 1060; /* يجب أن تكون فوق كل شيء آخر */
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: top 0.5s ease-in-out; /* حركة انسيابية للظهور */
+}
+
+#successToast.show {
+    top: 20px; /* تنزل إلى هذا المكان عند الظهور */
+}
+
+
+/* --- تصميم زر التأكيد النهائي في النافذة --- */
+.btn-submit-final {
+    background-color: #f36f28; /* اللون البرتقالي المخصص */
+    border-color: #f36f28;
+    color: white;
+}
+
+.btn-submit-final:hover {
+    background-color: #e06422; /* برتقالي أغمق عند تمرير الماوس */
+    border-color: #e06422;
+    color: white;
+}
+
+/* --- لجعل حقول الإدخال تبدو أفضل في التصميم العربي --- */
+.form-control {
+    text-align: right;
+}
+/* ========================================================================= */
+/* ======== 		 		تحديثات تصميم نافذة الدفع 		      ======== */
+/* ========================================================================= */
+
+/* --- تصميم رسالة التأكيد العلوية (Toast) --- */
+#successToast {
+    position: fixed;
+    top: -100px; /* تبدأ خارج الشاشة */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* نجعل العرض مناسب للموبايل */
+    max-width: 500px; /* نحدد عرض أقصى */
+    background-color: #28a745;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    z-index: 1060;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.5s ease-in-out; /* حركة انسيابية للظهور والمكان */
+}
+
+#successToast.show {
+    top: 20px; /* تنزل إلى هذا المكان عند الظهور */
+}
+
+/* -- تعديلات للديسكتوب (عندما تكون الشاشة أكبر من 768 بكسل) -- */
+@media (min-width: 768px) {
+    #successToast {
+        width: auto; /* نلغي العرض الثابت */
+        left: auto; /* نلغي التموضع من اليسار */
+        right: 20px; /* نضعها على اليمين */
+        transform: translateX(0); /* نلغي التحريك الأفقي */
+    }
+}
+
+
+/* --- تصميم زر التأكيد النهائي في النافذة --- */
+.btn-submit-final {
+    background-color: #f36f28; /* اللون البرتقالي المخصص */
+    border-color: #f36f28;
+    color: white;
+}
+
+.btn-submit-final:hover {
+    background-color: #e06422; /* برتقالي أغمق عند تمرير الماوس */
+    border-color: #e06422;
+    color: white;
+}
+
+/* --- لجعل حقول الإدخال تبدو أفضل في التصميم العربي --- */
+.form-control {
+    text-align: right;
+}
+
+/* ================================================= */
+/* =========== 		التعديلات السابقة 		=========== */
+/* ================================================= */
+
+/* --- 1. تعديل رأس النافذة (Modal Header) --- */
+.modal-header {
+    display: flex;
+    justify-content: space-between; /* يدفع العنوان والزر لأطراف متقابلة */
+    align-items: center;
+}
+
+/* --- 2. تغيير لون عنوان النافذة --- */
+#checkoutModalLabel {
+    color: #f36f28;
+}
+
+/* --- 3. تغيير لون الإطار عند الضغط على الحقول --- */
+.form-control:focus {
+    border-color: #f36f28 !important;
+    box-shadow: 0 0 0 0rem rgba(243, 111, 40, 0.5) !important;
+}
+
+/* --- 4. تصميم زر "لا" (الإلغاء) - بتحديد أقوى --- */
+/* الحالة الافتراضية */
+#checkoutModal .modal-footer .btn-outline-secondary {
+    background-color: white !important;
+    color: black !important;
+    border-color: #ccc !important;
+}
+
+/* حالة تمرير الماوس (Hover) */
+#checkoutModal .modal-footer .btn-outline-secondary:hover {
+    background-color: #f8f9fa !important; /* لون رمادي فاتح جداً */
+    color: black !important;
+}
+/* --- تعديل: منع ظهور اللون الأخضر للحقول الاختيارية الفارغة --- */
+.was-validated .form-control:not([required]):valid {
+    border-color: #ced4da !important; /* إرجاع لون الإطار إلى الرمادي الافتراضي */
+    background-image: none !important; /* إزالة أيقونة الصح الخضراء */
+    box-shadow: none !important; /* إزالة التوهج الأخضر */
+}
+
+/* ========================================================================= */
+/* ======== 2. تصميم الإشعار المتجاوب (للموبايل والديسكتوب) ======== */
+/* ========================================================================= */
+
+/* --- التصميم الأساسي للإشعار (للموبايل) --- */
+#confirmationToast {
+    position: fixed;
+    top: -100px; /* يبدأ خارج الشاشة */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1060; /* للتأكد من أنه يظهر فوق كل شيء */
+    width: 90%;
+    max-width: 350px;
+    background-color: #f36f28; /* لون النجاح الأخضر */
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: top 0.5s ease-in-out; /* حركة انسيابية للظهور */
+}
+
+/* كلاس يتم إضافته عبر الجافا سكريبت لإظهار الإشعار */
+#confirmationToast.show {
+    top: 20px; /* ينزل إلى هذا المكان عند الظهور */
+}
+
+/* --- تعديل التصميم للشاشات الكبيرة (الديسكتوب) --- */
+@media (min-width: 768px) {
+    #confirmationToast {
+        left: auto; /* إلغاء التوسيط الأفقي */
+        right: 20px; /* تحديد مكانه في اليمين */
+        transform: none; /* إلغاء التحريك السابق */
+        width: auto; /* السماح للعرض بأن يكون تلقائياً */
+        max-width: 400px;
+        text-align: right;
+    }
+}
+
+/* ==================================================================== */
+/* ========   2. أضف هذا الكود بالكامل إلى نهاية ملف style.css   ======== */
+/* ==================================================================== */
+
+/* --- 1. تصميم الخلفية الشفافة --- */
+.success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* خلفية سوداء شبه شفافة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1055; /* للتأكد من أنها فوق كل شيء */
+    opacity: 0; /* تبدأ مخفية */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.success-overlay.show {
+    opacity: 1; /* تظهر عند إضافة كلاس show */
+    visibility: visible;
+}
+
+/* --- 2. تصميم النافذة البيضاء --- */
+.success-modal {
+    background-color: white;
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    max-width: 90%;
+    width: 400px;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.success-overlay.show .success-modal {
+    transform: scale(1); /* تأثير ظهور بسيط */
+}
+
+
+/* --- 3. تصميم أيقونة الصح المتحركة --- */
+.success-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #fff; /* لون علامة الصح */
+    stroke-miterlimit: 10;
+    margin: 0 auto;
+    box-shadow: inset 0px 0px 0px #f36f28; /* لون الدائرة البرتقالي */
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.success-icon-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #f36f28; /* لون الإطار البرتقالي للدائرة */
+    fill: none;
+    animation: stroke .6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.success-icon-checkmark {
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke .3s cubic-bezier(0.65, 0, 0.45, 1) .8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1)
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 40px #f36f28
+    }
+}
+/* --- تعديل: تغيير لون التحقق الصحيح إلى البرتقالي --- */
+
+/* تغيير لون الإطار وأيقونة الصح */
+.was-validated .form-control:valid {
+    border-color: #f36f28 !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23f36f28' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8L3.4 5c.4.4 1 .4 1.4 0L6.3 2.7c.6-.6 1.5-.2 1.1.8L4.7 6.73c-.4 1.1-1.6 1.1-2 .01z'/%3e%3c/svg%3e") !important;
+}
+
+/* تغيير لون التوهج عند التركيز على الحقل الصحيح */
+.was-validated .form-control:valid:focus {
+    border-color: #f36f28 !important;
+    box-shadow: 0 0 0 0.25rem rgba(243, 111, 40, 0.5) !important;
+}
+/* --- إصلاح نهائي لعرض الفوتر بعرض الشاشة الكامل --- */
+
+.footer.container-fluid,
+.copyright.container-fluid {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+/* --- تعديل لون زر العودة للأعلى --- */
+
+.back-to-top {
+    background-color: #f36f28 !important; /* اللون البرتقالي الأساسي */
+    border-color: #f36f28 !important;     /* لون الإطار */
+}
+
+/* --- تعديل لون الزر عند تمرير الماوس (اختياري) --- */
+.back-to-top:hover {
+    background-color: #e06422 !important; /* برتقالي أغمق قليلاً */
+    border-color: #e06422 !important;
+}
+
+/* --- جديد: إزالة الإطار الأخضر عند الضغط (Focus) --- */
+.back-to-top:focus {
+    box-shadow: none !important;
+}
+
+/* --- جديد: تغيير لون السهم إلى الأبيض --- */
+.back-to-top i {
+    color: white !important;
+}
+
+/* أضفه في style.css */
+.fruite {
+  padding-top: 110px; /* عدّل القيمة حسب ارتفاع الـ navbar */
+}
+/* تنسيق دوائر اختيار الألوان */
+/* يتم تطبيق هذا التنسيق على <label> التي تحمل اللون */
+.btn-outline-custom.color-swatch {
+    width: 35px; /* حجم الدائرة */
+    height: 35px; /* حجم الدائرة */
+    border-radius: 50%; /* لجعلها دائرة */
+    padding: 0; /* لإزالة البادينج الداخلي */
+    margin: 0;
+    cursor: pointer;
+    display: inline-block;
+    border: 2px solid #ccc; /* إطار افتراضي خفيف */
+    transition: border-color 0.2s, transform 0.2s; /* لإضافة حركة لطيفة */
+}
+
+/* حالة اختيار اللون - عندما يكون الراديو بوكس checked */
+input[type="radio"].btn-check:checked + .btn-outline-custom.color-swatch {
+    border-color: grey; /* لون إطار مميز عند الاختيار (يمكنك استخدام لونك الأساسي) */
+    border-width: 1px; /* زيادة سماكة الإطار عند التحديد */
+    transform: scale(1.1); /* تكبير طفيف عند التحديد */
+}
+
+/* تنسيق أزرار المقاسات (لتحسين المظهر) */
+.btn-outline-custom {
+    color: #333;
+    border-color: #ccc;
+    border-radius: 0.5rem; /* حواف مدورة خفيفة */
+    transition: all 0.2s;
+}
+
+input[type="radio"].btn-check:checked + .btn-outline-custom {
+    background-color:  #d3d3d3; /* خلفية مميزة عند الاختيار */
+    color: grey !important; /* نص أبيض عند الاختيار */
+    border-color: #d3d3d3;
+    
+}

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+    <head>
+        <meta charset="utf-8">
+        <title>WAK WAK</title>
+        <link rel="icon" type="image/png" href="img/wak-wak-w-back-1.png">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div>
+        <!-- Spinner End -->
+
+
+         <!-- Navbar start -->
+          <div class="container-fluid fixed-top">                           
+    <div class="container px-0">
+        
+        <nav class="navbar navbar-light bg-white navbar-expand-xl d-flex justify-content-between">
+            <div class="d-flex m-3 me-0">
+                    <a href="cart.html" class="position-relative me-4 my-auto">
+                        <i class="fa fa-shopping-bag fa-2x" style="color: #f3c20e;"></i>
+                        <span id="cart-counter" class="position-absolute rounded-circle d-flex align-items-center justify-content-center text-white p-1" style="top: -10px; left: 18px; height: 25px; min-width: 25px; background-color: #f36f28 !important;">0</span>
+                    </a>
+                </div>
+  
+            <a href="index.html" class="navbar-brand">
+                <img src="img/wak-wak-w-back-1.png" alt="WAK WAK" style="height: 70px;">
+            </a>
+            <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars text-primary"></span>
+            </button>
+            <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                <div class="navbar-nav me-xl-auto">
+                    <a href="index.html" class="nav-item nav-link">الصفحة الرئيسية</a>
+                    <a href="all_clothes.html" class="nav-item nav-link"> جميع الملابس </a>
+                    <a href="clothes_woman.html" class="nav-item nav-link">ملابس نسائية </a>
+                    <a href="clothes_man.html" class="nav-item nav-link">ملابس رجالية </a>
+                    <a href="salles.html" class="nav-item nav-link">عروضنا </a>
+                    <a href="#contact_us" class="nav-item nav-link">التواصل معنا</a>
+                    
+                </div>
+            </div>
+    
+        </nav>
+        
+    </div>
+</div>
+<!-- Navbar End -->
+
+
+
+
+        <!-- Single Page Header start -->
+        <div class="container-fluid page-header py-5">
+        </div>
+        <!-- Single Page Header End -->
+         <div class="col-lg-3  pt-5 pe-5">
+             <h1>تفاصيل منتج وَاك وَاك </h1>
+         </div>
+
+        <!-- Single Product Start -->
+        <div class="container-fluid pb-3 mt-3">
+            <div class="container py-3">
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-8 col-xl-9">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="border rounded position-relative">
+        
+                                    <a href="#">
+                                        <img src="img/t4.jpg" class="img-fluid rounded" alt="Image " id="product-image-src">
+                                    </a>
+                                
+                                    <button id="prev-image-btn" class="btn btn-lg position-absolute top-50 start-0 translate-middle-y rounded-circle shadow-none" style="background-color: rgba(255, 255, 255, 0.7); border: none; z-index: 10;">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                
+                                    <button id="next-image-btn" class="btn btn-lg position-absolute top-50 end-0 translate-middle-y rounded-circle shadow-none" style="background-color: rgba(255, 255, 255, 0.7); border: none; z-index: 10;">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                
+                                </div>
+
+                                <div class="d-flex align-items-center mb-4 mt-4">
+                                    <h5 class="me-3 mb-0">الألوان: </h5>
+
+                                    <div class="d-flex gap-2 me-2" id="color-selection-container">
+                                    </div>
+                                </div>
+
+
+                             <div class="d-flex align-items-center mb-4">
+                                <h5 class="me-3 mb-0">المقاس:</h5>
+
+                               <div class="d-flex gap-2 me-3" role="group" aria-label="Size selector">
+
+                                    <input type="radio" class="btn-check" name="size-options" id="size-s" autocomplete="off" checked>
+                                    <label class="btn btn-outline-custom" for="size-s">S</label>
+                            
+                                    <input type="radio" class="btn-check" name="size-options" id="size-m" autocomplete="off">
+                                    <label class="btn btn-outline-custom" for="size-m">M</label>
+                            
+                                    <input type="radio" class="btn-check" name="size-options" id="size-l" autocomplete="off">
+                                    <label class="btn btn-outline-custom" for="size-l">L</label>
+                            
+                                    <input type="radio" class="btn-check" name="size-options" id="size-xl" autocomplete="off">
+                                    <label class="btn btn-outline-custom" for="size-xl">XL</label>
+                                    
+                                    <input type="radio" class="btn-check" name="size-options" id="size-xxl" autocomplete="off">
+                                    <label class="btn btn-outline-custom" for="size-xxl">XXL</label>
+
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4 class="fw-bold mb-3 me-5" id="product-name">كنزة هودي</h4>
+                            
+                                <h5 class="fw-bold mb-3 me-5" id="product-price">3,35 $</h5>
+                                <p class="mb-4 me-5" id="product-description">استمتع بأعلى مستويات الراحة والأناقة مع هودي "وَاك وَاك" المصممة لتكون قطعتك المفضلة طوال العام. صُنعت هذه الكنزة بعناية فائقة لتمنحك الدفء في الأيام الباردة والملمس الناعم على بشرتك. بتصميمها العصري وقصتها المريحة، تعتبر هذه الهودي الخيار المثالي لإطلالة يومية عملية، سواء كنت تقضي وقتاً في الخارج مع الأصدقاء أو تسترخي في المنزل.</p>
+                                <p class="mb-4 me-5">جودة القماش: مصنوعة من أفضل أنواع القطن المصري الفاخر بنسبة 80%، مع 20% بوليستر لضمان المتانة والحفاظ على شكلها بعد الغسيل المتكرر.</p>
+                                <div class="d-flex align-items-center mb-5 me-5">
+                                <h5 class="fw-bold me-3 mb-0 me-5">الكمية:</h5>
+                                <div class="container py-5 text-end">
+                                <div class="new-quantity-counter d-inline-flex align-items-center p-2 rounded ">
+
+                                    <button class="btn btn-lg border-0 js-quantity-minus shadow-none">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                
+                                    <input type="number" class="form-control form-control-lg text-center border-0 fw-bold js-quantity-input" value="1" min="1" id="product-quantity"  style="width: 80px; font-size: 1.5rem;" >
+                                
+                                    <button class="btn btn-lg border-0 js-quantity-plus shadow-none">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                
+                                </div>
+                            </div>
+                            </div>
+                                
+                            </div>
+                            <div class="col-lg-12">
+                                <nav>
+                                </nav>
+                                <div class="tab-content mb-5">
+                                    <div class="tab-pane active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                                            <div class="row g-4">
+                                                <div class="col-6">
+                                                    <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                        <div class="col-6">
+                                                            <p class="mb-0">طول الكنزة</p>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <p class="mb-0"> cm 60</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row text-center align-items-center justify-content-center py-2">
+                                                        <div class="col-6">
+                                                            <p class="mb-0">طول الكم</p>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <p class="mb-0"> cm 20</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row bg-light text-center align-items-center justify-content-center py-2">
+                                                        <div class="col-6">
+                                                            <p class="mb-0">نوعية القماش</p>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <p class="mb-0">قطن</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row text-center align-items-center justify-content-center py-2">
+                                                        <div class="col-6">
+                                                            <p class="mb-0">عرض الصدر</p>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <p class="mb-0"> cm 40 </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row bg-light text-center align-items-center justify-content-center py-2">
+                                                        <div class="col-6">
+                                                            <p class="mb-0">ما بعرف</p>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <p class="mb-0"> هيك شي</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-lg border rounded-pill px-3 btn-custom-outline" onclick="addToCart()">
+                                <i class="fa fa-cart-plus me-2"></i> أضف إلى السلة
+                            </button>
+
+                            <a href="index.html" class="btn btn-lg border rounded-pill px-3 btn-custom-outline me-2">
+                                <i class="fa fa-home me-2"></i> العودة إلى الصفحة الرئيسية
+                            </a>
+                            <form action="#">
+                                
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xl-3">
+                        <div class="row g-4 fruite">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- Single Product End -->
+
+<!-- ==================================================================== -->
+<!-- ======== 1. استبدل عنصر الإشعار القديم بهذا الكود الجديد ======== -->
+<!-- ==================================================================== -->
+<div id="success-overlay" class="success-overlay">
+    <div class="success-modal">
+        <div class="success-icon-container">
+            <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="success-icon-circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="success-icon-checkmark" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+        <h3 class="success-title mt-4">تم استلام طلبك بنجاح!</h3>
+        <p class="success-message text-muted mt-2"></p> <!-- سيتم ملء الرسالة من الجافاسكريبت -->
+    </div>
+</div>
+
+
+        <!-- Footer Start -->
+          <!-- Featurs Section Start -->
+<div id="contact_us" class="container-fluid featurs py-5">
+    <div class="container py-5">
+        <!-- تم تعديل هذا السطر -->
+        <div class="row g-4 justify-content-center">
+            <!-- تم تعديل هذا السطر -->
+            <div class="col-md-6 col-lg-4">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                        <i class="fas fa-car-side fa-3x text-white"></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>توصيل مجاني</h5>
+                        <p class="mb-0">سيتم التوصيل خلال 4 ايام</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- تم تعديل هذا السطر -->
+            <div class="col-md-6 col-lg-4">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                        <i class="fas fa-exchange-alt fa-3x text-white"></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>سياسة الترجيع والتبديل</h5>
+                        <p class="mb-0">الترجيع خلال 3 ايام و التبديل خلال 4 ايام</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- تم تعديل هذا السطر -->
+            <div class="col-md-6 col-lg-4">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                        <i class="fa fa-phone-alt fa-3x text-white"></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>للتواصل معنا</h5>
+                        <p class="mb-0">0945916586</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featurs Section End -->
+
+        <!-- Tastimonial Start -->
+
+<div class="container-fluid text-white-50 footer pt-1 mt-1" style="background-color: #343a40;">
+    <div class="container py-5">
+        <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <a href="#">
+                        <!-- 2. تم تغيير الاسم وتلوين حرف الكاف -->
+                        <h1 class="mb-0" style="color: #f3c20e;">متجر وَا<span style="color: #f36f28;">ك</span> وَا<span style="color: #f36f28;">ك</span></h1>
+                        <p class="mb-0" style="color: #f3c20e;">ملابس بروح مرحة</p>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative mx-auto">
+                        <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="email" placeholder="بريدك الإلكتروني">
+                        <!-- 1. تم تغيير كلمة "Subscribe Now" -->
+                        <button type="submit" class="btn border-0 py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0; background-color: #f36f28;">تسجيل دخول</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-5">
+
+<div class="row g-5">
+    <!-- --- القسم الأول: لماذا واك واك؟ --- -->
+    <div class="col-lg-3 col-md-6">
+        <div class="footer-item">
+            <h4 class="text-light mb-3">لماذا وَا<span style="color: #f36f28;">ك</span> وَا<span style="color: #f36f28;">ك</span>؟</h4>
+            <p class="mb-4">لأننا نؤمن أن الملابس هي أكثر من مجرد قماش. في واك واك، نصمم كل قطعة لتعكس روحك المرحة، باستخدام أجود الخامات لنوفر لك الراحة والأناقة في كل يوم.</p>
+        </div>
+    </div>
+
+    <!-- --- القسم الثاني: التواصل معنا --- -->
+    <div class="col-lg-3 col-md-6">
+        <div class="d-flex flex-column text-end footer-item">
+            <h4 class="text-light mb-3">التواصل معنا</h4>
+            <a class="btn-link" href="tel:+963945916586"><i class="fas fa-phone me-2"></i>+963945916586</a>
+            <a class="btn-link" href="#"><i class="fab fa-facebook-f me-2"></i>فيسبوك</a>
+            <a class="btn-link" href="#"><i class="fab fa-instagram me-2"></i>انستغرام</a>
+        </div>
+    </div>
+
+    <!-- --- القسم الثالث: سياسة التوصيل --- -->
+    <div class="col-lg-3 col-md-6">
+        <div class="footer-item">
+            <h4 class="text-light mb-3">سياسة التوصيل</h4>
+            <p class="mb-4">بعد تأكيد طلبك، سيتم التواصل معك خلال 24 ساعة. نهدف لتوصيل طلبك خلال أربعة أيام عمل.</p>
+        </div>
+    </div>
+
+    <!-- --- القسم الرابع: الترجيع والتبديل --- -->
+    <div class="col-lg-3 col-md-6">
+        <div class="footer-item">
+            <h4 class="text-light mb-3">الترجيع والتبديل</h4>
+            <p class="mb-4">يمكنك إرجاع المنتجات خلال 3 أيام من تاريخ الاستلام، أو تبديلها خلال 4 أيام.</p>
+        </div>
+    </div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <!-- Footer End -->
+
+
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+     <script src="products-data.js"></script>
+    <script src="js/main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    'use strict';
+
+    const checkoutForm = document.getElementById('checkoutForm');
+    const successOverlay = document.getElementById('success-overlay');
+    const successMessage = successOverlay ? successOverlay.querySelector('.success-message') : null;
+    const checkoutModalElement = document.getElementById('checkoutModal');
+    
+    // 💡 التعديل: إنشاء مثيل الـ Modal هنا لضمان عمل دالة hide()
+    let checkoutModal = null;
+    if (checkoutModalElement) {
+        checkoutModal = new bootstrap.Modal(checkoutModalElement);
+    }
+    
+    // إذا كان النموذج موجوداً
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', function (event) {
+            
+            event.preventDefault();
+            event.stopPropagation();
+            
+            // 1. التحقق من صحة الحقول
+            if (checkoutForm.checkValidity() === false) {
+                checkoutForm.classList.add('was-validated');
+                return; 
+            }
+
+            // تجميع البيانات للإرسال
+            const formData = new FormData(checkoutForm);
+            
+            // إرسال البيانات إلى Formspree يدوياً باستخدام Fetch API
+            fetch(checkoutForm.action, {
+                method: checkoutForm.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    
+                    // 1. إخفاء النافذة المنبثقة بعد التأكد من نجاح الإرسال
+                    if (checkoutModal) {
+                        checkoutModal.hide(); // <-- الآن ستعمل بشكل سليم
+                    }
+
+                    // 2. إظهار رسالة النجاح (الـ Overlay)
+                    if (successOverlay) {
+                         successMessage.textContent = 'تم استلام طلبك! سيتم التواصل معك لتأكيد الطلب خلال 24 ساعة.'; 
+                         successOverlay.classList.add('show'); 
+                         
+                         // إخفاء الرسالة بعد 4 ثواني
+                         setTimeout(function() {
+                            successOverlay.classList.remove('show');
+                        }, 4000); 
+                    }
+                    
+                    // 3. إعادة تعيين النموذج وتنظيف حالة التحقق
+                    checkoutForm.classList.remove('was-validated');
+                    checkoutForm.reset(); 
+                
+                } else {
+                    // فشل إرسال Formspree
+                    alert('عذراً، حدث خطأ أثناء إرسال طلبك. يرجى المحاولة لاحقاً.');
+                }
+            })
+            .catch(error => {
+                // فشل الاتصال بالشبكة
+                console.error('Network Error:', error);
+                alert('حدث خطأ في الاتصال. يرجى التحقق من اتصالك والمحاولة مرة أخرى.');
+            });
+        }, false);
+    }
+});
+</script>
+<!-- هاد السطر لنقل المعلومات متل القياس واللون والكمية لقلب واجهة تاكيد الطلب -->
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+const counter = document.querySelector('.new-quantity-counter');
+if (counter) {
+    // نستخدم الكلاسات التي حددتها في HTML للوصول للأزرار
+    const plusBtn = counter.querySelector('.js-quantity-plus');
+    const minusBtn = counter.querySelector('.js-quantity-minus');
+    
+    // نستخدم الـ ID للوصول إلى حقل الإدخال، وهو الأكثر دقة
+    const inputField = document.getElementById('product-quantity'); 
+    
+    if (inputField && plusBtn && minusBtn) {
+        
+        // دالة مساعدة لضمان قراءة القيمة كرقم صحيح (Integer)
+        const getSafeQuantity = () => {
+            let value = parseInt(inputField.value, 10);
+            return (isNaN(value) || value < 1) ? 1 : value;
+        };
+        
+        // عند الضغط على +
+        plusBtn.addEventListener('click', function() {
+            let currentValue = getSafeQuantity();
+            
+            // الحد الأقصى 100
+            if (currentValue < 100) { 
+                inputField.value = currentValue + 1;
+            }
+        });
+        
+        // عند الضغط على -
+        minusBtn.addEventListener('click', function() {
+            let currentValue = getSafeQuantity();
+            // الحد الأدنى هو 1
+            if (currentValue > 1) {
+                inputField.value = currentValue - 1;
+            }
+        });
+
+        // التأكد من أن القيمة المدخلة يدوياً صحيحة (فقط في حال لم يكن readonly موجوداً)
+        inputField.addEventListener('change', function() {
+            inputField.value = getSafeQuantity();
+        });
+    }
+}
+
+        // =========================================================
+        // 2. تحديث الحقول المخفية عند فتح الـ Modal
+        // هذا هو الجزء الأهم لضمان إرسال بيانات المنتج مع الطلب
+        // =========================================================
+        const checkoutModal = document.getElementById('checkoutModal');
+        if (checkoutModal) {
+            checkoutModal.addEventListener('show.bs.modal', function() {
+                
+                let selectedColor = 'لم يتم اختيار لون';
+                let selectedSize = 'لم يتم اختيار مقاس';
+                let quantity = document.getElementById('product-quantity').value;
+
+                // أ. الحصول على اللون المختار
+                const colorInput = document.querySelector('input[name="color-options"]:checked');
+                if (colorInput) {
+                    selectedColor = colorInput.value;
+                }
+                
+                // ب. الحصول على المقاس المختار
+                const sizeInput = document.querySelector('input[name="size-options"]:checked');
+                if (sizeInput) {
+                    // المقاس هو محتوى الـ Label المرتبط بزر الراديو (مثل S, M, L)
+                    selectedSize = sizeInput.nextElementSibling ? sizeInput.nextElementSibling.textContent.trim() : sizeInput.id;
+                }
+
+                // ج. تعبئة الحقول المخفية داخل الـ Modal بالبيانات المجمعة
+                // (تأكد من أن الـ IDs في الـ Modal هي: hidden-color, hidden-size, hidden-quantity)
+                const hiddenColor = document.getElementById('hidden-color');
+                const hiddenSize = document.getElementById('hidden-size');
+                const hiddenQuantity = document.getElementById('hidden-quantity');
+
+                if (hiddenColor) hiddenColor.value = selectedColor;
+                if (hiddenSize) hiddenSize.value = selectedSize;
+                if (hiddenQuantity) hiddenQuantity.value = quantity;
+                updateCartCounter();
+            });
+        }
+
+    });
+
+
+
+    // =========================================================
+// 1. دالة تحديث عداد السلة (تبقى كما هي)
+// =========================================================
+function updateCartCounter() {
+    // قراءة السلة من ذاكرة المتصفح (Local Storage)
+    let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
+    // حساب العدد الإجمالي للقطع
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    const counterElement = document.getElementById('cart-counter');
+    
+    if (counterElement) {
+        counterElement.textContent = totalItems.toString();
+    }
+}
+
+// =========================================================
+// 2. الدالة الرئيسية لإضافة المنتج إلى السلة (ديناميكية)
+// =========================================================
+function addToCart() {
+    // أ. قراءة بيانات المنتج الأساسية ديناميكياً
+    const productNameElement = document.getElementById('product-name');
+    const productPriceElement = document.getElementById('product-price');
+    const productImageElement = document.getElementById('product-image-src');
+
+    if (!productNameElement || !productPriceElement) {
+        alert("عذراً، لم يتم العثور على اسم أو سعر المنتج.");
+        return;
+    }
+
+    const productName = productNameElement.textContent.trim();
+    
+    // تنظيف السعر ليصبح رقماً (مثل: إزالة $, والفواصل)
+    const priceText = productPriceElement.textContent.trim();
+    let productPrice = parseFloat(priceText.replace('$', '').replace(',', '').trim());
+    
+    if (isNaN(productPrice)) {
+        alert("خطأ: لم نتمكن من قراءة سعر المنتج بشكل صحيح.");
+        return;
+    }
+    const productImageUrl = productImageElement ? productImageElement.getAttribute('src') : 'img/No-Image.png';
+    
+    // ب. جمع خيارات المستخدم (اللون، المقاس، الكمية)
+    const selectedSizeElement = document.querySelector('input[name="size-options"]:checked');
+    const selectedColorElement = document.querySelector('input[name="color-options"]:checked');
+    const quantityElement = document.getElementById('product-quantity');
+    
+    if (!selectedSizeElement || !selectedColorElement || !quantityElement) {
+        alert("الرجاء اختيار المقاس واللون المناسب.");
+        return;
+    }
+
+    const selectedSize = selectedSizeElement.nextElementSibling.textContent.trim(); // قراءة المقاس (S, M, L)
+    const selectedColor = selectedColorElement.value; // قراءة اللون (أسود، أحمر)
+    const quantity = parseInt(quantityElement.value, 10);
+    
+    // استخدام اسم المنتج كمعرّف فريد مؤقت
+    const productId = productName; 
+
+    // ج. إنشاء كائن المنتج
+    const itemToAdd = {
+        id: productId,               
+        name: productName,           
+        price: productPrice,         
+        size: selectedSize,                      
+        color: selectedColor,                    
+        quantity: quantity,                             
+        uniqueKey: `${productId}-${selectedColor}-${selectedSize}`, // مفتاح للتفريق في السلة
+        totalPrice: quantity * productPrice,
+        imageUrl: productImageUrl
+    };
+
+    // د. تحديث السلة في Local Storage
+    let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
+    const existingItemIndex = cart.findIndex(item => item.uniqueKey === itemToAdd.uniqueKey);
+
+    if (existingItemIndex !== -1) {
+        // إذا كان موجوداً: زيد الكمية فقط
+        cart[existingItemIndex].quantity += quantity;
+        cart[existingItemIndex].totalPrice = cart[existingItemIndex].quantity * cart[existingItemIndex].price;
+    } else {
+        // إذا لم يكن موجوداً: أضف الكائن الجديد
+        cart.push(itemToAdd);
+    }
+
+    localStorage.setItem('shoppingCart', JSON.stringify(cart));
+    
+   // هـ. تحديث العداد وإظهار إشعار
+updateCartCounter(); 
+    
+// رسالة تأكيد ديناميكية تشمل الاسم، اللون، المقاس، والكمية
+alert(`تم إضافة ${itemToAdd.quantity} قطعة من المنتج: ${itemToAdd.name} (اللون: ${itemToAdd.color}, المقاس: ${itemToAdd.size}) إلى السلة بنجاح!`);
+}
+
+
+</script>
+
+<script>
+    updateCartCounter();
+</script>
+
+
+<script>
+    // ** وظيفة مساعدة للحصول على المعامل من الرابط **
+    function getQueryParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    // ** الوظيفة الجديدة لتوليد أزرار الألوان وربطها بالصور **
+    function createColorSwatches(product) {
+        const container = document.getElementById('color-selection-container');
+        if (!container) return;
+        
+        // تفريغ الحاوية (تم التأكد من أنك قمتِ بهذه الخطوة في HTML)
+        container.innerHTML = ''; 
+
+        let firstImageSrc = ''; // لتحديد الصورة الافتراضية
+
+        // المرور على قائمة الألوان الموجودة في بيانات المنتج
+        product.colors.forEach((colorOption, index) => {
+            const isChecked = index === 0; // أول لون هو الافتراضي
+            
+            if (isChecked) {
+                firstImageSrc = colorOption.image; // حفظ مسار أول صورة
+            }
+
+            // --- بناء عنصر input type="radio" ---
+            const inputHtml = document.createElement('input');
+            inputHtml.type = 'radio';
+            inputHtml.className = 'btn-check';
+            inputHtml.name = 'color-options'; // مهم: لربط الأزرار ببعضها
+            inputHtml.id = `color-${product.id}-${colorOption.name}`; // ID فريد للزر
+            inputHtml.value = colorOption.name;
+            inputHtml.autocomplete = 'off';
+            if (isChecked) {
+                inputHtml.checked = true;
+            }
+            
+            // ** النقطة الأهم: تخزين مسار الصورة في خاصية data-image للزر **
+            inputHtml.dataset.image = colorOption.image; 
+
+            // إضافة مستمع للأحداث: عند النقر على أي لون، قم بتغيير الصورة الرئيسية
+            inputHtml.addEventListener('change', (event) => {
+                if (event.target.checked) {
+                    const newImageSrc = event.target.dataset.image;
+                    document.getElementById('product-image-src').src = newImageSrc;
+                }
+            });
+
+            // --- بناء عنصر label (الذي يمثل مربع اللون المرئي) ---
+            const labelHtml = document.createElement('label');
+            labelHtml.className = 'btn btn-outline-custom color-swatch';
+            labelHtml.htmlFor = `color-${product.id}-${colorOption.name}`; // ربطه بالـ ID الخاص بالـ input
+            labelHtml.style.backgroundColor = colorOption.hex; // تعيين اللون
+            labelHtml.title = colorOption.name; // إضافة تلميح نصي
+
+            // إضافة العناصر إلى الـ div الفارغ
+            container.appendChild(inputHtml);
+            container.appendChild(labelHtml);
+        });
+
+        // إرجاع مسار أول صورة ليتم عرضه كصورة افتراضية عند تحميل الصفحة
+        return firstImageSrc;
+    }
+
+
+    // ** تعديل دالة loadProductDetails (الدالة الرئيسية) **
+    function loadProductDetails() {
+        // 1. الحصول على المنتج
+        const productId = getQueryParameter('id'); 
+        if (typeof ALL_PRODUCTS === 'undefined') {
+            console.error("خطأ: مصفوفة ALL_PRODUCTS غير معرفة.");
+            return;
+        }
+        const numericId = parseInt(productId);
+        const product = ALL_PRODUCTS.find(p => p.id === numericId);
+
+        if (!product) {
+            document.getElementById('product-name').textContent = 'عذراً، المنتج المطلوب غير موجود.';
+            return;
+        }
+
+        // 2. تحديث الاسم والسعر والوصف (كما في السابق)
+        document.getElementById('product-name').textContent = product.name;
+        document.getElementById('product-price').textContent = `${product.price.toFixed(2)} $`;
+        
+        // يجب أن تكوني قد أضفتِ هذا الـ ID للوصف
+        const descriptionElement = document.getElementById('product-description');
+        if (descriptionElement) {
+            descriptionElement.textContent = product.description;
+        }
+
+        // 3. ** الخطوة الجديدة: توليد الألوان وتعيين الصورة الافتراضية **
+        // هذه الدالة الآن تولد الأزرار وتعيد مسار أول صورة
+        const defaultImage = createColorSwatches(product);
+        
+        // تحديث الصورة الرئيسية بأول صورة من مصفوفة الألوان
+        const imageElement = document.getElementById('product-image-src');
+        if (imageElement && defaultImage) {
+            imageElement.src = defaultImage;
+            imageElement.alt = product.name;
+        }
+    }
+
+    // تشغيل الوظيفة بمجرد تحميل محتوى الصفحة بالكامل
+    document.addEventListener('DOMContentLoaded', loadProductDetails);
+</script>
+    </body>
+
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+    <head>
+        <meta charset="utf-8">
+        <title>WAK WAK</title>
+        <link rel="icon" type="image/png" href="img/wak-wak-w-back-1.png">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar start -->
+        <div class="container-fluid fixed-top">                           
+            <div class="container px-0">
+                <nav class="navbar navbar-light bg-white navbar-expand-xl d-flex justify-content-between">
+                    <div class="d-flex m-3 me-0">
+        <a href="cart.html" class="position-relative me-4 my-auto">
+            <i class="fa fa-shopping-bag fa-2x" style="color: #f3c20e;"></i>
+            <span id="cart-counter" class="position-absolute rounded-circle d-flex align-items-center justify-content-center text-white p-1" style="top: -10px; left: 18px; height: 25px; min-width: 25px; background-color: #f36f28 !important;">0</span>
+        </a>
+    </div>
+                    <a href="index.html" class="navbar-brand">
+                        <img src="img/wak-wak-w-back-1.png" alt="WAK WAK" style="height: 70px;">
+                    </a>
+                    <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars text-primary"></span>
+                    </button>
+                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                        <div class="navbar-nav me-xl-auto">
+                            <a href="index.html" class="nav-item nav-link active">الصفحة الرئيسية</a>
+                            <a href="all_clothes.html" class="nav-item nav-link"> جميع الملابس </a>
+                            <a href="clothes_woman.html" class="nav-item nav-link">ملابس نسائية </a>
+                            <a href="clothes_man.html" class="nav-item nav-link">ملابس رجالية </a>
+                            <a href="salles.html" class="nav-item nav-link">عروضنا </a>
+                            <a href="#contact_us" class="nav-item nav-link">التواصل معنا</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+
+
+        <!-- Hero Start -->
+        <div class="container-fluid pb-5  hero-header">
+            <div class="container pb-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-md-12 col-lg-7">
+                       
+                       <h1 class="mb-3" style="color: #f3c20e;">متجر وَا<span style="color: #f36f28;">ك</span> وَا<span style="color: #f36f28;">ك</span></h1>
+                        <h4 class="mb-3 text-white">نخيط لك ملابس تبرز روحك المرحة لتكون جزء من حياتك اليومية...</h4>
+                    </div>
+                    <div class="col-md-12 col-lg-5">
+                        <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active rounded">
+                                    <img src="img/t2.jpg" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
+                                    
+                                </div>
+                                <div class="carousel-item rounded">
+                                    <img src="img/t1.jpg" class="img-fluid w-100 h-100 rounded" alt="Second slide">
+                                    
+                                </div>
+                                <div class="carousel-item rounded">
+                                    <img src="img/t3.jpg" class="img-fluid w-100 h-100 rounded" alt="Second slide">
+
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+
+
+        <!-- Featurs Section End -->
+
+
+        <!-- Fruits Shop Start-->
+        <div class="container-fluid fruite py-4">
+            <div class="container py-4">
+                <div class="tab-class text-center">
+                    <div class="row g-4">
+                        <div class="col-lg-3 text-end">
+                            <h1>خلي شتاءك وَاك وَاك </h1>
+                        </div>
+                        <div class="col-lg-8 text-start">
+                            <ul class="nav nav-pills d-inline-flex text-center mb-5">
+                                <li class="nav-item">
+                                    <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
+                                        <span class="text-dark" style="width: 130px;">جميع المنتجات</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
+                                        <span class="text-dark" style="width: 130px;">ملابس الرجال</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">
+                                        <span class="text-dark" style="width: 130px;">ملابس النساء</span>
+                                    </a>
+                                </li>
+                                <li  class="nav-item">
+                                    <a class="d-flex m-2 py-2 bg-light rounded-pill" href="#offers-section">
+                                        <span class="text-dark" style="width: 130px;">عروضنا </span>
+                                    </a>      
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane fade show p-0 active ">
+                            <div class="row g-4">
+                                <div class="col-lg-12">
+                                    <div class="row g-4" id="all-products-container">
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="col-12 text-center text-lg-start">
+                                <a href="all_clothes.html" class="btn btn-lg rounded-pill px-4 py-2 btn-custom-outline">عرض جميع الملابس </a>
+                            </div>
+                        </div>
+                        <div id="tab-2" class="tab-pane fade p-0 ">
+                            <div class="row g-4">
+                                <div class="col-lg-12">
+                                    <div class="row g-4" id="man-products-container">
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center text-lg-start">
+                                <a href="clothes_man.html" class="btn btn-lg rounded-pill px-4 py-2 btn-custom-outline">عرض جميع الملابس الرجالية </a>
+                            </div>
+                        </div>
+                        <div id="tab-3" class="tab-pane fade p-0 ">
+                            <div class="row g-4">
+                                <div class="col-lg-12">
+                                    <div class="row g-4" id="women-products-container">
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center text-lg-start">
+                                <a href="clothes_woman.html" class="btn btn-lg rounded-pill px-4 py-2 btn-custom-outline">عرض جميع الملابس النسائية </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        <!-- Fruits Shop End-->
+
+
+        <!-- Vesitable Shop Start-->
+        <!-- Vesitable Shop End -->
+
+        <!-- Bestsaler Product Start -->
+        <div id="offers-section" class="container-fluid ">
+            <div class="container">
+                <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+                    <h1 class="display-4">خليك ستايل... ووفر أكثر!</h1>
+                    <p>
+                    لأن إطلالتك تهمنا، قدمنا لك أقوى الخصومات على قطع فريدة ومميزة. استمتع بالجودة الفائقة والتصاميم العصرية بأسعار استثنائية لفترة محدودة. حان وقت تجديد الستايل مع وَاك وَاك.
+                    </p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="p-4 rounded bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <img src="img/t4.jpg" class="img-fluid rounded-circle w-100" alt="">
+                                </div>
+                                <div class="col-6">
+                                    <h4  href="#" >كنزة هودي</h4 >
+                                    <h6 class="text-muted text-decoration-line-through mb-2">$4.99</h6>
+                                     <h4 class="fw-bold text-danger mb-0 me-2 mb-4">$3.12</h4>
+                                    <a href="shop-detail.html" class="btn border rounded-pill px-3 btn-custom-outline mt-auto">
+                                        <i class="fa fa-shopping-bag me-2"></i> عرض تفاصيل المنتج
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="p-4 rounded bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <img src="img/t4.jpg" class="img-fluid rounded-circle w-100" alt="">
+                                </div>
+                                <div class="col-6">
+                                    <h4  href="#" >كنزة هودي</h4 >
+                                    <h6 class="text-muted text-decoration-line-through mb-2">$4.99</h6>
+                                     <h4 class="fw-bold text-danger mb-0 me-2 mb-4">$3.12</h4>
+                                    <a href="shop-detail.html" class="btn border rounded-pill px-3 btn-custom-outline mt-auto">
+                                        <i class="fa fa-shopping-bag me-2"></i> عرض تفاصيل المنتج
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="p-4 rounded bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <img src="img/t4.jpg" class="img-fluid rounded-circle w-100" alt="">
+                                </div>
+                                <div class="col-6">
+                                    <h4  href="#" >كنزة هودي</h4 >
+                                    <h6 class="text-muted text-decoration-line-through mb-2">$4.99</h6>
+                                     <h4 class="fw-bold text-danger mb-0 me-2 mb-4">$3.12</h4>
+                                    <a href="shop-detail.html" class="btn border rounded-pill px-3 btn-custom-outline mt-auto">
+                                        <i class="fa fa-shopping-bag me-2"></i> عرض تفاصيل المنتج
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                                        <div class="col-lg-6 col-xl-4">
+                        <div class="p-4 rounded bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <img src="img/t4.jpg" class="img-fluid rounded-circle w-100" alt="">
+                                </div>
+                                <div class="col-6">
+                                    <h4  href="#" >كنزة هودي</h4 >
+                                    <h6 class="text-muted text-decoration-line-through mb-2">$4.99</h6>
+                                     <h4 class="fw-bold text-danger mb-0 me-2 mb-4">$3.12</h4>
+                                    <a href="shop-detail.html" class="btn border rounded-pill px-3 btn-custom-outline mt-auto">
+                                        <i class="fa fa-shopping-bag me-2"></i> عرض تفاصيل المنتج
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="p-4 rounded bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <img src="img/t4.jpg" class="img-fluid rounded-circle w-100" alt="">
+                                </div>
+                                <div class="col-6">
+                                    <h4  href="#" >كنزة هودي</h4 >
+                                    <h6 class="text-muted text-decoration-line-through mb-2">$4.99</h6>
+                                     <h4 class="fw-bold text-danger mb-0 me-2 mb-4">$3.12</h4>
+                                    <a href="shop-detail.html" class="btn border rounded-pill px-3 btn-custom-outline mt-auto">
+                                        <i class="fa fa-shopping-bag me-2"></i> عرض تفاصيل المنتج
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="p-4 rounded bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <img src="img/t4.jpg" class="img-fluid rounded-circle w-100" alt="">
+                                </div>
+                                <div class="col-6">
+                                    <h4  href="#" >كنزة هودي</h4 >
+                                    <h6 class="text-muted text-decoration-line-through mb-2">$4.99</h6>
+                                     <h4 class="fw-bold text-danger mb-0 me-2 mb-4">$3.12</h4>
+                                    <a href="shop-detail.html" class="btn border rounded-pill px-3 btn-custom-outline mt-auto">
+                                        <i class="fa fa-shopping-bag me-2"></i> عرض تفاصيل المنتج
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <!-- تم تعديل هذا السطر للمحاذاة المتجاوبة وتكبير الزر -->
+                            <div class="col-12 text-center text-lg-start">
+                                <a href="salles.html" class="btn btn-lg rounded-pill px-4 py-2 btn-custom-outline">عرض الجميع</a>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+                            <!-- Bestsaler Product End -->
+
+
+
+<!-- Featurs Section Start -->
+ <!-- Featurs Section Start -->
+<div id="contact_us" class="container-fluid featurs py-5">
+    <div class="container py-5">
+        <!-- تم تعديل هذا السطر -->
+        <div class="row g-4 justify-content-center">
+            <!-- تم تعديل هذا السطر -->
+            <div class="col-md-6 col-lg-4">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                        <i class="fas fa-car-side fa-3x text-white"></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>توصيل مجاني</h5>
+                        <p class="mb-0">سيتم التوصيل خلال 4 ايام</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- تم تعديل هذا السطر -->
+            <div class="col-md-6 col-lg-4">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                        <i class="fas fa-exchange-alt fa-3x text-white"></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>سياسة الترجيع والتبديل</h5>
+                        <p class="mb-0">الترجيع خلال 3 ايام و التبديل خلال 4 ايام</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- تم تعديل هذا السطر -->
+            <div class="col-md-6 col-lg-4">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                        <i class="fa fa-phone-alt fa-3x text-white"></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>للتواصل معنا</h5>
+                        <p class="mb-0">0945916586</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Tastimonial End -->
+
+<div class="container-fluid text-white-50 footer pt-1 mt-1" style="background-color: #343a40;">
+    <div class="container py-5">
+        <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <a href="#">
+                        <!-- 2. تم تغيير الاسم وتلوين حرف الكاف -->
+                        <h1 class="mb-0" style="color: #f3c20e;">متجر وَا<span style="color: #f36f28;">ك</span> وَا<span style="color: #f36f28;">ك</span></h1>
+                        <p class="mb-0" style="color: #f3c20e;">ملابس بروح مرحة</p>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative mx-auto">
+                        <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="email" placeholder="بريدك الإلكتروني">
+                        <!-- 1. تم تغيير كلمة "Subscribe Now" -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-5">
+
+<div class="row g-5">
+    <!-- --- القسم الأول: لماذا واك واك؟ --- -->
+    <div class="col-lg-3 col-md-6">
+        <div class="footer-item">
+            <h4 class="text-light mb-3">لماذا وَا<span style="color: #f36f28;">ك</span> وَا<span style="color: #f36f28;">ك</span>؟</h4>
+            <p class="mb-4">لأننا نؤمن أن الملابس هي أكثر من مجرد قماش. في واك واك، نصمم كل قطعة لتعكس روحك المرحة، باستخدام أجود الخامات لنوفر لك الراحة والأناقة في كل يوم.</p>
+        </div>
+    </div>
+
+    <!-- --- القسم الثاني: التواصل معنا --- -->
+    <div class="col-lg-3 col-md-6">
+        <div class="d-flex flex-column text-end footer-item">
+            <h4 class="text-light mb-3">التواصل معنا</h4>
+            <a class="btn-link" href="tel:+963945916586"><i class="fas fa-phone me-2"></i>+963945916586</a>
+            <a class="btn-link" href="#"><i class="fab fa-facebook-f me-2"></i>فيسبوك</a>
+            <a class="btn-link" href="#"><i class="fab fa-instagram me-2"></i>انستغرام</a>
+        </div>
+    </div>
+
+    <!-- --- القسم الثالث: سياسة التوصيل --- -->
+    <div class="col-lg-3 col-md-6">
+        <div class="footer-item">
+            <h4 class="text-light mb-3">سياسة التوصيل</h4>
+            <p class="mb-4">بعد تأكيد طلبك، سيتم التواصل معك خلال 24 ساعة. نهدف لتوصيل طلبك خلال أربعة أيام عمل.</p>
+        </div>
+    </div>
+
+    <!-- --- القسم الرابع: الترجيع والتبديل --- -->
+    <div class="col-lg-3 col-md-6">
+        <div class="footer-item">
+            <h4 class="text-light mb-3">الترجيع والتبديل</h4>
+            <p class="mb-4">يمكنك إرجاع المنتجات خلال 3 أيام من تاريخ الاستلام، أو تبديلها خلال 4 أيام.</p>
+        </div>
+    </div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+    <!-- JavaScript Libraries -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="products-data.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function updateCartCounter() {
+    let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    const counterElement = document.getElementById('cart-counter');
+    
+    if (counterElement) {
+        counterElement.textContent = totalItems.toString();
+    }
+}        
+    </script>
+
+    <script>
+    updateCartCounter();
+</script>
+
+<script>
+    function createProductCard(product) {
+    // بناء رابط صفحة التفاصيل بشكل ديناميكي باستخدام ID المنتج
+    const detailUrl = `shop-detail.html?id=${product.id}`;
+
+    // يمكنك إضافة منطق شارات (badges) "حسم" أو "جديد" هنا إذا كانت موجودة في بيانات المنتج
+    // const badgeHtml = product.isDiscounted ? 
+    //     `<div class="text-white rounded-circle position-absolute d-flex align-items-center justify-content-center fs-3" style="top: 10px; left: 10px; width: 80px; height: 80px; background-color: red;">حسم</div>` 
+    //     : '';
+    
+    return `
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="rounded position-relative fruite-item h-100 d-flex flex-column ">
+                <div class="fruite-img">
+                    <a href="${detailUrl}">
+                        <img src="${product.image}" class="img-fluid w-100 rounded-top" alt="${product.name}">
+                    </a>
+                </div>
+                <div class="p-4 border border-secondary border-top-0 rounded-bottom flex-grow-1 d-flex flex-column">
+                    <h4><a href="${detailUrl}" class="text-dark text-decoration-none">${product.name}</a></h4>
+                    <p>${product.description}</p>
+                    <div class="d-flex justify-content-between flex-lg-wrap mt-auto">
+                        <p class="text-dark fs-5 fw-bold mb-0">$${product.price.toFixed(2)}</p>
+                        <a href="${detailUrl}" class="btn border rounded-pill px-3 btn-custom-outline"><i class="fa fa-shopping-bag me-2"></i> عرض تفاصيل المنتج</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function renderProducts(products, containerId) {
+    // التأكد من أن المصفوفة ALL_PRODUCTS موجودة قبل محاولة العرض
+    if (typeof ALL_PRODUCTS === 'undefined' || ALL_PRODUCTS.length === 0) {
+        console.error("ALL_PRODUCTS غير معرفة أو فارغة. تأكدي من ربط products-data.js بشكل صحيح.");
+        return;
+    }
+    
+    const container = document.getElementById(containerId);
+    if (!container) return; // الخروج إذا لم يتم العثور على عنصر الـ ID
+
+    let htmlContent = '';
+    products.forEach(product => {
+        htmlContent += createProductCard(product);
+    });
+
+    // إدراج كل محتوى HTML المُوّلد مرة واحدة
+    container.innerHTML = htmlContent;
+}
+
+
+// ----------------------------------------------------------------
+// تشغيل الدالة لعرض المنتجات في الأماكن المخصصة (التبويبات)
+// ----------------------------------------------------------------
+
+// 1. تبويب "جميع المنتجات" (tab-1)
+renderProducts(ALL_PRODUCTS, 'all-products-container');
+
+
+// 2. تبويب "الملابس الرجالية" (tab-2)
+const manProducts = ALL_PRODUCTS.filter(product => product.category === 'man');
+renderProducts(manProducts, 'man-products-container');
+
+
+// 3. تبويب "الملابس النسائية" (tab-3)
+const womenProducts = ALL_PRODUCTS.filter(product => product.category === 'women');
+renderProducts(womenProducts, 'women-products-container');
+</script>
+
+    </body>
+
+</html>
