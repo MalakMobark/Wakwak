@@ -968,3 +968,17 @@ input[type="radio"].btn-check:checked + .btn-outline-custom {
     border-color: #d3d3d3;
     
 }
+
+
+
+@media (max-width: 991.98px) {
+    /* 1. تصغير حجم صورة الشعار لتقليل ارتفاع الناف بار */
+    .navbar-brand img {
+        height: 40px !important; /* يمكنك تغيير القيمة حسب رغبتك */
+    }
+
+    /* 2. تصغير حجم حاوية العربة (اختياري) */
+    .navbar .d-flex.m-3.me-0 {
+        margin: 10px 0 !important; /* تقليل الهوامش */
+    }
+}
