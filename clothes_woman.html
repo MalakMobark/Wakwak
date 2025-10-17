@@ -345,6 +345,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }, false); 
     
 </script>
+
+<script>
+    // ******************************************************
+    // *** منطق إظهار زر "العودة للأعلى" بالتمرير ***
+    // ******************************************************
+
+    // 1. تحديد زر "العودة للأعلى"
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    // 2. تحديد مسافة التمرير التي يجب تجاوزها للإظهار (مثلاً: 200 بكسل)
+    const scrollThreshold = 200; 
+
+    // إضافة مستمع لحدث التمرير (Scroll Event) على النافذة
+    window.addEventListener('scroll', function() {
+        
+        // الحصول على الموقع الحالي للتمرير
+        // window.scrollY هو المفضل، أو window.pageYOffset إذا كان أقدم
+        let currentScroll = window.scrollY || window.pageYOffset;
+
+        // التحقق من موقع التمرير
+        if (currentScroll > scrollThreshold) {
+            // إذا تجاوزنا المسافة المطلوبة: أظهر الزر
+            backToTopButton.classList.add('show');
+        } else {
+            // إذا كنا في أعلى الصفحة: أخفِ الزر
+            backToTopButton.classList.remove('show');
+        }
+    });
+</script>
     </body>
 
 </html>

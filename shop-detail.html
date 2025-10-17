@@ -32,14 +32,9 @@
 
     <body>
 
-        <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" role="status"></div>
-        </div>
         <!-- Spinner End -->
 
-
-         <!-- Navbar start -->
+                <!-- Navbar start -->
           <div class="container-fluid fixed-top">                           
     <div class="container px-0">
         
@@ -47,16 +42,20 @@
             <div class="d-flex m-3 me-0">
                     <a href="cart.html" class="position-relative me-4 my-auto">
                         <i class="fa fa-shopping-bag fa-2x" style="color: #f3c20e;"></i>
-                        <span id="cart-counter" class="position-absolute rounded-circle d-flex align-items-center justify-content-center text-white p-1" style="top: -10px; left: 18px; height: 25px; min-width: 25px; background-color: #f36f28 !important;">0</span>
+                        <span id="cart-counter" class="position-absolute rounded-circle d-flex align-items-center justify-content-center text-white " style="top: -10px; left: 18px; height: 25px; min-width: 25px; background-color: #f36f28 !important;">0</span>
                     </a>
                 </div>
-  
-            <a href="index.html" class="navbar-brand">
-                <img src="img/wak-wak-w-back-1.png" alt="WAK WAK" style="height: 70px;">
-            </a>
-            <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars text-primary"></span>
-            </button>
+                <div class="d-flex align-items-center" id="logo-toggler-group">
+                            
+                    <a href="index.html" class="navbar-brand p-0 m-0">
+                        <img src="img/wak-wak-w-back-1.png" alt="WAK WAK" id="navbar-logo">
+                    </a>
+
+                    <button class="navbar-toggler p-0 m-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars text-primary"></span>
+                    </button>
+
+                </div>
             <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                 <div class="navbar-nav me-xl-auto">
                     <a href="index.html" class="nav-item nav-link">الصفحة الرئيسية</a>
@@ -74,8 +73,6 @@
     </div>
 </div>
 <!-- Navbar End -->
-
-
 
 
         <!-- Single Page Header start -->
@@ -808,6 +805,35 @@ alert(`تم إضافة ${itemToAdd.quantity} قطعة من المنتج: ${itemT
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     }, false); 
     
+</script>
+
+<script>
+    // ******************************************************
+    // *** منطق إظهار زر "العودة للأعلى" بالتمرير ***
+    // ******************************************************
+
+    // 1. تحديد زر "العودة للأعلى"
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    // 2. تحديد مسافة التمرير التي يجب تجاوزها للإظهار (مثلاً: 200 بكسل)
+    const scrollThreshold = 200; 
+
+    // إضافة مستمع لحدث التمرير (Scroll Event) على النافذة
+    window.addEventListener('scroll', function() {
+        
+        // الحصول على الموقع الحالي للتمرير
+        // window.scrollY هو المفضل، أو window.pageYOffset إذا كان أقدم
+        let currentScroll = window.scrollY || window.pageYOffset;
+
+        // التحقق من موقع التمرير
+        if (currentScroll > scrollThreshold) {
+            // إذا تجاوزنا المسافة المطلوبة: أظهر الزر
+            backToTopButton.classList.add('show');
+        } else {
+            // إذا كنا في أعلى الصفحة: أخفِ الزر
+            backToTopButton.classList.remove('show');
+        }
+    });
 </script>
     </body>
 
