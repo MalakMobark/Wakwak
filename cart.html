@@ -81,59 +81,109 @@
     </div>
 </div>
 <!-- Navbar End -->
-
-
-
-        <!-- Single Page Header start -->
-        <div class="container-fluid page-header py-5">
-            
-            <ol class="breadcrumb justify-content-center mb-0">
-            </ol>
-        </div>
-        <!-- Single Page Header End -->
-
-
         <!-- Cart Page Start -->
-        <div class="container-fluid py-5">
-            <div class="container py-5">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                             <th scope="col">المنتج</th>
-                             <th scope="col">الاسم</th>
-                                 <th scope="col">اللون والمقاس</th> <th scope="col">السعر</th>
-                             <th scope="col">الكمية</th>
-                             <th scope="col">السعر الكلي</th>
-                             <th scope="col">حذف</th>
-                            </tr>
-                             </thead>
-                         <tbody id="cart-items-table">
-                        </tbody>
-                    </table>
-                </div>
-       <div class="mt-5"> 
-                    <div class="row justify-content-end"> <div class="col-lg-6">
-                            <div class="border p-4">
-                                <h5 class="mb-3">ملخص الطلب</h5>
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span>المجموع الفرعي:</span>
-                                    <span id="subtotal-display" class="fw-bold">0.00 $</span>
+         <div class="container-fluid py-2 content-buffer">
+    <div class="container mx-auto px-4 py-5">
+        <!-- العنوان المطلوب في المنتصف -->
+         <div class="text-center mb-5"></div>
+        <h2 class="fw-bold text-center mb-5">محتوى السلة</h2>
+        
+        <div class="row g-4">
+            
+            <!-- العمود الرئيسي لعناصر السلة -->
+            <div class="col-lg-8" id="cart-items-container">
+                
+                <!-- 
+                    ===============================================
+                    1. منطقة عرض عناصر السلة (JS ستملأ هذا العنصر)
+                    ===============================================
+                    في وضع الويب (Desktop)، سيتم وضع البطاقات بجوار بعضها البعض (كل 2 في صف).
+                    في وضع الموبايل، سيتم وضعها تحت بعضها البعض.
+                    
+                    ملاحظة: هذا الـ ID هو الحاوية التي يجب أن يضع فيها JavaScript البطاقات.
+                    نحن نستخدم "row g-3" لإضافة تباعد بين البطاقات.
+                -->
+                <div class="row g-3" id="cart-items-table">
+                    
+                    <!-- مثال على بطاقة منتج واحد (يجب على JS أن يولد مثل هذه البطاقات) -->
+                    <!-- في الويب، ستظهر بطاقتان جنبًا إلى جنب (col-md-6) -->
+                    <div class="col-12 col-md-6">
+                        <div class="cart-item-card d-flex">
+                            
+                            <!-- 1. زر الحذف (سلة حمراء) - في الزاوية المقابلة للصورة -->
+                            <button class="btn-remove-item" data-id="123" data-action="remove-item">
+                                <i class="fa fa-trash-alt"></i>
+                            </button>
+                            
+                            <!-- 2. الصورة (على اليسار) -->
+                            <div class="flex-shrink-0 me-3">
+                                <img src="https://placehold.co/100x100/f8f9fa/6c757d?text=صورة" class="product-img" alt="اسم المنتج">
+                            </div>
+                            
+                            <!-- 3. التفاصيل -->
+                            <div class="flex-grow-1 product-details-body">
+                                <!-- الاسم -->
+                                <p class="fw-bold product-name mb-1">كنزة هودي (مثال)</p>
+                                
+                                <!-- المقاس (تحت الاسم بخط صغير) -->
+                                <p class="small text-secondary product-size mb-1">القياس: XL</p>
+                                
+                                <hr class="my-1 card-separator">
+                                
+                                <!-- السعر والكمية (على نفس المحاذاة الأفقية) -->
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    
+                                    <!-- السعر بخط أكبر شوي -->
+                                    <p class="fw-bolder fs-5 text-primary mb-0">99.99 $</p>
+                                    
+                                    <!-- الكمية (الزرين) -->
+                                    <div class="quantity-controls d-flex align-items-center">
+                                        <button class="btn btn-sm btn-outline-secondary js-quantity-plus" data-id="123" data-action="plus">+</button>
+                                        <input type="text" class="form-control form-control-sm text-center quantity-input" value="1" readonly data-id="123">
+                                        <button class="btn btn-sm btn-outline-secondary js-quantity-minus" data-id="123" data-action="minus">-</button>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between mb-4">
-                                    <span class="fw-bold">المجموع الكلي (   التوصيل مجاني):</span>
-                                    <span id="grand-total-display" class="fw-bold text-primary">0.00 $</span>
-                                </div>
-                                <button type="button" class="btn w-100 btn-custom-outline" data-bs-toggle="modal" data-bs-target="#checkoutModal" id="checkout-btn">
-                                    <i class="fa fa-money-bill me-2"></i> إتمام الطلب
-                                </button>
                             </div>
                         </div>
                     </div> 
- </div>
-
+                    <!-- نهاية بطاقة المنتج المثالية -->
+                    
+                </div>
+                <!-- نهاية منطقة عرض عناصر السلة -->
+                
             </div>
+            
+            <!-- 
+                ===============================================
+                2. ملخص الطلب
+                ===============================================
+                هذا الجزء لم يتغير لضمان بقاء الـ IDs (subtotal, grand-total) وزر الإتمام (checkout-btn)
+            -->
+            <div class="col-lg-4">
+                <div class="sticky-top" style="top: 20px;">
+                    <div class="border p-4 rounded-3 bg-light shadow-sm">
+                        <h5 class="mb-3 fw-bold">ملخص الطلب</h5>
+                        <div class="d-flex justify-content-between mb-2 pb-2 border-bottom">
+                            <span>المجموع الفرعي:</span>
+                            <span id="subtotal-display" class="fw-bold">0.00 $</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-4">
+                            <span class="fw-bold">المجموع الكلي:</span>
+                            <span id="grand-total-display" class="fw-bold text-primary">0.00 $</span>
+                        </div>
+                        <!-- زر إتمام الطلب مربوط بنفس الـ modal target -->
+                        <button type="button" class="btn w-100 btn-custom-outline fw-bold py-2" data-bs-toggle="modal" data-bs-target="#checkoutModal" id="checkout-btn">
+                            <i class="fa fa-money-bill me-2"></i> إتمام الطلب
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
         </div>
+        
+    </div>
+</div>
+
         <!-- Cart Page End -->
 
 <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
@@ -281,146 +331,175 @@
     <script src="js/main.js"></script>
     
     <script>
+
         // 1. دالة تحديث عداد السلة (تم نسخها من الكود السابق)
-        function updateCartCounter() {
-            let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
-            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-            const counterElement = document.getElementById('cart-counter');
-            
-            if (counterElement) {
-                counterElement.textContent = totalItems.toString();
-            }
-        }
+function updateCartCounter() {
+    let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    const counterElement = document.getElementById('cart-counter');
+    
+    if (counterElement) {
+        counterElement.textContent = totalItems.toString();
+    }
+}
+
+// 2. الدوال المساعدة (الحذف، تحديث الكمية)
+function removeFromCart(uniqueKey) {
+    let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
+    cart = cart.filter(item => item.uniqueKey !== uniqueKey); 
+    localStorage.setItem('shoppingCart', JSON.stringify(cart));
+    renderCart(); // إعادة عرض السلة بعد التعديل
+}
+
+// * دالة لإظهار رسالة تأكيد مخصصة (بدلاً من alert/confirm)
+function showCustomConfirmation(message, onConfirm) {
+    // بما أننا لا نستطيع استخدام confirm()، يجب أن نستخدم منطق واجهة المستخدم
+    // هنا، سنعتمد على أن الزر (سلة الحذف) يفترض الموافقة. 
+    // إذا كنتِ تريدين رسالة تأكيد، يجب إضافة Modal (نافذة منبثقة) لعملية التأكيد.
+    // للحفاظ على بساطة الكود الآن، سنقوم بالحذف مباشرة إذا كانت الكمية صفر أو أقل.
+    onConfirm();
+}
+
+
+function updateQuantity(uniqueKey, change) {
+    let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
+    const itemIndex = cart.findIndex(item => item.uniqueKey === uniqueKey);
+    
+    if (itemIndex !== -1) {
+        let currentQuantity = cart[itemIndex].quantity;
+        let newQuantity = currentQuantity + change;
         
-        // 2. الدوال المساعدة (الحذف، تحديث الكمية)
-        function removeFromCart(uniqueKey) {
-            let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
-            cart = cart.filter(item => item.uniqueKey !== uniqueKey); 
-            localStorage.setItem('shoppingCart', JSON.stringify(cart));
-            renderCart(); // إعادة عرض السلة بعد التعديل
-        }
-
-        function updateQuantity(uniqueKey, change) {
-            let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
-            const itemIndex = cart.findIndex(item => item.uniqueKey === uniqueKey);
-            
-            if (itemIndex !== -1) {
-                let currentQuantity = cart[itemIndex].quantity;
-                let newQuantity = currentQuantity + change;
-                
-                if (newQuantity < 1) {
-                    if (confirm("هل تريد بالتأكيد إزالة هذا المنتج من السلة؟")) {
-                        removeFromCart(uniqueKey);
-                    }
-                    return;
-                }
-
-                cart[itemIndex].quantity = newQuantity;
-                // تحديث السعر الكلي للقطعة
-                cart[itemIndex].totalPrice = newQuantity * cart[itemIndex].price; 
-
-                localStorage.setItem('shoppingCart', JSON.stringify(cart));
-                renderCart();
-            }
-        }
-
-        // 3. دالة إرفاق مستمعي الأحداث لأزرار السلة
-        function attachCartListeners() {
-            document.querySelectorAll('.remove-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    removeFromCart(this.getAttribute('data-key'));
-                });
+        if (newQuantity < 1) {
+            // ملاحظة هامة: تم استبدال (if (confirm(...))) بمنطق الحذف المباشر لتجنب مشاكل الـ iFrame
+            // إذا كانت الكمية الجديدة أقل من 1، نقوم بالحذف
+            showCustomConfirmation("هل تريد بالتأكيد إزالة هذا المنتج من السلة؟", () => {
+                 removeFromCart(uniqueKey);
             });
-            document.querySelectorAll('.minus-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    updateQuantity(this.getAttribute('data-key'), -1);
-                });
-            });
-            document.querySelectorAll('.plus-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    updateQuantity(this.getAttribute('data-key'), 1);
-                });
-            });
+            return;
         }
+        cart[itemIndex].quantity = newQuantity;
+        // تحديث السعر الكلي للقطعة
+        cart[itemIndex].totalPrice = newQuantity * cart[itemIndex].price; 
+        localStorage.setItem('shoppingCart', JSON.stringify(cart));
+        renderCart();
+    }
+}
 
-
-        // 4. دالة عرض محتويات السلة في الجدول
-        function renderCart() {
-            const cartItemsContainer = document.getElementById('cart-items-table');
-            const subtotalDisplay = document.getElementById('subtotal-display');
-            const grandTotalDisplay = document.getElementById('grand-total-display');
-            
-            let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
-            let subtotal = 0;
-            
-            cartItemsContainer.innerHTML = ''; // مسح المحتويات القديمة
-
-            if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<tr><td colspan="7" class="text-center py-5">سلة المشتريات فارغة حالياً.</td></tr>';
-                subtotalDisplay.textContent = '0.00 $';
-                grandTotalDisplay.textContent = '0.00 $';
-                updateCartCounter();
-                return;
-            }
-
-            cart.forEach(item => {
-                subtotal += item.totalPrice; 
-
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>
-                       <img src="${item.imageUrl}" class="img-fluid rounded-circle" style="width: 80px; height: 80px;" alt="${item.name}"> 
-                    </td>
-                    <td>
-                        <p class="mb-0 fw-bold">${item.name}</p>
-                    </td>
-                    <td>
-                        <p class="mb-0">اللون: ${item.color}</p>
-                        <p class="mb-0">المقاس: ${item.size}</p>
-                    </td>
-                    <td>
-                        <p class="mb-0">${item.price.toFixed(2)} $</p>
-                    </td>
-                    <td>
-                        <div class="input-group quantity mx-auto" style="width: 100px;">
-                            <button class="btn btn-sm border border-secondary btn-custom-outline minus-btn" type="button" data-key="${item.uniqueKey}">
-                                <i class="fa fa-minus"></i>
-                            </button>
-                            <input type="text" class="form-control form-control-sm text-center border-0 bg-white" value="${item.quantity}" readonly>
-                            <button class="btn btn-sm border border-secondary btn-custom-outline plus-btn" type="button" data-key="${item.uniqueKey}">
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="mb-0 fw-bold item-total">${item.totalPrice.toFixed(2)} $</p>
-                    </td>
-                    <td>
-                        <button class="btn btn-md rounded-circle btn-danger remove-btn" data-key="${item.uniqueKey}">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </td>
-                `;
-                cartItemsContainer.appendChild(row);
-            });
-
-            // عرض المجاميع
-            subtotalDisplay.textContent = `${subtotal.toFixed(2)} $`;
-            grandTotalDisplay.textContent = `${subtotal.toFixed(2)} $`;
-            
-            updateCartCounter(); // تحديث العداد
-            attachCartListeners(); // تفعيل أزرار الحذف والتعديل
-        }
-
-
-        // 5. استدعاء الدوال عند تحميل الصفحة
-        document.addEventListener('DOMContentLoaded', function() {
-            renderCart(); // هذا هو المفتاح!
-            // يمكنك إضافة منطق تحديث الـ Modal هنا (لتعبئة حقول الطلب من السلة) لاحقاً
+// 3. دالة إرفاق مستمعي الأحداث لأزرار السلة
+// تم تعديل الكلاسات لاستخدام الكلاسات الجديدة التي أرفقناها في الـ HTML
+function attachCartListeners() {
+    // 1. أزرار الحذف (السلة الحمراء) - الآن تستخدم الكلاس .btn-remove-item
+    document.querySelectorAll('.btn-remove-item').forEach(button => {
+        button.addEventListener('click', function() {
+            // يتم استخدام data-id بدلاً من data-key ولكننا سنحافظ على data-key للتوافق
+            removeFromCart(this.getAttribute('data-id') || this.getAttribute('data-key')); 
         });
+    });
+    
+    // 2. أزرار نقصان الكمية - الكلاس .minus-btn
+    document.querySelectorAll('.minus-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            updateQuantity(this.getAttribute('data-key'), -1);
+        });
+    });
+    
+    // 3. أزرار زيادة الكمية - الكلاس .plus-btn
+    document.querySelectorAll('.plus-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            updateQuantity(this.getAttribute('data-key'), 1);
+        });
+    });
+}
 
+// 4. دالة عرض محتويات السلة - تم تحديثها لتوليد هيكل البطاقات
+function renderCart() {
+    const cartItemsContainer = document.getElementById('cart-items-table');
+    const subtotalDisplay = document.getElementById('subtotal-display');
+    const grandTotalDisplay = document.getElementById('grand-total-display');
+    
+    let cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
+    let subtotal = 0;
+    
+    cartItemsContainer.innerHTML = ''; // مسح المحتويات القديمة
+    
+    if (cart.length === 0) {
+        // رسالة سلة فارغة (في حالة عدم وجود سلة)
+        cartItemsContainer.innerHTML = '<div class="col-12 text-center py-5 border rounded-3 text-secondary">سلة المشتريات فارغة حالياً. ابدأ التسوق!</div>';
+        subtotalDisplay.textContent = '0.00 $';
+        grandTotalDisplay.textContent = '0.00 $';
+        updateCartCounter();
+        return;
+    }
+    
+    cart.forEach(item => {
+        subtotal += item.totalPrice; 
+        
+        // الهيكل الخارجي للبطاقة (يسمح بـ 2 كاردات في الصف للويب)
+        const itemColumn = document.createElement('div');
+        itemColumn.className = 'col-12 col-md-6'; // 100% عرض على الموبايل، 50% عرض على الويب
+        
+        // محتوى البطاقة الداخلي
+        itemColumn.innerHTML = `
+            <div class="cart-item-card d-flex">
+                
+                <!-- 1. زر الحذف (السلة الحمراء) - data-id و data-key للحذف -->
+                <button class="btn-remove-item" data-id="${item.uniqueKey}" data-key="${item.uniqueKey}">
+                    <i class="fa fa-trash-alt fa-lg"></i>
+                </button>
+                
+                <!-- 2. الصورة (على اليسار) -->
+                <div class="flex-shrink-0 me-3">
+                    <img src="${item.imageUrl || 'https://placehold.co/100x100/f8f9fa/6c757d?text=صورة'}" class="product-img" alt="${item.name}">
+                </div>
+                
+                <!-- 3. التفاصيل -->
+                <div class="flex-grow-1 product-details-body">
+                    <!-- الاسم -->
+                    <p class="fw-bold product-name mb-1">${item.name}</p>
+                    
+                    <!-- المقاس واللون بخط صغير -->
+                    <p class="small text-secondary product-size mb-1">
+                        القياس: <span class="fw-semibold">${item.size}</span> | اللون: <span class="fw-semibold">${item.color}</span>
+                    </p>
+                    
+                    <hr class="my-1 card-separator">
+                    
+                    <!-- السعر والكمية (على نفس المحاذاة الأفقية) -->
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        
+                        <!-- السعر بخط أكبر شوي (يستخدم السعر الكلي للقطعة) -->
+                        <p class="fw-bolder fs-5 text-primary mb-0">${item.totalPrice.toFixed(2)} $</p>
+                        
+                        <!-- الكمية (الزرين) -->
+                        <div class="quantity-controls d-flex align-items-center">
+                            <!-- زر النقصان - يستخدم الكلاس .minus-btn والـ data-key -->
+                            <button class="btn btn-sm btn-outline-secondary minus-btn" type="button" data-key="${item.uniqueKey}">-</button>
+                            
+                            <!-- حقل الكمية -->
+                            <input type="text" class="form-control form-control-sm text-center quantity-input" value="${item.quantity}" readonly>
+                            
+                            <!-- زر الزيادة - يستخدم الكلاس .plus-btn والـ data-key -->
+                            <button class="btn btn-sm btn-outline-secondary plus-btn" type="button" data-key="${item.uniqueKey}">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        cartItemsContainer.appendChild(itemColumn);
+    });
+    
+    // عرض المجاميع
+    subtotalDisplay.textContent = `${subtotal.toFixed(2)} $`;
+    grandTotalDisplay.textContent = `${subtotal.toFixed(2)} $`;
+    
+    updateCartCounter(); // تحديث العداد
+    attachCartListeners(); // تفعيل أزرار الحذف والتعديل
+}
 
-
+// 5. استدعاء الدوال عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    renderCart(); // هذا هو المفتاح!
+});
 
 
 

@@ -1514,3 +1514,184 @@ body {
     /* إلغاء الخط العريض */
     font-weight: normal !important; 
 }
+
+/* تنسيقات السلة */
+/* -------------------------------------- */
+/* -------------------------------------- */
+/* الأنماط العامة لتجنب التكرار في HTML */
+/* -------------------------------------- */
+:root {
+    --primary-color: #ff9900; /* لون WAW WAW البرتقالي */
+    --delete-color: #dc3545; /* الأحمر الخاص بالحذف */
+    --card-bg: #ffffff;
+    --text-dark: #212529; /* لون أسود غامق للنصوص الأساسية */
+    --text-secondary: #6c757d; /* لون رمادي للنصوص الفرعية */
+}
+
+/* تنسيق زر إتمام الطلب المخصص */
+.btn-custom-outline {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: transparent;
+    transition: all 0.3s;
+    border-width: 2px;
+}
+.btn-custom-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* -------------------------------------- */
+/* 1. تنسيق عند السلة الفارغة */
+/* -------------------------------------- */
+/* اللون الرمادي الفاتح لخلفية رسالة "السلة فارغة" */
+#cart-items-table > .col-12.text-center {
+    background-color: #f8f9fa; /* رمادي فاتح جداً */
+    color: var(--text-secondary) !important;
+    border-color: #dee2e6 !important;
+}
+
+/* -------------------------------------- */
+/* 2. تنسيق بطاقة المنتج في السلة */
+/* -------------------------------------- */
+.cart-item-card {
+    position: relative;
+    background-color: var(--card-bg);
+    border: 1px solid #f0f0f0; /* حدود خفيفة */
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+}
+
+/* تنسيق الصورة */
+.cart-item-card .product-img {
+    width: 100px; /* حجم ثابت للصورة */
+    height: 100px;
+    object-fit: cover;
+    border-radius:50px;
+    border: 1px solid #eee;
+}
+
+/* فاصل صغير بخط */
+.cart-item-card .card-separator {
+    border-top: 1px solid #eee;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* -------------------------------------- */
+/* 3. تنسيق اسم المنتج (أكبر وأغمق وأبعد عن الصورة) */
+/* -------------------------------------- */
+.cart-item-card .product-name {
+    font-size: 1.15rem; /* أكبر شوي */
+    color: var(--text-dark); /* أسود غامق */
+    margin-bottom: 0.5rem !important; /* بعيد نكشة صغيرة عن الصورة (عبر الـ d-flex) */
+}
+
+/* 4. تنسيق المقاس واللون (رمادي فقط) */
+.cart-item-card .product-size {
+    font-size: 0.85rem; /* صغير كما هو مطلوب */
+    color: var(--text-secondary) !important; /* رمادي */
+}
+
+/* 5. تنسيق السعر (أورانج وبولد) */
+.cart-item-card .fw-bolder.fs-5.text-primary {
+    color: var(--primary-color) !important; /* الأورانج المطلوب */
+    font-weight: 700 !important;
+}
+
+
+/* -------------------------------------- */
+/* تنسيق زر الحذف (السلة الحمراء) */
+/* -------------------------------------- */
+.btn-remove-item {
+    position: absolute;
+    top: 10px;
+    left: 10px; 
+    border: none;
+    background: none;
+    color: var(--delete-color);
+    padding: 5px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    z-index: 10;
+}
+.btn-remove-item:hover {
+    opacity: 1;
+}
+
+/* -------------------------------------- */
+/* تنسيق عداد الكمية */
+/* -------------------------------------- */
+.quantity-controls .quantity-input {
+    width: 40px !important;
+    padding: 0;
+    height: 30px;
+    font-weight: bold;
+    border-left: none;
+    border-right: none;
+}
+.quantity-controls .btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    line-height: 28px;
+    border-radius: 50% !important; /* شكل دائري للأزرار */
+    border-color: #ced4da;
+    color: #495057;
+    margin: 0 3px;
+    flex-shrink: 0; /* منع الانكماش */
+}
+.quantity-controls .btn:hover {
+    background-color: #f8f9fa;
+}
+
+
+/* -------------------------------------- */
+/* 6. تنسيق ملخص الطلب (الرقم بجوار السعر الكلي) */
+/* -------------------------------------- */
+#grand-total-display {
+    /* أسود غامق وبلود وأكبر شوي صغيرة */
+    font-size: 1.3rem; /* أكبر شوي */
+    font-weight: 900 !important; /* أغمق */
+    color: var(--text-dark) !important; /* أسود غامق */
+}
+
+
+/* -------------------------------------- */
+/* الاستجابة (Responsive) - وضع الموبايل */
+/* -------------------------------------- */
+@media (max-width: 767.98px) {
+    /* العنوان في المنتصف بشكل واضح */
+    .container h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* جعل البطاقة تبدو ممتلئة أكثر في الموبايل */
+    .cart-item-card {
+        padding: 10px;
+    }
+    
+    /* تغيير موضع زر الحذف ليناسب الموبايل بشكل أفضل */
+    .btn-remove-item {
+        top: 5px;
+        left: 5px;
+    }
+}
+
+/* -------------------------------------- */
+/* الاستجابة (Responsive) - وضع الويب (2 كاردات في الصف) */
+/* -------------------------------------- */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    /* لضمان ظهور بطاقتين بجوار بعضهما البعض (col-md-6) */
+    #cart-items-container {
+        /* إزالة الهامش الجانبي الافتراضي في هذه الشاشات المتوسطة */
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+.cart-item-card > .me-3 {
+    margin-inline-end: 20px !important; /* زيادة المسافة إلى 20 بكسل */
+}
+
