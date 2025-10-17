@@ -450,29 +450,28 @@
 
 <script>
 
-
-    function createProductCard(product) {
-    // بناء رابط صفحة التفاصيل بشكل ديناميكي باستخدام ID المنتج
+        function createProductCard(product) {
     const detailUrl = `shop-detail.html?id=${product.id}`;
 
-    // يمكنك إضافة منطق شارات (badges) "حسم" أو "جديد" هنا إذا كانت موجودة في بيانات المنتج
-    // const badgeHtml = product.isDiscounted ? 
-    //     `<div class="text-white rounded-circle position-absolute d-flex align-items-center justify-content-center fs-3" style="top: 10px; left: 10px; width: 80px; height: 80px; background-color: red;">حسم</div>` 
-    //     : '';
-    
     return `
         <div class="col-md-6 col-lg-4 col-xl-3">
-            <div class="rounded position-relative fruite-item h-100 d-flex flex-column ">
+            <div class="rounded position-relative fruite-item h-100 d-flex flex-column border border-secondary">
                 <div class="fruite-img">
                     <a href="${detailUrl}">
                         <img src="${product.image}" class="img-fluid w-100 rounded-top" alt="${product.name}">
                     </a>
                 </div>
-                <div class="p-4 border border-secondary border-top-0 rounded-bottom flex-grow-1 d-flex flex-column">
+                
+                <div class="p-4 rounded-bottom flex-grow-1 d-flex flex-column">
                     <h4><a href="${detailUrl}" class="text-dark text-decoration-none">${product.name}</a></h4>
                     <p>${product.description}</p>
-                    <div class="d-flex justify-content-between flex-lg-wrap mt-auto">
-                        <p class="text-dark fs-5 fw-bold mb-0">$${product.price.toFixed(2)}</p>
+                    
+                    <!-- 1. تعديل الحاوية الأبوية للتحكم بالترتيب في الموبايل -->
+                    <div class="d-flex justify-content-between flex-column flex-sm-row flex-lg-wrap mt-auto">
+                        
+                        <!-- 2. إضافة mb-2 (مسافة سفلية 2) للسعر -->
+                        <p class="text-dark fs-5 fw-bold mb-2 mb-sm-0">$${product.price.toFixed(2)}</p>
+                        
                         <a href="${detailUrl}" class="btn border rounded-pill px-3 btn-custom-outline"><i class="fa fa-shopping-bag me-2"></i> عرض تفاصيل المنتج</a>
                     </div>
                 </div>
@@ -480,7 +479,6 @@
         </div>
     `;
 }
-
 function renderProducts(products, containerId) {
     // التأكد من أن المصفوفة ALL_PRODUCTS موجودة قبل محاولة العرض
     if (typeof ALL_PRODUCTS === 'undefined' || ALL_PRODUCTS.length === 0) {
