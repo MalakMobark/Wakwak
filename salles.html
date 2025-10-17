@@ -451,6 +451,47 @@
     <script>
     updateCartCounter();
 </script>
+
+<script>
+    // ******************************************************
+    // *** منطق إخفاء وإظهار الناف بار بالتمرير (Smart Scroll) ***
+    // ******************************************************
+    
+    // 1. تحديد متغير لتخزين آخر موقع للتمرير (scroll position)
+    let lastScrollTop = 0;
+    
+    // 2. تحديد عنصر الناف بار (هو الـ div الذي يحمل fixed-top)
+    // نستخدم querySelector لضمان اختيار العنصر الأب الصحيح
+    const navbarElement = document.querySelector('.container-fluid.fixed-top');
+    
+    // 3. الحصول على ارتفاع الناف بار لضمان عدم إخفائه فوراً عند التمرير قليلاً
+    const navbarHeight = navbarElement ? navbarElement.offsetHeight : 0; 
+
+    // إضافة مستمع لحدث التمرير (Scroll Event) على النافذة
+    window.addEventListener('scroll', function() {
+        
+        // الحصول على الموقع الحالي للتمرير
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        // التحقق مما إذا كان الناف بار موجوداً
+        if (navbarElement) {
+            
+            if (currentScroll > lastScrollTop && currentScroll > navbarHeight) {
+                // الحالة 1: التمرير للأسفل (Down Scrolling) 
+                // ويجب أن نكون قد مررنا مسافة تزيد عن ارتفاع الناف بار (لتجنب إخفائه فوراً)
+                navbarElement.classList.add('navbar-hidden');
+            } else {
+                // الحالة 2: التمرير للأعلى (Up Scrolling) 
+                // أو إذا كنا في أعلى الصفحة
+                navbarElement.classList.remove('navbar-hidden');
+            }
+        }
+        
+        // تحديث آخر موقع للتمرير
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false); 
+    
+</script>
     </body>
 
 </html>

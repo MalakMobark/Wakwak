@@ -32,50 +32,48 @@
 
     <body>
 
-        <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" role="status"></div>
-        </div>
-        <!-- Spinner End -->
-
-
-        <!-- Navbar start -->
-        <div class="container-fluid fixed-top">                           
-            <div class="container px-0">
-                <nav class="navbar navbar-light bg-white navbar-expand-xl d-flex justify-content-between">
-                    <div class="d-flex m-3 me-0">
-                <a href="cart.html" class="position-relative me-4 my-auto">
-                    <i class="fa fa-shopping-bag fa-2x" style="color: #f3c20e;"></i>
-                    <span id="cart-counter" class="position-absolute rounded-circle d-flex align-items-center justify-content-center text-white p-1" style="top: -10px; left: 18px; height: 25px; min-width: 25px; background-color: #f36f28 !important;">0</span>
-                </a>
-            </div>
-            
+                <!-- Navbar start -->
+          <div class="container-fluid fixed-top">                           
+    <div class="container px-0">
+        
+        <nav class="navbar navbar-light bg-white navbar-expand-xl d-flex justify-content-between">
+            <div class="d-flex m-3 me-0">
+                    <a href="cart.html" class="position-relative me-4 my-auto">
+                        <i class="fa fa-shopping-bag fa-2x" style="color: #f3c20e;"></i>
+                        <span id="cart-counter" class="position-absolute rounded-circle d-flex align-items-center justify-content-center text-white p-1" style="top: -10px; left: 18px; height: 25px; min-width: 25px; background-color: #f36f28 !important;">0</span>
+                    </a>
+                </div>
+  
             <a href="index.html" class="navbar-brand">
                 <img src="img/wak-wak-w-back-1.png" alt="WAK WAK" style="height: 70px;">
             </a>
-            
             <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars text-primary"></span>
             </button>
-            
             <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                 <div class="navbar-nav me-xl-auto">
-                    </div>
+                    <a href="index.html" class="nav-item nav-link">الصفحة الرئيسية</a>
+                    <a href="all_clothes.html" class="nav-item nav-link"> جميع الملابس </a>
+                    <a href="clothes_woman.html" class="nav-item nav-link">ملابس نسائية </a>
+                    <a href="clothes_man.html" class="nav-item nav-link">ملابس رجالية </a>
+                    <a href="salles.html" class="nav-item nav-link">عروضنا </a>
+                    <a href="#contact_us" class="nav-item nav-link">التواصل معنا</a>
+                    
+                </div>
             </div>
-                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
-                        <div class="navbar-nav me-xl-auto">
-                            <a href="index.html" class="nav-item nav-link active">الصفحة الرئيسية</a>
-                            <a href="all_clothes.html" class="nav-item nav-link"> جميع الملابس </a>
-                            <a href="clothes_woman.html" class="nav-item nav-link">ملابس نسائية </a>
-                            <a href="clothes_man.html" class="nav-item nav-link">ملابس رجالية </a>
-                            <a href="salles.html" class="nav-item nav-link">عروضنا </a>
-                            <a href="#contact_us" class="nav-item nav-link">التواصل معنا</a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- Navbar End -->
+    
+        </nav>
+        
+    </div>
+</div>
+<!-- Navbar End -->
+ 
+        
+        
+        
+        
+
+
 
 
         <!-- Hero Start -->
@@ -542,6 +540,47 @@ const womenProducts = ALL_PRODUCTS.filter(product => product.category === 'women
 renderProducts(womenProducts, 'women-products-container');
 </script>
 
+
+<script>
+    // ******************************************************
+    // *** منطق إخفاء وإظهار الناف بار بالتمرير (Smart Scroll) ***
+    // ******************************************************
+    
+    // 1. تحديد متغير لتخزين آخر موقع للتمرير (scroll position)
+    let lastScrollTop = 0;
+    
+    // 2. تحديد عنصر الناف بار (هو الـ div الذي يحمل fixed-top)
+    // نستخدم querySelector لضمان اختيار العنصر الأب الصحيح
+    const navbarElement = document.querySelector('.container-fluid.fixed-top');
+    
+    // 3. الحصول على ارتفاع الناف بار لضمان عدم إخفائه فوراً عند التمرير قليلاً
+    const navbarHeight = navbarElement ? navbarElement.offsetHeight : 0; 
+
+    // إضافة مستمع لحدث التمرير (Scroll Event) على النافذة
+    window.addEventListener('scroll', function() {
+        
+        // الحصول على الموقع الحالي للتمرير
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        // التحقق مما إذا كان الناف بار موجوداً
+        if (navbarElement) {
+            
+            if (currentScroll > lastScrollTop && currentScroll > navbarHeight) {
+                // الحالة 1: التمرير للأسفل (Down Scrolling) 
+                // ويجب أن نكون قد مررنا مسافة تزيد عن ارتفاع الناف بار (لتجنب إخفائه فوراً)
+                navbarElement.classList.add('navbar-hidden');
+            } else {
+                // الحالة 2: التمرير للأعلى (Up Scrolling) 
+                // أو إذا كنا في أعلى الصفحة
+                navbarElement.classList.remove('navbar-hidden');
+            }
+        }
+        
+        // تحديث آخر موقع للتمرير
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false); 
+    
+</script>
     </body>
 
 </html>

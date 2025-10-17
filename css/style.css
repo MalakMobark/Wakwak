@@ -968,17 +968,234 @@ input[type="radio"].btn-check:checked + .btn-outline-custom {
     border-color: #d3d3d3;
     
 }
-
-
-
+/* استهداف الشاشات الصغيرة (الهواتف) - أقل من 992 بكسل */
 @media (max-width: 991.98px) {
     /* 1. تصغير حجم صورة الشعار لتقليل ارتفاع الناف بار */
     .navbar-brand img {
-        height: 40px !important; /* يمكنك تغيير القيمة حسب رغبتك */
+        height: 40px !important; /* كما اتفقنا سابقاً */
+        padding: 0 !important;   /* إزالة أي بادينغ محتمل */
     }
 
-    /* 2. تصغير حجم حاوية العربة (اختياري) */
-    .navbar .d-flex.m-3.me-0 {
-        margin: 10px 0 !important; /* تقليل الهوامش */
+    /* 2. تعديل سلوك الـ NAV لتقليل المسافات بين العناصر */
+    .navbar {
+        /* استخدام justify-content-start أو space-around بدلاً من space-between */
+        justify-content: space-around !important; 
+        /* أو يمكنكِ تجربة هذا إذا كنتِ تريدين تضييق المسافات لأقصى حد */
+        /* justify-content: start !important; */ 
     }
+
+    /* 3. إزالة أي هوامش متبقية على الـ Div الذي يحوي العربة */
+    .navbar .d-flex.my-xl-3 {
+        margin: 0 !important;
+        padding: 0 5px !important; /* إضافة بادينغ خفيف جداً على الجوانب */
+    }
+    
+    /* 4. إزالة الهوامش من زر التبديل (Toggler) */
+    .navbar-toggler {
+        margin: 0 !important;
+        padding: 5px !important; /* تقليل البادينغ للحجم المطلوب */
+    }
+}
+/* 1. الارتفاع الأساسي للوجو (لشاشات الكمبيوتر) */
+#navbar-logo {
+    height: 70px;
+}
+
+/* 2. التحكم بارتفاع الناف بار في وضع الموبايل (أقل من 992 بكسل) */
+@media (max-width: 991.98px) {
+    
+    /* أ. تصغير ارتفاع الصورة (لجعلها العنصر الأقصر) */
+    #navbar-logo {
+        height: 40px !important; /* هذا الرقم هو الذي يقلل حجم الشعار */
+    }
+
+    /* ب. تصفير البادينغ على الـ navbar-brand الذي يحمل الصورة */
+    /* هذا يزيل المسافة الرأسية حول الصورة التي يفرضها Bootstrap */
+    .navbar-brand {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* ج. تصفير البادينغ على شريط التنقل الرئيسي نفسه */
+    /* هذا هو المفتاح لإجبار الناف بار على الانكماش عمودياً */
+    .navbar {
+        padding-top: 0.5rem !important; /* تقليل البادينغ العلوي */
+        padding-bottom: 0.5rem !important; /* تقليل البادينغ السفلي */
+        /* يمكنك تجربة 0 !important إذا أردتِ أقصى انكماش */
+    }
+    
+    /* د. تصفير الهوامش على زر التبديل (Toggler) لتقليل ارتفاعه */
+    .navbar-toggler {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    /* هـ. التأكد من أن حاوية العربة ليس لديها هوامش عمودية كبيرة */
+    .navbar .d-flex {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+}
+/* 1. الارتفاع الأساسي للوجو (لشاشات الكمبيوتر) */
+#navbar-logo {
+    height: 70px;
+}
+
+/* 2. تصغير الارتفاع في وضع الموبايل (أقل من 992 بكسل) */
+@media (max-width: 991.98px) {
+    
+    /* أ. تصغير ارتفاع الصورة */
+    #navbar-logo {
+        height: 40px !important; /* القيمة المصغرة */
+    }
+
+    /* ب. تصفير البادينغ على شريط التنقل الرئيسي نفسه (المفتاح لحل مشكلة الارتفاع الأبيض) */
+.navbar {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    /* ج. تصفير الهوامش والبادينغ على زر التبديل (Toggler) لتقليل ارتفاعه */
+    .navbar-toggler {
+        /* أنتِ تستخدمين py-2 في HTML، هذه تزيلها وتضع قيمة أصغر */
+        padding-top: 0.5rem !important; 
+        padding-bottom: 0.5rem !important;
+        /* يمكنك تجربة 0 !important إذا أردتِ أقصى انكماش */
+    }
+}
+/* 1. الارتفاع الأساسي للوجو (لشاشات الكمبيوتر) */
+#navbar-logo {
+    height: 70px;
+}
+
+/* 2. تصغير الارتفاع في وضع الموبايل (أقل من 992 بكسل) */
+@media (max-width: 991.98px) {
+    
+    /* أ. تصغير ارتفاع الصورة */
+    #navbar-logo {
+        height: 40px !important; /* القيمة المصغرة */
+    }
+
+    /* ب. تصفير الهوامش والبادينغ على عناصر الناف بار الرئيسية */
+    
+    /* هذا يستهدف حاوية الناف بار العلوية */
+    .container-fluid.fixed-top {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* هذا يستهدف الحاوية الداخلية */
+    .container.px-0 {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* ج. تصفير البادينغ على شريط التنقل الرئيسي (إجباري) */
+    .navbar {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        min-height: 40px !important; /* التأكد من عدم وجود ارتفاع أدنى كبير */
+    }
+    
+    /* د. إزالة الهوامش من زر التبديل والـ navbar-brand */
+    .navbar-toggler, .navbar-brand {
+        padding: 0.5rem !important; /* ترك مسافة بسيطة */
+        margin: 0 !important;
+    }
+
+    /* هـ. التأكد من أن حاوية العربة ليس لديها هوامش عمودية كبيرة */
+    /* أنتِ تستخدمين my-xl-3، لكن للتأكد من إلغائها في وضع الموبايل */
+    .navbar .d-flex {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+}
+.navbar {
+    min-height: 80px !important; /* أو أي رقم صغير مثل 50px */
+}
+/* الارتفاع الأساسي للوجو (لشاشات الكمبيوتر) */
+#navbar-logo {
+    height: 70px;
+}
+
+/* التعديلات الحتمية لتقليل الارتفاع في وضع الموبايل (أقل من 992 بكسل) */
+@media (max-width: 991.98px) {
+    
+    /* 1. تصغير ارتفاع الصورة */
+    #navbar-logo {
+        height: 40px !important; 
+    }
+
+    /* 2. إجبار الناف بار على الانكماش (تصفير البادينغ) */
+    .navbar {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        /* هذا السطر مهم جداً لإلغاء أي min-height مفروضة */
+        min-height: 45px !important; 
+    }
+    
+    /* 3. تصفير البادينغ الداخلي لزر القائمة (Toggler) */
+    /* أنتِ تستخدمين py-2 و px-3، هذه تلغيهما وتصغّر الزر */
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem !important; /* بادينغ صغير جداً */
+    }
+
+    /* 4. إزالة البادينغ من حول الشعار */
+    .navbar-brand {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* 5. إزالة أي مسافة إضافية في حاوية العربة (Cart) */
+    .navbar .d-flex {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+}
+/* الارتفاع الأساسي للوجو (لشاشات الكمبيوتر) */
+#navbar-logo {
+    height: 70px;
+}
+
+/* التعديلات الأقوى لتقليل الارتفاع في وضع الموبايل (أقل من 992 بكسل) */
+@media (max-width: 991.98px) {
+    
+    /* 1. تصغير ارتفاع الصورة */
+    #navbar-logo {
+        height: 40px !important; 
+    }
+
+    /* 2. الإلغاء المطلق لجميع خصائص الارتفاع والبادينغ على عنصر الـ NAV */
+    /* هذا المُحدّد هو الأكثر قوة */
+    .container-fluid > .container > .navbar {
+        /* الإلغاء المطلق للارتفاعات بأنواعها */
+        height: auto !important; 
+        min-height: 45px !important; 
+
+        /* هون بعدل حجم البادينغ من حيث الارتفاع */
+        /* الإلغاء المطلق للـ Padding */
+        padding-top:15px !important;
+        padding-bottom: 10px!important;
+    }
+
+    /* 3. إزالة أي مسافات عمودية متبقية على التوجلر والعلامة التجارية */
+    .navbar-toggler, .navbar-brand, .navbar .d-flex {
+        padding: 0.25rem 0.5rem !important; /* تقليل البادينغ الداخلي */
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+}
+/* الكود التالي خارج أي media query ليعمل على الجميع */
+
+/* تحديد حركة انتقال سلسة لعنصر fixed-top */
+.container-fluid.fixed-top {
+    /* يجعل الناف بار ينزلق للأعلى والأسفل بسلاسة في 0.3 ثانية */
+    transition: top 0.8s; 
+    /* تأكيد بقائه فوق العناصر الأخرى */
+    z-index: 1030; 
+}
+
+/* الكلاس الذي سيخفي الناف بار (بتحريكه للأعلى خارج الشاشة) */
+.navbar-hidden {
+    /* قمنا بتعيين قيمة -100px كافية لإخفائه حتى لو كان مرتفعاً قليلاً */
+    top: -100px; 
 }
