@@ -477,23 +477,18 @@
 
 <script>
     function createProductCard(product) {
-    // بناء رابط صفحة التفاصيل بشكل ديناميكي باستخدام ID المنتج
     const detailUrl = `shop-detail.html?id=${product.id}`;
 
-    // يمكنك إضافة منطق شارات (badges) "حسم" أو "جديد" هنا إذا كانت موجودة في بيانات المنتج
-    // const badgeHtml = product.isDiscounted ? 
-    //     `<div class="text-white rounded-circle position-absolute d-flex align-items-center justify-content-center fs-3" style="top: 10px; left: 10px; width: 80px; height: 80px; background-color: red;">حسم</div>` 
-    //     : '';
-    
     return `
         <div class="col-md-6 col-lg-4 col-xl-3">
-            <div class="rounded position-relative fruite-item h-100 d-flex flex-column ">
+            <div class="rounded position-relative fruite-item h-100 d-flex flex-column border border-secondary">
                 <div class="fruite-img">
                     <a href="${detailUrl}">
                         <img src="${product.image}" class="img-fluid w-100 rounded-top" alt="${product.name}">
                     </a>
                 </div>
-                <div class="p-4 border border-secondary border-top-0 rounded-bottom flex-grow-1 d-flex flex-column">
+                
+                <div class="p-4 rounded-bottom flex-grow-1 d-flex flex-column">
                     <h4><a href="${detailUrl}" class="text-dark text-decoration-none">${product.name}</a></h4>
                     <p>${product.description}</p>
                     <div class="d-flex justify-content-between flex-lg-wrap mt-auto">
@@ -505,7 +500,6 @@
         </div>
     `;
 }
-
 function renderProducts(products, containerId) {
     // التأكد من أن المصفوفة ALL_PRODUCTS موجودة قبل محاولة العرض
     if (typeof ALL_PRODUCTS === 'undefined' || ALL_PRODUCTS.length === 0) {
