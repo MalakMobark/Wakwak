@@ -487,7 +487,7 @@
 </script>
 
 <script>
-    function createProductCard(product) {
+        function createProductCard(product) {
     const detailUrl = `shop-detail.html?id=${product.id}`;
 
     return `
@@ -502,8 +502,13 @@
                 <div class="p-4 rounded-bottom flex-grow-1 d-flex flex-column">
                     <h4><a href="${detailUrl}" class="text-dark text-decoration-none">${product.name}</a></h4>
                     <p>${product.description}</p>
-                    <div class="d-flex justify-content-between flex-lg-wrap mt-auto">
-                        <p class="text-dark fs-5 fw-bold mb-0">$${product.price.toFixed(2)}</p>
+                    
+                    <!-- 1. تعديل الحاوية الأبوية للتحكم بالترتيب في الموبايل -->
+                    <div class="d-flex justify-content-between flex-column flex-sm-row flex-lg-wrap mt-auto">
+                        
+                        <!-- 2. إضافة mb-2 (مسافة سفلية 2) للسعر -->
+                        <p class="text-dark fs-5 fw-bold mb-2 mb-sm-0">$${product.price.toFixed(2)}</p>
+                        
                         <a href="${detailUrl}" class="btn border rounded-pill px-3 btn-custom-outline"><i class="fa fa-shopping-bag me-2"></i> عرض تفاصيل المنتج</a>
                     </div>
                 </div>
@@ -511,6 +516,7 @@
         </div>
     `;
 }
+
 function renderProducts(products, containerId) {
     // التأكد من أن المصفوفة ALL_PRODUCTS موجودة قبل محاولة العرض
     if (typeof ALL_PRODUCTS === 'undefined' || ALL_PRODUCTS.length === 0) {

@@ -1,59 +1,242 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="utf-8">
     <title>شكراً لطلبك - وَاك وَاك</title>
-    <link rel="icon" type="image/png" href="img/wak-wak-w-back-1.png">
+    <!-- تضمين ملفات Bootstrap و Font Awesome و Tailwind -->
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script> 
     
     <style>
-        .thank-you-container {
-            padding-top: 150px; /* لترك مسافة للـ Navbar الثابتة */
-            padding-bottom: 100px;
-            text-align: center;
+        /* تعريف الألوان الأساسية لمتجرك */
+        :root {
+            --color-primary: #F36F28; /* البرتقالي الأساسي */
+            --color-secondary: #F3C20E; /* الأصفر الذهبي */
+            --color-bg-light: #f0f0f0; /* الخلفية الرمادية الفاتحة الجديدة */
+            --color-card-bg: #ffffff; /* تم تغيير لون البطاقة للأبيض لزيادة التباين مع الخلفية الجديدة */
+            --color-text-dark: #1f1f1f; /* أسود داكن للنصوص */
         }
+
+        /* تنسيق الصفحة بالكامل */
+        body {
+            background-color: var(--color-bg-light);
+            font-family: 'Open Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+            overflow-x: hidden;
+        }
+
+        /* تنسيق حاوية الشكر الرئيسية */
+        .thank-you-card {
+            background-color: var(--color-card-bg); 
+            border-radius: 1.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: none;
+            width: 100%;
+            max-width: 600px;
+            animation: fadeInScale 0.8s ease-out;
+        }
+        
+        /* الشريط العلوي الجذاب بلون العلامة التجارية */
+        .card-header-bar {
+            height: 10px;
+            background-color: var(--color-primary);
+            width: 100%;
+            border-radius: 1.5rem 1.5rem 0 0;
+        }
+
+        /* محتوى البطاقة الداخلي */
+        .card-content {
+            padding: 3rem 2rem;
+        }
+
+        /* تنسيق أيقونة التأكيد */
         .icon-check {
-            font-size: 80px;
-            color: #f36f28; /* لون برتقالي مخصص */
-            margin-bottom: 20px;
+            font-size: 5rem;
+            color: var(--color-primary); 
+            margin-bottom: 1.5rem;
+            animation: bounceIn 1.2s ease-out;
+        }
+        
+        /* تنسيق العنوان الرئيسي (سطح المكتب) */
+        .main-title {
+            color: var(--color-text-dark) !important; 
+            font-weight: 900 !important;
+            font-size: 2.5rem; /* حجم كبير لسطح المكتب */
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        /* القائمة: تخصيص عرض القائمة لتبدو أنيقة على سطح المكتب */
+        .process-list {
+            width: 75%;
+        }
+        
+        .lead {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        /* تنسيق قائمة الخطوات */
+        .process-list li {
+            font-size: 1rem;
+            color: var(--color-text-dark);
+            text-align: right;
+            border-bottom: 1px dashed #e0e0e0;
+            padding: 12px 0;
+        }
+        .process-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* تنسيق أيقونات القائمة */
+        .process-list li i {
+            color: var(--color-secondary); 
+            margin-left: 0.75rem;
+        }
+
+        /* تنسيق زر العودة (الإطار الخارجي الأصلي) */
+        .btn-custom-outline {
+            border-radius: 50px !important;
+            background-color: transparent !important;
+            color: var(--color-primary) !important;
+            border: 2px solid var(--color-primary) !important;
+            transition: all 0.3s ease;
+            font-weight: 700 !important;
+            box-shadow: none !important;
+        }
+
+        .btn-custom-outline:hover {
+            background-color: var(--color-primary) !important;
+            color: white !important;
+            transform: none !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        /* === منطقة التعديل للتجاوبية (Mobile Responsive) === */
+        @media (max-width: 576px) {
+            
+            /* تقليل المسافة المحيطة بالبطاقة */
+            body {
+                padding: 10px; /* تقليل البادينج الخارجي لزيادة عرض البطاقة */
+            }
+            
+            /* تقليل المسافة الداخلية للبطاقة */
+            .card-content {
+                padding: 1.5rem 1rem; /* تقليل البادينج العمودي */
+            }
+            
+            /* تقليص حجم أيقونة التأكيد وتقليل الهامش السفلي */
+            .icon-check {
+                font-size: 3.5rem; /* أصغر قليلاً */
+                margin-bottom: 0.75rem; /* تقليل الهامش السفلي */
+            }
+
+            /* تقليص حجم العنوان الرئيسي ليناسب شاشة الموبايل وتقليل الهامش */
+            .main-title {
+                font-size: 1.75rem; /* أصغر قليلاً */
+                margin-bottom: 0.5rem;
+            }
+            
+            /* تقليل حجم النص الوصفي وتقليل الهامش السفلي */
+            .lead {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            /* تقليل الهامش للعنوان الفرعي */
+            .card-content h4 {
+                margin-top: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            /* استخدام العرض الكامل المتاح داخل الكارد للقائمة */
+            .process-list {
+                width: 100%; 
+                text-align: right;
+            }
+            .process-list li {
+                padding: 8px 0; /* تقليل البادينج العمودي للقائمة */
+            }
+
+            /* تقليل حجم زر العودة */
+            .btn-custom-outline {
+                font-size: 0.95rem;
+                padding: 0.5rem 2rem !important;
+            }
+            
+            /* تقليل الهامش العلوي للزر */
+            .card-content .mt-5 {
+                margin-top: 1.5rem !important;
+            }
+        }
+        /* ======================================================= */
+
+        /* تأثيرات الحركة */
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+        @keyframes fadeInScale {
+             0% { opacity: 0; transform: translateY(20px); }
+             100% { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 
 <body>
-    <div class="container-fluid thank-you-container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-                <i class="fas fa-check-circle icon-check"></i>
-                <h1 class="display-4 text-dark mb-4">شكراً لك على الطلب!</h1>
-                <p class="lead mb-4">تم استلام طلبك بنجاح. سنقوم بمراجعته والتواصل معك لتأكيد التفاصيل خلال 24 ساعة.</p>
-                
-                <h4 class="mb-3" style="color: #f3c20e;">ماذا سيحدث الآن؟</h4>
-                <ul class="list-unstyled mb-5">
-                    <li class="mb-2"><i class="fas fa-arrow-left me-2" style="color: #f36f28;"></i> سيتم الاتصال بك لتأكيد العنوان وتفاصيل الطلب.</li>
-                    <li class="mb-2"><i class="fas fa-arrow-left me-2" style="color: #f36f28;"></i> سيتم شحن الطلب إليك خلال 4 أيام عمل.</li>
-                    <li><i class="fas fa-arrow-left me-2" style="color: #f36f28;"></i> يمكنك العودة للتسوق من متجرنا الرائع!</li>
-                </ul>
 
-                <a href="index.html" class="btn btn-lg border rounded-pill px-3 btn-custom-outline">العودة إلى الصفحة الرئيسية</a>
-                                            
-                                            
-                                            
+<div class="container-fluid thank-you-container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="thank-you-card mx-auto">
+                
+                <!-- الشريط العلوي بلون العلامة التجارية -->
+                <div class="card-header-bar"></div>
+                
+                <div class="card-content">
+                    
+                    <!-- أيقونة التأكيد الحيوية -->
+                    <i class="fas fa-check-circle icon-check"></i>
+                    
+                    <!-- العنوان الرئيسي: أسود، أكبر، وأغمق (متجاوب) -->
+                    <h1 class="main-title mb-3">شكراً لك على الطلب!</h1>
+                    
+                    <p class="lead mb-4">تم استلام طلبك بنجاح. نحن نعمل على تجهيزه وسنتواصل معك قريباً!</p>
+                    
+                    <h4 class="mb-4 mt-4 text-dark fw-bold">ماذا سيحدث الآن؟</h4>
+                    
+                    <!-- قائمة الخطوات -->
+                    <ul class="list-unstyled mx-auto text-start process-list">
+                        <li class="mb-2"><i class="fas fa-arrow-left"></i> سيتم الاتصال بك لتأكيد العنوان وتفاصيل الطلب.</li>
+                        <li class="mb-2"><i class="fas fa-arrow-left"></i> سيتم شحن طلبك خلال **4 أيام عمل**.</li>
+                        <li><i class="fas fa-arrow-left"></i> يمكنك متابعة التسوق واستكشاف جديدنا!</li>
+                    </ul>
+                    
+                    <!-- الزر: تنسيق الإطار الخارجي الأصلي -->
+                    <div class="mt-5">
+                        <a href="index.html" class="btn btn-lg rounded-pill px-5 py-3 btn-custom-outline">ابدأ التسوق مجدداً</a>
+                    </div>
+                    
+                </div>
+                
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script> 
-    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
