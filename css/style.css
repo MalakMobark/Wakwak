@@ -1173,8 +1173,8 @@ input[type="radio"].btn-check:checked + .btn-outline-custom {
 
         /* هون بعدل حجم البادينغ من حيث الارتفاع */
         /* الإلغاء المطلق للـ Padding */
-        padding-top:15px !important;
-        padding-bottom: 10px!important;
+        padding-top:6px !important;
+        padding-bottom: 6px!important;
     }
 
     /* 3. إزالة أي مسافات عمودية متبقية على التوجلر والعلامة التجارية */
