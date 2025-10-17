@@ -304,71 +304,168 @@
 <!-- Featurs Section End -->
 
         <!-- Tastimonial Start -->
-
-<div class="container-fluid text-white-50 footer pt-1 mt-1" style="background-color: #343a40;">
+         <div class="container-fluid text-white-50 footer pt-1 mt-1" style="background-color: #343a40;">
     <div class="container py-5">
-        <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
+        <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(243, 194, 14, 0.5);">
             <div class="row g-4">
+                <!-- 1. الشعار -->
                 <div class="col-lg-3">
                     <a href="#">
-                        <!-- 2. تم تغيير الاسم وتلوين حرف الكاف -->
                         <h1 class="mb-0" style="color: #f3c20e;">متجر وَا<span style="color: #f36f28;">ك</span> وَا<span style="color: #f36f28;">ك</span></h1>
                         <p class="mb-0" style="color: #f3c20e;">ملابس بروح مرحة</p>
                     </a>
                 </div>
-                <div class="col-lg-6">
-                    <div class="position-relative mx-auto">
-                        <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="email" placeholder="بريدك الإلكتروني">
-                        <!-- 1. تم تغيير كلمة "Subscribe Now" -->
-                        <button type="submit" class="btn border-0 py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0; background-color: #f36f28;">تسجيل دخول</button>
-                    </div>
+                
+                <!-- 2. زر الانضمام كبائع (بدلاً من حقل الإيميل) -->
+                <div class="col-lg-6 d-flex justify-content-center justify-content-lg-start align-items-center">
+                    <button type="button" 
+                            class="btn btn-lg rounded-pill text-white btn-seller-join" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#sellerModal"
+                            style="background-color: #f36f28; transition: all 0.3s; font-weight: 700; border: 2px solid #f36f28;"
+                            onmouseover="this.style.backgroundColor='#F3C20E'; this.style.borderColor='#F3C20E'; this.style.color='#343a40';"
+                            onmouseout="this.style.backgroundColor='#f36f28'; this.style.borderColor='#f36f28'; this.style.color='white';">
+                        انضم كبائع الآن!
+                    </button>
                 </div>
+                <!-- نهاية التعديل -->
+                
             </div>
         </div>
         <div class="row g-5">
+            <!-- --- القسم الأول: لماذا واك واك؟ --- -->
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-light mb-3">لماذا وَا<span style="color: #f36f28;">ك</span> وَا<span style="color: #f36f28;">ك</span>؟</h4>
+                    <p class="mb-4">لأننا نؤمن أن الملابس هي أكثر من مجرد قماش. في واك واك، نصمم كل قطعة لتعكس روحك المرحة، باستخدام أجود الخامات لنوفر لك الراحة والأناقة في كل يوم.</p>
+                </div>
+            </div>
 
-<div class="row g-5">
-    <!-- --- القسم الأول: لماذا واك واك؟ --- -->
-    <div class="col-lg-3 col-md-6">
-        <div class="footer-item">
-            <h4 class="text-light mb-3">لماذا وَا<span style="color: #f36f28;">ك</span> وَا<span style="color: #f36f28;">ك</span>؟</h4>
-            <p class="mb-4">لأننا نؤمن أن الملابس هي أكثر من مجرد قماش. في واك واك، نصمم كل قطعة لتعكس روحك المرحة، باستخدام أجود الخامات لنوفر لك الراحة والأناقة في كل يوم.</p>
-        </div>
-    </div>
+            <!-- --- القسم الثاني: التواصل معنا --- -->
+            <div class="col-lg-3 col-md-6">
+                <div class="d-flex flex-column text-end footer-item">
+                    <h4 class="text-light mb-3">التواصل معنا</h4>
+                    <a class="btn-link text-white-50" href="tel:+963996395361" style="margin-bottom: 0.5rem;"><i class="fas fa-phone me-2"></i>+963996395361</a>
+                    <a class="btn-link text-white-50" href="#" style="margin-bottom: 0.5rem;"><i class="fab fa-facebook-f me-2"></i>فيسبوك</a>
+                    <a class="btn-link text-white-50" href="#" style="margin-bottom: 0.5rem;"><i class="fab fa-instagram me-2"></i>انستغرام</a>
+                </div>
+            </div>
 
-    <!-- --- القسم الثاني: التواصل معنا --- -->
-    <div class="col-lg-3 col-md-6">
-        <div class="d-flex flex-column text-end footer-item">
-            <h4 class="text-light mb-3">التواصل معنا</h4>
-            <a class="btn-link" href="tel:+963945916586"><i class="fas fa-phone me-2"></i>+963945916586</a>
-            <a class="btn-link" href="#"><i class="fab fa-facebook-f me-2"></i>فيسبوك</a>
-            <a class="btn-link" href="#"><i class="fab fa-instagram me-2"></i>انستغرام</a>
-        </div>
-    </div>
+            <!-- --- القسم الثالث: سياسة التوصيل --- -->
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-light mb-3">سياسة التوصيل</h4>
+                    <p class="mb-4">توصيل ضمن دمشق وشحن لجميع المحافظات السورية (المدة المتوقعة للتوصيل: من 2-7 ايام)</p>
+                </div>
+            </div>
 
-    <!-- --- القسم الثالث: سياسة التوصيل --- -->
-    <div class="col-lg-3 col-md-6">
-        <div class="footer-item">
-            <h4 class="text-light mb-3">سياسة التوصيل</h4>
-            <p class="mb-4">بعد تأكيد طلبك، سيتم التواصل معك خلال 24 ساعة. نهدف لتوصيل طلبك خلال أربعة أيام عمل.</p>
-        </div>
-    </div>
-
-    <!-- --- القسم الرابع: الترجيع والتبديل --- -->
-    <div class="col-lg-3 col-md-6">
-        <div class="footer-item">
-            <h4 class="text-light mb-3">الترجيع والتبديل</h4>
-            <p class="mb-4">يمكنك إرجاع المنتجات خلال 3 أيام من تاريخ الاستلام، أو تبديلها خلال 4 أيام.</p>
-        </div>
-    </div>
-</div>
-
-
+            <!-- --- القسم الرابع: الترجيع والتبديل --- -->
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-light mb-3">سياسة الترجيع والتبديل</h4>
+                    <p class="mb-4"> يمكنك ترجيع المنتج في حال وجدته مخالف للوصف
+                        والتبديل خلال 3 ايام اذا رغبت في تعديل المقاس</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- نافذة المودال المنبثقة (Seller Onboarding Modal) -->
+<div class="modal fade" id="sellerModal" tabindex="-1" aria-labelledby="sellerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-3" style="border: 2px solid #f0f0f0; background-color: white;">
+            
+            <!-- رأس المودال: تم تلوين النص بالبرتقالي وإضافة فاصل رمادي -->
+            <div class="modal-header d-block text-end py-3" style="background-color: white; border-bottom: 1px solid #e0e0e0; border-radius: 0.2rem 0.2rem 0 0;">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title w-100 text-center fw-bold fs-4 mt-3" id="sellerModalLabel" style="color: #f36f28;">
+                    <i class="fas fa-handshake me-2"></i>انضم إلينا كبائع
+                </h5>
+            </div>
+            
+            <div class="modal-body p-4">
+                <!-- تم إزالة خاصية action هنا حيث سيتم الإرسال بواسطة JavaScript و Fetch -->
+                <form id="sellerForm" class="needs-validation" novalidate> 
+                    
+                    <!-- حقل الاسم الكامل -->
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label fw-bold">
+                            الاسم الكامل: <span style="color: red;">*</span>
+                        </label>
+                        <input type="text" 
+                               class="form-control rounded-lg p-3" 
+                               id="fullName" 
+                               name="الاسم-الكامل" 
+                               required 
+                               placeholder="أدخل اسمك الكامل">
+                        <div class="invalid-feedback fw-semibold" style="color: #dc3545;">
+                            الرجاء إدخال الاسم الكامل بشكل صحيح.
+                        </div>
+                    </div>
+                    
+                    <!-- حقل رقم الهاتف -->
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label fw-bold">
+                            رقم الهاتف: <span style="color: red;">*</span>
+                        </label>
+                        <input type="tel" 
+                               class="form-control rounded-lg p-3" 
+                               id="phoneNumber" 
+                               name="رقم-الهاتف" 
+                               required 
+                               placeholder="مثال: 09XXXXXXXX"
+                               pattern="[0-9]{10,15}">
+                        <div class="invalid-feedback fw-semibold" style="color: #dc3545;">
+                            الرجاء إدخال رقم هاتف صحيح.
+                        </div>
+                    </div>
+                    
+                    <!-- خيار مكان البيع: تم تعديل تنسيق الـ Radio Buttons -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold d-block">
+                            مكان البيع: <span style="color: red;">*</span>
+                        </label>
+                        
+                        <div class="d-flex flex-wrap justify-content-start gap-3">
+                            <!-- خيار أونلاين -->
+                            <div class="form-check me-4 p-2">
+                                <input class="form-check-input seller-radio-check" type="radio" name="مكان-البيع" id="online" value="أونلاين" required>
+                                <label class="form-check-label fw-semibold" for="online">متجر إلكتروني (أونلاين)</label>
+                            </div>
+                            
+                            <!-- خيار محل فعلي -->
+                            <div class="form-check p-2">
+                                <input class="form-check-input seller-radio-check" type="radio" name="مكان-البيع" id="physicalStore" value="محل فعلي" required>
+                                <label class="form-check-label fw-semibold" for="physicalStore">محل فعلي</label>
+                            </div>
+                        </div>
+                        <!-- رسالة تحقق لمجموعة الراديو -->
+                        <div class="invalid-feedback fw-semibold mt-2" style="color: #dc3545; display: none;" id="radio-feedback">
+                            الرجاء تحديد خيار واحد على الأقل.
+                        </div>
+                    </div>
+                    
+                    <!-- زر الإرسال: تنسيق Outline Button -->
+                    <div class="d-grid gap-2 pt-2">
+                        <button type="submit" 
+                                id="submit-seller-btn"
+                                class="btn btn-lg rounded-pill fw-bold"
+                                style="
+                                    background-color: transparent; 
+                                    color: #f36f28; 
+                                    border: 2px solid #f36f28; 
+                                    transition: all 0.3s;"
+                                onmouseover="this.style.backgroundColor='#f36f28'; this.style.borderColor='#f36f28'; this.style.color='white';"
+                                onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#f36f28'; this.style.color='#f36f28';">
+                            إرسال الطلب
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- Footer End -->
 
@@ -390,6 +487,117 @@
     <!-- Template Javascript -->
      <script src="products-data.js"></script>
     <script src="js/main.js"></script>
+<!-- انضم كبائع الان -->
+ <script>
+// كود JavaScript مخصص لتفعيل تحققات Bootstrap وضمان التحقق من خيارات الراديو
+(function () {
+    'use strict'
+
+    const form = document.getElementById('sellerForm');
+    const submitBtn = document.getElementById('submit-seller-btn');
+    const radioFeedback = document.getElementById('radio-feedback');
+    const modalElement = document.getElementById('sellerModal');
+    
+    // Formspree Endpoint
+    // IMPORTANT: يجب استبدال هذا برابط Formspree الحقيقي الخاص بكِ
+    const formspreeEndpoint = "https://formspree.io/f/xldpzang"; 
+
+    // دالة للتحقق من خيارات الراديو
+    function checkRadioValidity() {
+        const isRadioChecked = form.querySelector('input[name="مكان-البيع"]:checked');
+        if (!isRadioChecked) {
+            radioFeedback.style.display = 'block';
+            return false;
+        } else {
+            radioFeedback.style.display = 'none';
+            return true;
+        }
+    }
+
+    // معالج حدث الإرسال
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        // التحقق من الحقول الإلزامية في النموذج
+        const isRadioValid = checkRadioValidity();
+        const isFormValid = form.checkValidity();
+
+        if (isFormValid && isRadioValid) {
+            sendDataToEmailService();
+        }
+
+        form.classList.add('was-validated');
+    }, false);
+
+    // دالة إرسال البيانات باستخدام Fetch
+    function sendDataToEmailService() {
+        // جمع البيانات
+        const formData = {
+            'الاسم_الكامل': document.getElementById('fullName').value,
+            'رقم_الهاتف': document.getElementById('phoneNumber').value,
+            'مكان_البيع': form.querySelector('input[name="مكان-البيع"]:checked').value,
+            '_subject': 'طلب انضمام بائع جديد من متجر واك واك',
+        };
+        
+        // 1. عرض رسالة تحميل مؤقتة
+        submitBtn.textContent = 'جاري إرسال الطلب...';
+        submitBtn.disabled = true;
+
+        // 2. استخدام دالة fetch للإرسال إلى Formspree
+        fetch(formspreeEndpoint, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+             if (response.ok) {
+                 
+                 // 3. حالة النجاح: إغلاق المودال وإعادة التوجيه
+                 const modalInstance = bootstrap.Modal.getInstance(modalElement);
+                 if (modalInstance) {
+                     modalInstance.hide();
+                 } else {
+                     new bootstrap.Modal(modalElement).hide();
+                 }
+                 
+                 // 4. إعادة التوجيه إلى صفحة الشكر (يجب أن تكون آخر خطوة)
+                 window.location.href = 'seller_thank_you.html'; 
+                 
+             } else {
+                 // حالة فشل الإرسال
+                 response.json().then(data => {
+                     let errorMessage = "❌ فشل الإرسال. يرجى التأكد من إعداد رابط Formspree.";
+                     if (data && data.errors) {
+                         errorMessage = "❌ عذراً، حدث خطأ في البيانات. تأكد من ملء جميع الحقول المطلوبة.";
+                     }
+                     // استخدام alert مؤقت لعرض الخطأ (يفضل استخدام مودال مخصص)
+                     alert(errorMessage);
+                     console.log('Formspree Error:', data);
+                 })
+                 .catch(() => {
+                     alert("❌ فشل الإرسال. يرجى التحقق من اتصال الشبكة وإعداد Formspree.");
+                 });
+             }
+        })
+        .catch(error => {
+            // حالة فشل الاتصال (شبكة، إلخ)
+            console.error('Fetch Error:', error);
+            alert("❌ حدث خطأ في الاتصال بالشبكة. يرجى المحاولة لاحقاً.");
+        })
+        .finally(() => {
+            // إعادة زر الإرسال لحالته الأصلية
+            submitBtn.textContent = 'إرسال الطلب';
+            submitBtn.disabled = false;
+        });
+    }
+
+})()
+</script>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {

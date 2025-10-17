@@ -1694,4 +1694,52 @@ body {
 .cart-item-card > .me-3 {
     margin-inline-end: 20px !important; /* زيادة المسافة إلى 20 بكسل */
 }
+.seller-radio-check {
+    margin-right: 0.5rem;
+    border-color: #f36f28 !important; /* لون الحدود البرتقالي */
+}
+.seller-radio-check {
+    margin-right: 0.5rem;
+    border-color: #f36f28 !important; /* لون الحدود البرتقالي */
+}
 
+/* تلوين الدائرة عند الاختيار */
+.seller-radio-check:checked {
+    background-color: #f36f28 !important; /* لون الخلفية البرتقالي عند الاختيار */
+    border-color: #f36f28 !important;
+}
+
+/* 1. منع Bootstrap من تطبيق اللون الأخضر (is-valid) على دوائر الراديو */
+/* استهدف الدائرة وهي محددة وصحيحة (checked:valid) لإبقاء اللون البرتقالي */
+.form-check-input:checked:valid {
+    border-color: #f36f28 !important; 
+    background-color: #f36f28 !important;
+}
+
+/* 2. استهداف حالة is-valid لمنع ظهور الظل الأخضر */
+.form-check-input.is-valid,
+.form-check-input:valid {
+    border-color: #f36f28 !important; /* إبقاء الحدود برتقالية */
+}
+
+/* 3. الإضافة الحاسمة: إزالة صورة الخلفية الخضراء التي يضيفها Bootstrap عند النجاح */
+.form-check-input.is-valid {
+    background-image: none !important; 
+}
+
+
+/* إزالة الظل الأخضر الذي يظهر عند التحقق بنجاح واستبداله بالبرتقالي */
+.form-check-input.is-valid:focus,
+.form-check-input:valid:focus {
+    box-shadow: 0 0 0 0.25rem rgba(243, 111, 40, 0.25) !important; /* ظل برتقالي خفيف */
+}
+
+/* التحكم في التركيز (Focus) للتحقق غير الناجح أو العادي */
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(243, 111, 40, 0.25);
+}
+
+.form-check-input {
+    margin-left: 0.5em;
+}
+</style>

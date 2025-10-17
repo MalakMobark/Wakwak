@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شكراً لك | متجر واك واك</title>
+    <!-- تضمين Bootstrap 5 CSS - ضروري لتشغيل التنسيقات -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- تضمين Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* تعريف ألوان العلامة التجارية كمتغيرات CSS */
+        :root {
+            --color-primary: #f36f28; /* البرتقالي الأساسي */
+            --color-secondary: #f3c20e; /* الذهبي/الأصفر الثانوي */
+            --color-text-dark: #1f1f1f; /* أسود داكن */
+            --color-bg-light: #f0f0f0; /* الخلفية الرمادية الفاتحة (الموحدة) */
+            --color-card-bg: #ffffff; /* خلفية البطاقة (الأبيض الناصع) */
+        }
+
+        body {
+            background-color: var(--color-bg-light); /* تطبيق الخلفية الرمادية */
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .thank-you-card {
+            max-width: 600px;
+            width: 100%;
+            background-color: var(--color-card-bg); /* تطبيق لون البطاقة الأبيض */
+            border-radius: 1rem;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        /* تنسيق العنوان المطلوب: أسود، أكبر، وأغمق */
+        .main-title {
+            color: var(--color-text-dark);
+            font-size: 2.5rem; /* حجم أكبر للويب */
+            font-weight: 900 !important; /* وزن خط ثقيل */
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .icon-check {
+            font-size: 5rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        .process-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+            width: 75%; /* لتوسيط القائمة */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: right;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+        }
+
+        .process-list li {
+            font-size: 1.05rem;
+            color: #495057;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .process-list i {
+            color: var(--color-primary);
+            margin-left: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* تنسيق الزر المطلوب (Outline Button) */
+        .btn-custom-outline {
+            background-color: transparent; 
+            color: var(--color-primary); 
+            border: 2px solid var(--color-primary); 
+            transition: all 0.3s ease;
+            font-weight: 700;
+            border-radius: 50px !important; /* لضمان الاستدارة الكاملة */
+        }
+        
+        .btn-custom-outline:hover {
+            background-color: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(243, 111, 40, 0.3);
+        }
+
+        /* ==== تنسيقات الموبايل (Responsive Media Query) ==== */
+        @media (max-width: 576px) {
+            .thank-you-card {
+                padding: 25px 15px; /* تضييق البادينغ على الموبايل */
+                border-radius: 0.75rem;
+            }
+            .main-title {
+                font-size: 1.75rem; /* تقليص حجم العنوان على الموبايل */
+                margin-bottom: 1rem;
+            }
+            .icon-check {
+                font-size: 3.5rem; /* تقليص الأيقونة */
+                margin-bottom: 15px;
+            }
+            .process-list {
+                width: 95%; /* توسيع القائمة لملء عرض البطاقة */
+                margin-top: 15px;
+            }
+            .process-list li {
+                font-size: 0.95rem;
+                margin-bottom: 10px;
+            }
+            .btn-custom-outline {
+                padding: 10px 25px !important; /* تصغير الزر قليلاً */
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="thank-you-card">
+        <!-- أيقونة التأكيد -->
+        <i class="fas fa-check-circle icon-check"></i>
+        
+        <!-- العنوان الرئيسي المطلوب (أسود، أكبر، وأغمق) -->
+        <h1 class="main-title">شكراً لك على طلبك!</h1>
+        
+        <p class="text-muted fw-normal" style="font-size: 1.1rem; color: #555 !important;">
+            تم تأكيد طلبك بنجاح. سيتم الآن معالجة تفاصيله وإرساله إليك بأسرع وقت ممكن.
+        </p>
+        
+        <!-- ملخص خطوات الطلب -->
+        <ul class="process-list">
+            <li><i class="fas fa-box-open"></i>تم استلام طلبك .</li>
+            <li><i class="fas fa-truck-moving"></i>سيتم التواصل معك خلال 24 ساعة.</li>
+        </ul>
+        
+        <div class="mt-4">
+            <a href="index.html" class="btn btn-lg rounded-pill px-5 py-3 btn-custom-outline">
+                العودة الى الصفحة الرئيسية
+            </a>
+        </div>
+        
+    </div>
+
+    <!-- تضمين Bootstrap 5 JS - ضروري لعمل بعض المكونات إن وجدت -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
