@@ -1450,3 +1450,39 @@ body {
     opacity: 1; /* إظهار الزر بالكامل */
     visibility: visible; /* جعله مرئياً وقابلاً للنقر */
 }
+/* استهداف الشاشات الصغيرة فقط (أقل من 992 بكسل) */
+@media (max-width: 991.98px) {
+    
+    /* 1. استهداف حاوية الكمية الرئيسية وتغييرها إلى عمود Flexbox */
+    /* هذا هو الـ div الذي يحوي "الكمية:" والعداد */
+    .col-lg-6 > .d-flex.align-items-center.mb-5 {
+        flex-direction: column !important; /* ترتيب العناصر عمودياً */
+        align-items: center !important; /* توسيط العناصر عمودياً */
+        justify-content: center !important; /* توسيط العناصر أفقياً */
+        width: 100%;
+        margin-right: 0 !important; /* إلغاء me-5 إذا كان موجوداً على هذا العنصر */
+    }
+
+    /* 2. إلغاء أي هامش أيمن على النص "الكمية:" */
+    .col-lg-6 > .d-flex.align-items-center.mb-5 h5 {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        text-align: center !important;
+        width: 100%; /* ليأخذ العرض الكامل ويظهر في سطر منفصل */
+        margin-bottom: 10px !important; /* إضافة مسافة بين النص والعداد */
+    }
+
+    /* 3. إلغاء المحاذاة اليسرى على حاوية العداد وتوسيطها */
+    .col-lg-6 .container.py-5.text-end {
+        text-align: center !important; /* توسيط المحتوى الداخلي */
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100%;
+    }
+
+    /* 4. التأكد من توسيط العداد نفسه */
+    .col-lg-6 .container.py-5 .new-quantity-counter {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
