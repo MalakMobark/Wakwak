@@ -1506,3 +1506,11 @@ body {
         margin-inline-end: 0 !important; 
     }
 }
+/* استهداف عنصر الوصف مباشرة باستخدام ID */
+#product-description {
+    /* تعيين اللون إلى رمادي غامق (يمكنكِ اختيار قيمة لون أخرى) */
+    color: #6c757d !important; /* هذا هو لون text-secondary في Bootstrap (رمادي) */
+    
+    /* إلغاء الخط العريض */
+    font-weight: normal !important; 
+}
