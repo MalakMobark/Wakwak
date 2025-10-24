@@ -174,57 +174,30 @@
                                 <div class="tab-content mb-5">
                                     <div class="tab-pane active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
                                         <h2 >التفاصيل الفنية للمنتج</h2>
-                                            <div class="row g-4">
-                                                <div class="col-12 col-lg-6">
-                                                    <div class="row bg-light align-items-center text-center justify-content-center py-2">
-                                                        <div class="col-12 col-lg-6">
-                                                            <p class="mb-0">طول الكنزة</p>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <p class="mb-0"> cm 60</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row text-center align-items-center justify-content-center py-2">
-                                                        <div class="col-12 col-lg-6">
-                                                            <p class="mb-0">طول الكم</p>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <p class="mb-0"> cm 20</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row bg-light text-center align-items-center justify-content-center py-2">
-                                                        <div class="col-12 col-lg-6">
-                                                            <p class="mb-0">نوعية القماش</p>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <p class="mb-0">قطن</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row text-center align-items-center justify-content-center py-2">
-                                                        <div class="col-12 col-lg-6">
-                                                            <p class="mb-0">عرض الصدر</p>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <p class="mb-0"> cm 40 </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row bg-light text-center align-items-center justify-content-center py-2">
-                                                        <div class="col-12 col-lg-6">
-                                                            <p class="mb-0">ما بعرف</p>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <p class="mb-0"> هيك شي</p>
-                                                        </div>
-                                                    </div>
+                                        <div class="row g-4">
+                                            <div class="col-12 col-lg-6">
+                                                <!-- ** هذه هي الحاوية الجديدة والفارغة ** -->
+                                                <div id="technical-details-container">
+                                                    <!-- هنا سيتم توليد الصفوف (rows) بواسطة JavaScript -->
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> 
-                                </div>
+                                    </div>
+                                </div> 
                             </div>
-                            <button type="button" class="btn btn-lg border rounded-pill px-3 btn-custom-outline" onclick="addToCart()">
-                                <i class="fa fa-cart-plus me-2"></i> أضف إلى السلة
-                            </button>
+
+                           <div class="row mt-4">
+    <div class="col-12 col-md-6 col-lg-5"> 
+        <button id="add-to-cart-btn" 
+                type="button" 
+                class="btn btn-lg border rounded-pill w-100 py-2 btn-custom-outline" 
+                onclick="addToCart()">
+            <i class="fa fa-cart-plus me-2"></i> أضف إلى السلة
+        </button>
+    </div>
+    <!-- (يمكنك إضافة زر "المفضلة" هنا إذا كان موجوداً) -->
+</div>
+
                             <form action="#">
                                 
                             </form>
@@ -960,6 +933,7 @@ function updateMainImage() {
 }
 
 // ** دوال التقليب الجديدة لزرّي السابق والتالي **
+// يجب ربط هاتين الدالتين بزرّي التقليب في HTML
 function nextProductImage() {
     currentImageIndex++;
     updateMainImage();
@@ -969,6 +943,46 @@ function prevProductImage() {
     currentImageIndex--;
     updateMainImage();
 }
+
+// ** الدالة الجديدة لتوليد جدول التفاصيل الفنية ديناميكياً **
+function renderTechnicalDetails(product) {
+    const container = document.getElementById('technical-details-container');
+    if (!container) return;
+    
+    container.innerHTML = ''; // تفريغ الحاوية قبل الإضافة
+
+    // التأكد من وجود تفاصيل فنية للمنتج
+    const details = product.technicalDetails;
+    if (!details || details.length === 0) {
+        // يمكن عرض رسالة هنا إذا لم تكن هناك تفاصيل، أو تركها فارغة
+        return;
+    }
+
+    details.forEach((detail, index) => {
+        // تحديد كلاس الخلفية بالتناوب: bg-light و بدونها
+        const rowClass = index % 2 === 0 
+            ? 'row bg-light align-items-center text-center justify-content-center py-2' 
+            : 'row text-center align-items-center justify-content-center py-2';
+
+        // استخدام الـ template literal لتوليد هيكل الصف
+        const rowHtml = `
+            <div class="col-12">
+                <div class="${rowClass}">
+                    <div class="col-12 col-lg-6">
+                        <p class="mb-0">${detail.name}</p>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <p class="mb-0">${detail.value}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // يجب إضافة الصفوف إلى الـ container
+        container.innerHTML += rowHtml;
+    });
+}
+
 
 // ** الوظيفة المحدثة لتوليد أزرار الألوان وربطها بالصور **
 function createColorSwatches(product) {
@@ -999,7 +1013,7 @@ function createColorSwatches(product) {
             inputHtml.checked = true;
         }
         
-        // ** التعديل الهام: تخزين مصفوفة الصور كاملة كـ JSON في خاصية data-images **
+        // ** تخزين مصفوفة الصور كاملة كـ JSON في خاصية data-images للزر **
         inputHtml.dataset.images = JSON.stringify(colorOption.images || []); 
 
         // إضافة مستمع للأحداث: عند النقر على أي لون، قم بتغيير الصورة الرئيسية
@@ -1029,7 +1043,7 @@ function createColorSwatches(product) {
 }
 
 
-// ** تعديل دالة loadProductDetails (الدالة الرئيسية) **
+// ** دالة loadProductDetails الرئيسية - تم تحديثها لاستدعاء دالة التفاصيل **
 function loadProductDetails() {
     // 1. الحصول على المنتج
     const productId = getQueryParameter('id'); 
@@ -1062,10 +1076,14 @@ function loadProductDetails() {
     
     // 4. تعيين الصورة الافتراضية الأولى
     updateMainImage();
+
+    // ** 5. الخطوة الجديدة: توليد جدول التفاصيل الفنية **
+    renderTechnicalDetails(product);
 }
 
 // تشغيل الوظيفة بمجرد تحميل محتوى الصفحة بالكامل
 document.addEventListener('DOMContentLoaded', loadProductDetails);
+
 
 </script>
 

@@ -9,6 +9,12 @@ const ALL_PRODUCTS = [
         price: 4.99,
         // يمكنك الاحتفاظ بـ 'image' كصورة افتراضية للمنتجات المعروضة في الكروت
         image: "img/t1.jpg", 
+        technicalDetails: [
+            { name: "طول الكنزة", value: "60 cm" },
+            { name: "طول الكم", value: "50 cm" },
+            { name: "نوعية القماش", value: "قطن (100%)" },
+            { name: "عرض الصدر", value: "40 cm" }
+        ],
         colors: [
             {
                 name: "اصفر",
