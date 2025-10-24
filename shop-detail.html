@@ -90,23 +90,30 @@
                     <div class="col-lg-8 col-xl-9">
                         <div class="row g-4">
                             <div class="col-lg-6">
-                                <div class="border rounded position-relative">
-        
+                                <!-- افتراضياً أن هذا هو وسم DIV الذي يحيط بالصورة والأزرار لتظهر بشكل صحيح -->
+                                <div id="product-image-carousel-container" class="position-relative"> 
+
                                     <a href="#">
-                                        <img  class="img-fluid rounded" alt="Image " id="product-image-src">
+                                        <!-- وسم الصورة الرئيسي الذي سيتم تغيير مصدره -->
+                                        <img class="img-fluid rounded" alt="Image " id="product-image-src">
                                     </a>
-                                
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                                
+                                    
+                                    <!-- التعديل الهام: إزالة خصائص Bootstrap Carousel وإضافة دوال JavaScript -->
+                                    <!-- زر التقليب السابق (Previous) -->
+                                    <button class="carousel-control-prev" type="button" onclick="prevProductImage()">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">السابق</span>
+                                    </button>
+                                    
+                                    <!-- زر التقليب التالي (Next) -->
+                                    <button class="carousel-control-next" type="button" onclick="nextProductImage()">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">التالي</span>
+                                    </button>
+                                    
                                 </div>
 
+                                <!-- هذا الجزء الخاص بالألوان لا يحتاج إلى تعديل HTML وسنستخدمه في JavaScript -->
                                 <div class="d-flex align-items-center mb-4 mt-4">
                                     <h5 class="me-3 mb-0">الألوان: </h5>
 
@@ -680,6 +687,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 </script>
+
 <!-- هاد السطر لنقل المعلومات متل القياس واللون والكمية لقلب واجهة تاكيد الطلب -->
  <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -784,17 +792,6 @@ function updateCartCounter() {
     }
 }
 
-// =========================================================
-// 2. الدالة الرئيسية لإضافة المنتج إلى السلة (ديناميكية)
-// =========================================================
-// =========================================================================
-// دوال مساعدة للتحكم في نافذة إشعار النجاح المخصصة
-// =========================================================================
-
-// لإظهار نافذة إشعار النجاح
-// =========================================================================
-// دوال مساعدة للتحكم في نافذة إشعار النجاح المخصصة
-// =========================================================================
 
 /**
  * لإظهار نافذة إشعار النجاح المخصصة.
@@ -935,110 +932,141 @@ function addToCart() {
 
 
 <script>
-    // ** وظيفة مساعدة للحصول على المعامل من الرابط **
-    function getQueryParameter(name) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(name);
-    }
+// المتغيرات العامة لحفظ حالة المنتج والصورة الحالية
+let currentProduct = null;
+let currentImageIndex = 0; // مؤشر الصورة ضمن مصفوفة صور اللون المحدد
+let currentImagesArray = []; // مصفوفة الصور للون المحدد حاليًا
 
-    // ** الوظيفة الجديدة لتوليد أزرار الألوان وربطها بالصور **
-    function createColorSwatches(product) {
-        const container = document.getElementById('color-selection-container');
-        if (!container) return;
+// ** وظيفة مساعدة للحصول على المعامل من الرابط **
+function getQueryParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// ** وظيفة مساعدة لتحديث الصورة المعروضة **
+function updateMainImage() {
+    const imageElement = document.getElementById('product-image-src');
+    if (imageElement && currentImagesArray.length > 0) {
+        // نضمن أن المؤشر لا يتجاوز حدود المصفوفة
+        if (currentImageIndex < 0) {
+            currentImageIndex = currentImagesArray.length - 1; // الانتقال إلى الصورة الأخيرة
+        } else if (currentImageIndex >= currentImagesArray.length) {
+            currentImageIndex = 0; // الانتقال إلى الصورة الأولى
+        }
         
-        // تفريغ الحاوية (تم التأكد من أنك قمتِ بهذه الخطوة في HTML)
-        container.innerHTML = ''; 
+        // تعيين مسار الصورة من المصفوفة باستخدام المؤشر الحالي
+        imageElement.src = currentImagesArray[currentImageIndex];
+    }
+}
 
-        let firstImageSrc = ''; // لتحديد الصورة الافتراضية
+// ** دوال التقليب الجديدة لزرّي السابق والتالي **
+function nextProductImage() {
+    currentImageIndex++;
+    updateMainImage();
+}
 
-        // المرور على قائمة الألوان الموجودة في بيانات المنتج
-        product.colors.forEach((colorOption, index) => {
-            const isChecked = index === 0; // أول لون هو الافتراضي
-            
-            if (isChecked) {
-                firstImageSrc = colorOption.image; // حفظ مسار أول صورة
+function prevProductImage() {
+    currentImageIndex--;
+    updateMainImage();
+}
+
+// ** الوظيفة المحدثة لتوليد أزرار الألوان وربطها بالصور **
+function createColorSwatches(product) {
+    const container = document.getElementById('color-selection-container');
+    if (!container) return;
+    
+    container.innerHTML = ''; 
+
+    // المرور على قائمة الألوان الموجودة في بيانات المنتج
+    product.colors.forEach((colorOption, index) => {
+        const isChecked = index === 0; // أول لون هو الافتراضي
+        
+        if (isChecked) {
+            // تحديث المصفوفة العامة للصور عند تحديد أول لون
+            currentImagesArray = colorOption.images || []; 
+            currentImageIndex = 0; // إعادة ضبط المؤشر إلى الصفر
+        }
+
+        // --- بناء عنصر input type="radio" ---
+        const inputHtml = document.createElement('input');
+        inputHtml.type = 'radio';
+        inputHtml.className = 'btn-check';
+        inputHtml.name = 'color-options'; 
+        inputHtml.id = `color-${product.id}-${colorOption.name}`; 
+        inputHtml.value = colorOption.name;
+        inputHtml.autocomplete = 'off';
+        if (isChecked) {
+            inputHtml.checked = true;
+        }
+        
+        // ** التعديل الهام: تخزين مصفوفة الصور كاملة كـ JSON في خاصية data-images **
+        inputHtml.dataset.images = JSON.stringify(colorOption.images || []); 
+
+        // إضافة مستمع للأحداث: عند النقر على أي لون، قم بتغيير الصورة الرئيسية
+        inputHtml.addEventListener('change', (event) => {
+            if (event.target.checked) {
+                // جلب المصفوفة من خاصية data-images وتحويلها من JSON إلى JavaScript Array
+                const newImagesJson = event.target.dataset.images;
+                currentImagesArray = JSON.parse(newImagesJson);
+                
+                // إعادة ضبط مؤشر الصورة إلى أول صورة في اللون الجديد
+                currentImageIndex = 0; 
+                updateMainImage();
             }
-
-            // --- بناء عنصر input type="radio" ---
-            const inputHtml = document.createElement('input');
-            inputHtml.type = 'radio';
-            inputHtml.className = 'btn-check';
-            inputHtml.name = 'color-options'; // مهم: لربط الأزرار ببعضها
-            inputHtml.id = `color-${product.id}-${colorOption.name}`; // ID فريد للزر
-            inputHtml.value = colorOption.name;
-            inputHtml.autocomplete = 'off';
-            if (isChecked) {
-                inputHtml.checked = true;
-            }
-            
-            // ** النقطة الأهم: تخزين مسار الصورة في خاصية data-image للزر **
-            inputHtml.dataset.image = colorOption.image; 
-
-            // إضافة مستمع للأحداث: عند النقر على أي لون، قم بتغيير الصورة الرئيسية
-            inputHtml.addEventListener('change', (event) => {
-                if (event.target.checked) {
-                    const newImageSrc = event.target.dataset.image;
-                    document.getElementById('product-image-src').src = newImageSrc;
-                }
-            });
-
-            // --- بناء عنصر label (الذي يمثل مربع اللون المرئي) ---
-            const labelHtml = document.createElement('label');
-            labelHtml.className = 'btn btn-outline-custom color-swatch';
-            labelHtml.htmlFor = `color-${product.id}-${colorOption.name}`; // ربطه بالـ ID الخاص بالـ input
-            labelHtml.style.backgroundColor = colorOption.hex; // تعيين اللون
-            labelHtml.title = colorOption.name; // إضافة تلميح نصي
-
-            // إضافة العناصر إلى الـ div الفارغ
-            container.appendChild(inputHtml);
-            container.appendChild(labelHtml);
         });
 
-        // إرجاع مسار أول صورة ليتم عرضه كصورة افتراضية عند تحميل الصفحة
-        return firstImageSrc;
+        // --- بناء عنصر label (مربع اللون المرئي) ---
+        const labelHtml = document.createElement('label');
+        labelHtml.className = 'btn btn-outline-custom color-swatch';
+        labelHtml.htmlFor = `color-${product.id}-${colorOption.name}`; 
+        labelHtml.style.backgroundColor = colorOption.hex; 
+        labelHtml.title = colorOption.name; 
+
+        // إضافة العناصر إلى الـ div الفارغ
+        container.appendChild(inputHtml);
+        container.appendChild(labelHtml);
+    });
+}
+
+
+// ** تعديل دالة loadProductDetails (الدالة الرئيسية) **
+function loadProductDetails() {
+    // 1. الحصول على المنتج
+    const productId = getQueryParameter('id'); 
+    if (typeof ALL_PRODUCTS === 'undefined') {
+        console.error("خطأ: مصفوفة ALL_PRODUCTS غير معرفة.");
+        return;
+    }
+    const numericId = parseInt(productId);
+    const product = ALL_PRODUCTS.find(p => p.id === numericId);
+
+    if (!product) {
+        document.getElementById('product-name').textContent = 'عذراً، المنتج المطلوب غير موجود.';
+        return;
+    }
+    
+    // ** حفظ المنتج الحالي في المتغير العام **
+    currentProduct = product; 
+
+    // 2. تحديث الاسم والسعر والوصف (كما في السابق)
+    document.getElementById('product-name').textContent = product.name;
+    document.getElementById('product-price').textContent = `${product.price.toFixed(2)} $`;
+    
+    const descriptionElement = document.getElementById('product-description');
+    if (descriptionElement) {
+        descriptionElement.textContent = product.description;
     }
 
+    // 3. توليد الألوان وتعيين الصورة الافتراضية 
+    createColorSwatches(product);
+    
+    // 4. تعيين الصورة الافتراضية الأولى
+    updateMainImage();
+}
 
-    // ** تعديل دالة loadProductDetails (الدالة الرئيسية) **
-    function loadProductDetails() {
-        // 1. الحصول على المنتج
-        const productId = getQueryParameter('id'); 
-        if (typeof ALL_PRODUCTS === 'undefined') {
-            console.error("خطأ: مصفوفة ALL_PRODUCTS غير معرفة.");
-            return;
-        }
-        const numericId = parseInt(productId);
-        const product = ALL_PRODUCTS.find(p => p.id === numericId);
+// تشغيل الوظيفة بمجرد تحميل محتوى الصفحة بالكامل
+document.addEventListener('DOMContentLoaded', loadProductDetails);
 
-        if (!product) {
-            document.getElementById('product-name').textContent = 'عذراً، المنتج المطلوب غير موجود.';
-            return;
-        }
-
-        // 2. تحديث الاسم والسعر والوصف (كما في السابق)
-        document.getElementById('product-name').textContent = product.name;
-        document.getElementById('product-price').textContent = `${product.price.toFixed(2)} $`;
-        
-        // يجب أن تكوني قد أضفتِ هذا الـ ID للوصف
-        const descriptionElement = document.getElementById('product-description');
-        if (descriptionElement) {
-            descriptionElement.textContent = product.description;
-        }
-
-        // 3. ** الخطوة الجديدة: توليد الألوان وتعيين الصورة الافتراضية **
-        // هذه الدالة الآن تولد الأزرار وتعيد مسار أول صورة
-        const defaultImage = createColorSwatches(product);
-        
-        // تحديث الصورة الرئيسية بأول صورة من مصفوفة الألوان
-        const imageElement = document.getElementById('product-image-src');
-        if (imageElement && defaultImage) {
-            imageElement.src = defaultImage;
-            imageElement.alt = product.name;
-        }
-    }
-
-    // تشغيل الوظيفة بمجرد تحميل محتوى الصفحة بالكامل
-    document.addEventListener('DOMContentLoaded', loadProductDetails);
 </script>
 
 <script>
