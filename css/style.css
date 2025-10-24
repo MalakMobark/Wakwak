@@ -1742,4 +1742,162 @@ body {
 .form-check-input {
     margin-left: 0.5em;
 }
-</style>
+
+
+
+/* --- تصميم نافذة تأكيد الإضافة إلى السلة --- */
+.success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* خلفية شبه شفافة */
+    /* التعديل: نستخدم خاصية visibility بدلاً من display: none للتحكم الأفضل في الانتقال */
+    visibility: hidden; /* مخفية افتراضياً */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* لإظهارها فوق كل شيء */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0s 0.3s; /* تأخير إخفاء الرؤية */
+    backdrop-filter: blur(2px);
+    display: flex; /* للتأكد من أنها تستخدم Flexbox عند الإظهار */
+}
+
+.success-overlay.active {
+    /* التعديل: عند التفعيل، اجعلها مرئية وفورية، وتأثير الشفافية هو من سيتولى الإظهار السلس */
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out; /* إزالة تأخير إظهار الرؤية */
+}
+
+.success-modal {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* تأثير ارتداد لطيف */
+    
+    /* تحديد عرض افتراضي (للموبايل) */
+    max-width: 90%;
+    width: 350px; 
+}
+
+.success-overlay.active .success-modal {
+    transform: scale(1);
+}
+
+/* -------------------------------------- */
+/* التعديل 1: تكبير المستطيل على الشاشات الكبيرة (لابتوب) */
+/* -------------------------------------- */
+@media (min-width: 768px) {
+    .success-modal {
+        width: 500px; /* زيادة العرض للديسكتوب */
+        max-width: 80%;
+        padding: 40px 60px; /* زيادة التباعد الداخلي */
+    }
+}
+/* -------------------------------------- */
+
+.success-icon-container {
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+}
+
+.success-icon {
+    width: 100%;
+    height: 100%;
+}
+
+/* **تعديل الألوان لعلامة الصح البيضاء داخل البرتقالي** */
+.success-icon-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #ff9900; /* لون البرتقالي */
+    fill: #ff9900; /* تعبئة باللون البرتقالي */
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.success-icon-checkmark {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    stroke-width: 4; /* زيادة سماكة الخط ليصبح أبيض وواضح */
+    stroke-miterlimit: 10;
+    stroke: white; /* لون الصح الأبيض */
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.success-title {
+    color: #383838;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.success-message {
+    color: #6c757d;
+    margin-bottom: 25px; /* زيادة المسافة قبل الأزرار (التعديل 3) */
+}
+
+/* -------------------------------------- */
+/* التعديل 2 و 4: تنسيق الأزرار (مدورة وعرضها) */
+/* -------------------------------------- */
+.success-buttons {
+    display: flex; /* لترتيب الأزرار جنباً إلى جنب في الديسكتوب */
+    flex-direction: column; /* الأزرار تحت بعضها في الموبايل افتراضياً */
+    gap: 10px; /* مسافة بين الأزرار */
+}
+
+.success-buttons .btn {
+    padding: 10px 20px;
+    border-radius: 50px; /* التعديل 2: جعل الأزرار مدورة (شكل Pill) */
+    font-weight: 600;
+}
+
+.btn-continue {
+    background-color: #f36f28; /* البرتقالي الممتلئ (اللون الأساسي) */
+    color: white;
+    border: 2px solid #f36f28;
+    transition: background-color 0.2s;
+}
+ /* هذا هو الكود الذي يجب أن تبحثي عنه وتعدليه في ملف الـ CSS */
+.btn-continue:hover {
+    background-color: white; 
+    color: #f36f28; /* **أضيفي هذا السطر** */
+}
+
+.btn-view-cart {
+    background-color: transparent;
+    color: #f36f28; /* العودة إلى لون الأورانج المطلوب */
+    border: 2px solid #f36f28; /* العودة إلى إطار الأورانج المطلوب */
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn-view-cart:hover {
+    background-color: #f36f28; /* ملء باللون البرتقالي عند التحويم */
+    color: white; /* نص أبيض عند التحويم */
+    border-color: #f36f28; /* إطار أغمق قليلاً عند التحويم */
+}
+
+/* إعادة ترتيب الأزرار لتكون جنباً إلى جنب فقط على الشاشات الكبيرة */
+@media (min-width: 768px) {
+    .success-buttons {
+        flex-direction: row; /* ترتيب الأزرار جنباً إلى جنب للديسكتوب */
+        justify-content: center;
+    }
+}
+/* نهاية تصميم نافذة التأكيد */
+

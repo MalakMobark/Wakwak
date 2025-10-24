@@ -93,16 +93,17 @@
                                 <div class="border rounded position-relative">
         
                                     <a href="#">
-                                        <img src="img/t4.jpg" class="img-fluid rounded" alt="Image " id="product-image-src">
+                                        <img  class="img-fluid rounded" alt="Image " id="product-image-src">
                                     </a>
                                 
-                                    <button id="prev-image-btn" class="btn btn-lg position-absolute top-50 start-0 translate-middle-y rounded-circle shadow-none" style="background-color: rgba(255, 255, 255, 0.7); border: none; z-index: 10;">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                
-                                    <button id="next-image-btn" class="btn btn-lg position-absolute top-50 end-0 translate-middle-y rounded-circle shadow-none" style="background-color: rgba(255, 255, 255, 0.7); border: none; z-index: 10;">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                                 
                                 </div>
 
@@ -217,10 +218,6 @@
                             <button type="button" class="btn btn-lg border rounded-pill px-3 btn-custom-outline" onclick="addToCart()">
                                 <i class="fa fa-cart-plus me-2"></i> أضف إلى السلة
                             </button>
-
-                            <a href="index.html" class="btn btn-lg border rounded-pill px-3 btn-custom-outline me-2">
-                                <i class="fa fa-home me-2"></i> العودة إلى الصفحة الرئيسية
-                            </a>
                             <form action="#">
                                 
                             </form>
@@ -242,13 +239,21 @@
 <div id="success-overlay" class="success-overlay">
     <div class="success-modal">
         <div class="success-icon-container">
+            <!-- أيقونة الصح البيضاء داخل الدائرة البرتقالية -->
             <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                <circle class="success-icon-circle" cx="26" cy="26" r="25" fill="none"/>
                 <path class="success-icon-checkmark" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
             </svg>
         </div>
-        <h3 class="success-title mt-4">تم استلام طلبك بنجاح!</h3>
-        <p class="success-message text-muted mt-2"></p> <!-- سيتم ملء الرسالة من الجافاسكريبت -->
+        <h3 class="success-title">تمت إضافة المنتج بنجاح!</h3>
+        <!-- هذا العنصر سيتم ملؤه بالرسالة الديناميكية من JavaScript -->
+        <p class="success-message text-muted"></p> 
+
+        <div class="success-buttons">
+            <!-- الزر الأول: لإخفاء الإشعار ومتابعة التسوق -->
+            <button type="button" class="btn btn-continue" onclick="hideSuccessNotification()">متابعة التسوق</button>
+            <!-- الزر الثاني: للانتقال إلى صفحة السلة -->
+            <button type="button" class="btn btn-view-cart" onclick="goToCartPage()">عرض السلة</button>
+        </div>
     </div>
 </div>
 
@@ -782,6 +787,66 @@ function updateCartCounter() {
 // =========================================================
 // 2. الدالة الرئيسية لإضافة المنتج إلى السلة (ديناميكية)
 // =========================================================
+// =========================================================================
+// دوال مساعدة للتحكم في نافذة إشعار النجاح المخصصة
+// =========================================================================
+
+// لإظهار نافذة إشعار النجاح
+// =========================================================================
+// دوال مساعدة للتحكم في نافذة إشعار النجاح المخصصة
+// =========================================================================
+
+/**
+ * لإظهار نافذة إشعار النجاح المخصصة.
+ * @param {string} title - عنوان الإشعار.
+ * @param {string} message - رسالة تفصيلية للمستخدم.
+ */
+function showSuccessNotification(title, message) {
+    const overlay = document.getElementById('success-overlay');
+    const titleElement = overlay ? overlay.querySelector('.success-title') : null;
+    const messageElement = overlay ? overlay.querySelector('.success-message') : null;
+
+    if (overlay) {
+        // تحديث النص ديناميكياً
+        if (titleElement) titleElement.textContent = title;
+        if (messageElement) messageElement.textContent = message;
+
+        // إظهار النافذة عبر إضافة الكلاس 'active'
+        overlay.classList.add('active');
+        // تم إزالة الـ setTimeout لمنع الاختفاء التلقائي، والآن تتطلب ضغطة زر
+    }
+}
+
+/**
+ * لإخفاء نافذة إشعار النجاح (تُستدعى عند الضغط على زر "متابعة التسوق").
+ */
+function hideSuccessNotification() {
+    const overlay = document.getElementById('success-overlay');
+    
+    // 1. إخفاء النافذة أولاً
+    if (overlay) {
+        overlay.classList.remove('active');
+    }
+    
+    // 2. الانتقال إلى الصفحة الرئيسية (index.html)
+    window.location.href = 'index.html'; 
+}
+
+
+/**
+ * دالة للانتقال إلى صفحة السلة (تُستدعى عند الضغط على زر "عرض السلة").
+ */
+function goToCartPage() {
+    hideSuccessNotification(); // إخفاء الإشعار أولاً
+    // **هام: تأكدي من أن المسار 'cart.html' هو المسار الصحيح لصفحة سلتك**
+    window.location.href = 'cart.html'; 
+}
+
+
+// =========================================================================
+// دالة إضافة المنتج إلى السلة (تم تعديلها لاستخدام الإشعارات المخصصة)
+// =========================================================================
+
 function addToCart() {
     // أ. قراءة بيانات المنتج الأساسية ديناميكياً
     const productNameElement = document.getElementById('product-name');
@@ -789,18 +854,18 @@ function addToCart() {
     const productImageElement = document.getElementById('product-image-src');
 
     if (!productNameElement || !productPriceElement) {
-        alert("عذراً، لم يتم العثور على اسم أو سعر المنتج.");
+        showSuccessNotification("❌ خطأ!", "عذراً، لم يتم العثور على اسم أو سعر المنتج.");
         return;
     }
 
     const productName = productNameElement.textContent.trim();
     
-    // تنظيف السعر ليصبح رقماً (مثل: إزالة $, والفواصل)
+    // تنظيف السعر ليصبح رقماً
     const priceText = productPriceElement.textContent.trim();
     let productPrice = parseFloat(priceText.replace('$', '').replace(',', '').trim());
     
     if (isNaN(productPrice)) {
-        alert("خطأ: لم نتمكن من قراءة سعر المنتج بشكل صحيح.");
+        showSuccessNotification("❌ خطأ!", "لم نتمكن من قراءة سعر المنتج بشكل صحيح.");
         return;
     }
     const productImageUrl = productImageElement ? productImageElement.getAttribute('src') : 'img/No-Image.png';
@@ -810,8 +875,9 @@ function addToCart() {
     const selectedColorElement = document.querySelector('input[name="color-options"]:checked');
     const quantityElement = document.getElementById('product-quantity');
     
+    // التحقق من الإدخالات (باستخدام الإشعار المخصص بدلاً من alert)
     if (!selectedSizeElement || !selectedColorElement || !quantityElement) {
-        alert("الرجاء اختيار المقاس واللون المناسب.");
+        showSuccessNotification("❌ خطأ!", "الرجاء اختيار المقاس واللون المناسب.");
         return;
     }
 
@@ -819,17 +885,16 @@ function addToCart() {
     const selectedColor = selectedColorElement.value; // قراءة اللون (أسود، أحمر)
     const quantity = parseInt(quantityElement.value, 10);
     
-    // استخدام اسم المنتج كمعرّف فريد مؤقت
-    const productId = productName; 
+    const productId = productName; // استخدام اسم المنتج كمعرّف فريد مؤقت
 
     // ج. إنشاء كائن المنتج
     const itemToAdd = {
-        id: productId,               
-        name: productName,           
-        price: productPrice,         
-        size: selectedSize,                      
-        color: selectedColor,                    
-        quantity: quantity,                             
+        id: productId,          
+        name: productName,          
+        price: productPrice,        
+        size: selectedSize,                 
+        color: selectedColor,                       
+        quantity: quantity,                         
         uniqueKey: `${productId}-${selectedColor}-${selectedSize}`, // مفتاح للتفريق في السلة
         totalPrice: quantity * productPrice,
         imageUrl: productImageUrl
@@ -850,11 +915,15 @@ function addToCart() {
 
     localStorage.setItem('shoppingCart', JSON.stringify(cart));
     
-   // هـ. تحديث العداد وإظهار إشعار
-updateCartCounter(); 
+    // هـ. تحديث العداد وإظهار إشعار النجاح المخصص
+    // تأكدي من وجود دالة updateCartCounter() في كودكِ إن كنتِ تستخدمين عداداً منفصلاً
+    // updateCartCounter(); 
     
-// رسالة تأكيد ديناميكية تشمل الاسم، اللون، المقاس، والكمية
-alert(`تم إضافة ${itemToAdd.quantity} قطعة من المنتج: ${itemToAdd.name} (اللون: ${itemToAdd.color}, المقاس: ${itemToAdd.size}) إلى السلة بنجاح!`);
+    // رسالة تأكيد ديناميكية باستخدام النافذة المخصصة
+    const successTitle = "تم إضافة المنتج بنجاح! 🎉";
+    const successMessage = `تم إضافة ${itemToAdd.quantity} قطعة من: ${itemToAdd.name} (المقاس: ${itemToAdd.size}) إلى سلتك.`;
+    
+    showSuccessNotification(successTitle, successMessage);
 }
 
 
