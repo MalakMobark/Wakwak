@@ -150,7 +150,7 @@
                             
                                 <h5 class="fw-bold mb-3 me-0" id="product-price"> <h5>
                                 <p class="mb-4 me-0" id="product-description"></p>
-                                <!-- <p class="mb-4 me-0">جودة القماش: مصنوعة من أفضل أنواع القطن المصري الفاخر بنسبة 80%، مع 20% بوليستر لضمان المتانة والحفاظ على شكلها بعد الغسيل المتكرر.</p> -->
+                                <p class="mb-4 me-0" id="product-descriptionlonge"></p>
                                 <div class="d-flex align-items-center  me-5">
                                 <h5 class="fw-bold me-0 mb-0 me-0 bold">الكمية:</h5>
                                 <div class="container py-5 text-center text-lg-end">
@@ -1071,6 +1071,10 @@ function loadProductDetails() {
     const descriptionElement = document.getElementById('product-description');
     if (descriptionElement) {
         descriptionElement.textContent = product.description;
+    }
+    const descriptionlongeElement = document.getElementById('product-descriptionlonge');
+    if (descriptionlongeElement) {
+        descriptionlongeElement.textContent = product.descriptionlonge;
     }
 
     // 3. توليد الألوان وتعيين الصورة الافتراضية 
