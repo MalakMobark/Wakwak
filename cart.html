@@ -165,11 +165,11 @@
                         <h5 class="mb-3 fw-bold">ملخص الطلب</h5>
                         <div class="d-flex justify-content-between mb-2 pb-2 border-bottom">
                             <span>المجموع الفرعي:</span>
-                            <span id="subtotal-display" class="fw-bold">0.00 $</span>
+                            <span id="subtotal-display" class="fw-bold"></span>
                         </div>
                         <div class="d-flex justify-content-between mb-4">
-                            <span class="fw-bold">المجموع الكلي:</span>
-                            <span id="grand-total-display" class="fw-bold text-primary">0.00 $</span>
+                            <span class="fw-bold">المجموع الكلي (لا يوجد اجور توصيل):</span>
+                            <span id="grand-total-display" class="fw-bold text-primary"></span>
                         </div>
                         <!-- زر إتمام الطلب مربوط بنفس الـ modal target -->
                         <button type="button" class="btn w-100 btn-custom-outline fw-bold py-2" data-bs-toggle="modal" data-bs-target="#checkoutModal" id="checkout-btn">
@@ -634,8 +634,8 @@ function renderCart() {
     if (cart.length === 0) {
         // رسالة سلة فارغة (في حالة عدم وجود سلة)
         cartItemsContainer.innerHTML = '<div class="col-12 text-center py-5 border rounded-3 text-secondary">سلة المشتريات فارغة حالياً. ابدأ التسوق!</div>';
-        subtotalDisplay.textContent = '0.00 $';
-        grandTotalDisplay.textContent = '0.00 $';
+        subtotalDisplay.textContent = ' ';
+        grandTotalDisplay.textContent = ' ';
         updateCartCounter();
         return;
     }
@@ -677,7 +677,7 @@ function renderCart() {
                     <div class="d-flex justify-content-between align-items-center mt-2">
                         
                         <!-- السعر بخط أكبر شوي (يستخدم السعر الكلي للقطعة) -->
-                        <p class="fw-bolder fs-5 text-primary mb-0">${item.totalPrice.toFixed(2)} $</p>
+                        <p class="fw-bolder fs-5 text-primary mb-0">${item.totalPrice.toFixed(0)} </p>
                         
                         <!-- الكمية (الزرين) -->
                         <div class="quantity-controls d-flex align-items-center">
@@ -698,8 +698,8 @@ function renderCart() {
     });
     
     // عرض المجاميع
-    subtotalDisplay.textContent = `${subtotal.toFixed(2)} $`;
-    grandTotalDisplay.textContent = `${subtotal.toFixed(2)} $`;
+    subtotalDisplay.textContent = `${subtotal.toFixed(0)}  `;
+    grandTotalDisplay.textContent = `${subtotal.toFixed(0) }   `;
     
     updateCartCounter(); // تحديث العداد
     attachCartListeners(); // تفعيل أزرار الحذف والتعديل
